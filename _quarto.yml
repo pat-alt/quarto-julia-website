@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  favicon: https://raw.githubusercontent.com/pat-alt/pat-alt.github.io/main/www/favicon.ico
+  title: Julia-themed Quarto
+  navbar:
+    background: primary
+    tools:
+      - icon: github
+        menu:
+          - text: Share your thoughts
+            url: https://github.com/pat-alt/quarto-julia-website/discussions/
+          - text: Source Code
+            url:  https://github.com/pat-alt/quarto-julia-website
+  sidebar:
+    logo: www/julia_quarto.gif
+    style: "docked"
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "HTML"
+        contents:
+          - href: examples/article/index.qmd
+          - href: examples/revealjs/index.qmd
+      - section: "JuliaCon Proceedings"
+        contents:
+          - href: examples/juliacon/index.qmd
+          - section: "Example Articles"
+            contents:
+              - href: examples/juliacon/counterfactual-explanations/index.qmd
+      - section: "Working with `Documenter.jl`" 
+        contents: 
+          - href: examples/documenter/index.qmd
+
+
+format:
+  julia-html:
+    toc: true
+
+
+

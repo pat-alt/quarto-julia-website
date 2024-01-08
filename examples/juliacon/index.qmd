@@ -1,0 +1,17 @@
+---
+title: Template
+---
+
+The paper has been re-rendered using the [quarto-juliacon-proceedings]() extension (see blow). To open the different version in full screen instead use the following links: [HTML](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html){target="_blank"} | [PDF](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf){target="_blank"}.
+
+## PDF
+
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf"></iframe>
+```
+
+## HTML
+
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html"></iframe>
+```
