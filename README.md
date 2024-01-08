@@ -1,3 +1,3 @@
 # quarto-julia-website
 
-Website presenting output from Quarto extensions for Julia.
+[Website](https://www.paltmeyer.com/quarto-julia-website/) presenting output from Quarto extensions for Julia.

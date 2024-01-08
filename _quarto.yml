@@ -21,17 +21,23 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - section: "HTML"
+      - section: "Basics"
         contents:
-          - href: examples/article/index.qmd
-          - href: examples/revealjs/index.qmd
+          - href: examples/index.qmd
+            text: Getting Started
+          - section: "Formats"
+            contents:
+              - href: examples/basic_formats/article/index.qmd
+                text: "HTML Article"
+              - href: examples/basic_formats/revealjs/index.qmd
+                text: "Revealjs Presentation"
       - section: "JuliaCon Proceedings"
         contents:
           - href: examples/juliacon/index.qmd
           - section: "Example Articles"
             contents:
               - href: examples/juliacon/counterfactual-explanations/index.qmd
-      - section: "Working with `Documenter.jl`" 
+      - section: "Package Documentation" 
         contents: 
           - href: examples/documenter/index.qmd
 

@@ -1,11 +1,10 @@
 ---
-title: Julia-themed Articles
+title: HTML Article
 subtitle: Julia-themed Quarto
 author: Patrick Altmeyer
 date: today
+description: A template for Julia-themed HTML articles.
 ---
-
-This page you're on now is a citeable article.
 
 ## Introduction
 

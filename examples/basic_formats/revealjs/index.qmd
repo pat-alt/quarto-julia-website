@@ -1,0 +1,12 @@
+---
+title: Revealjs Presentation
+description: A template for Julia-themed Revealjs Presentations.
+---
+
+## Introduction
+
+Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click [here](presentation.html){target="_blank"} to open them in full screen. 
+
+```{=html}
+<iframe width="800" height="500" marginheight="0" marginwidth="0" src="presentation.html"></iframe>
+```

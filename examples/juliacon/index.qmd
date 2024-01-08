@@ -2,7 +2,7 @@
 title: Template
 ---
 
-The paper has been re-rendered using the [quarto-juliacon-proceedings]() extension (see blow). To open the different version in full screen instead use the following links: [HTML](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html){target="_blank"} | [PDF](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf){target="_blank"}.
+The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto. The rendered versions of the template are shown below. To open the different version in full screen instead use the following links: [HTML](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html){target="_blank"} | [PDF](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf){target="_blank"}.
 
 ## PDF
 

@@ -1,0 +1,9 @@
+[
+  {
+    "listing": "/examples/index.html",
+    "items": [
+      "/examples/basic_formats/article/index.html",
+      "/examples/basic_formats/revealjs/index.html"
+    ]
+  }
+]

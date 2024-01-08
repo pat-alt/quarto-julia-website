@@ -1,164 +1,17 @@
 [
   {
-    "objectID": "examples/juliacon/counterfactual-explanations/index.html",
-    "href": "examples/juliacon/counterfactual-explanations/index.html",
-    "title": "Explaining Black-Box Models through Counterfactuals",
+    "objectID": "dev/jcon/proposal.html",
+    "href": "dev/jcon/proposal.html",
+    "title": "Taija meets Supercomputing",
     "section": "",
-    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see blow). To open the different version in full screen instead use the following links: HTML | PDF."
+    "text": "Abstract: Taija is a growing library of packages geared towards Trustworthy Artificial Intelligence in Julia. Various ongoing efforts towards trustworthy artificial intelligence have one thing in common: they increase the computational burden involved in training and using machine learning models. This talk will introduce TaijaParallel.jl: Taija’s recent venture into supercomputing.\n\n\nIn the wake of recent rapid advances in artificial intelligence (AI), it is more crucial than ever to ensure that the technologies we deploy are trustworthy. Efforts surrounding Taija have so far centered around explainability and uncertainty quantification for supervised machine learning models. CounterfactualExplanations.jl, for example, is a comprehensive package for generating counterfactual explanations for models trained in Flux.jl, MLJ.jl and more.\n\n\nIn practice, we are often required to generate many explanations for many individuals. A firm that is using a machine learning model to screen out job applicants, for example, might be required to explain to each unsuccessful applicant why they were not admitted to the interview stage. In a different context, researchers may need to generate many explanations for evaluation and benchmarking purposes. In both cases, the involved computational tasks can be parallelized through multi-threading or distributed computing.\n\n\n\nFor this purpose, we have recently released TaijaParallel.jl: a lightweight package that adds custom support for parallelization to Taija packages. Our goal has been to minimize the burden on users by facilitating different forms of parallelization through a simple macro. To multi-process the evaluation of a large set of counterfactuals using the MPI.jl backend, for example, users can proceed as follows: firstly, load the backend and instantiate the MPIParallelizer,\nusing CounterfactualExplanations, TaijaParallel\nimport MPI\nMPI.Init()\nparallelizer = MPIParallelizer(MPI.COMM_WORLD)\nand then just use the @with_parallelizer macro followed by the parallelizer object and the standard API call to evaluate counterfactuals:\n@with_parallelizer parallelizer evaluate(counterfactuals)\nUnder the hood, we use standard MPI.jl routines for distributed computing. To avoid depending on MPI.jl we use package extensions. Similarly, the ThreadsParallelizer can be used for multi-threading where we rely on Base.Threads routines. It is also possible to combine both forms of parallelization.\n\n\n\nThis new functionality has already powered research that will be published at AAAI 2024. The project involved large benchmarks of counterfactual explanations that had to be run on a supercomputer. During the talk, we will use this as a case study to discuss the challenges we encountered along the way and the solutions we have come up with.\n\n\n\nWhile we have so far focused on CounterfactualExplanations.jl, parallelization is also useful for other Taija packages. For example, some of the methods for predictive uncertainty quantification used by ConformalPrediction.jl rely on repeated model training and prediction. This is currently done sequentially and represents an obvious opportunity for parallelization.\n\n\n\nThis talk should be useful for anyone interested in either trustworthy AI or parallel computing or both. We are not experts in parallel computing, so the level of this talk should also be appropriate for beginners."
   },
   {
-    "objectID": "examples/juliacon/counterfactual-explanations/index.html#html",
-    "href": "examples/juliacon/counterfactual-explanations/index.html#html",
-    "title": "Explaining Black-Box Models through Counterfactuals",
-    "section": "HTML",
-    "text": "HTML"
-  },
-  {
-    "objectID": "examples/juliacon/counterfactual-explanations/index.html#pdf",
-    "href": "examples/juliacon/counterfactual-explanations/index.html#pdf",
-    "title": "Explaining Black-Box Models through Counterfactuals",
-    "section": "PDF",
-    "text": "PDF"
-  },
-  {
-    "objectID": "examples/article/index.html",
-    "href": "examples/article/index.html",
-    "title": "Julia-themed Articles",
+    "objectID": "dev/jcon/proposal.html#description",
+    "href": "dev/jcon/proposal.html#description",
+    "title": "Taija meets Supercomputing",
     "section": "",
-    "text": "This page you’re on now is a citeable article."
-  },
-  {
-    "objectID": "examples/article/index.html#introduction",
-    "href": "examples/article/index.html#introduction",
-    "title": "Julia-themed Articles",
-    "section": "Introduction",
-    "text": "Introduction\nThis Quarto notebook generates Julia-themed output."
-  },
-  {
-    "objectID": "examples/article/index.html#details",
-    "href": "examples/article/index.html#details",
-    "title": "Julia-themed Articles",
-    "section": "Details",
-    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
-  },
-  {
-    "objectID": "examples/article/index.html#font",
-    "href": "examples/article/index.html#font",
-    "title": "Julia-themed Articles",
-    "section": "Font",
-    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for all headers and code.\nThe Roboto font, which is used as the default font for everything else (just like on julialang.org/).\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
-  },
-  {
-    "objectID": "examples/article/index.html#colors",
-    "href": "examples/article/index.html#colors",
-    "title": "Julia-themed Articles",
-    "section": "Colors",
-    "text": "Colors"
-  },
-  {
-    "objectID": "examples/article/index.html#code",
-    "href": "examples/article/index.html#code",
-    "title": "Julia-themed Articles",
-    "section": "Code",
-    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
-  },
-  {
-    "objectID": "examples/article/index.html#math",
-    "href": "examples/article/index.html#math",
-    "title": "Julia-themed Articles",
-    "section": "Math",
-    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
-  },
-  {
-    "objectID": "examples/article/index.html#callouts",
-    "href": "examples/article/index.html#callouts",
-    "title": "Julia-themed Articles",
-    "section": "Callouts",
-    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an important callout in julia_red."
-  },
-  {
-    "objectID": "examples/documenter/index.html",
-    "href": "examples/documenter/index.html",
-    "title": "Quarto and Documenter.jl",
-    "section": "",
-    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation. To make this as painless as possible, the documenterjl-commonmark format specifies a few relevant output option."
-  },
-  {
-    "objectID": "examples/documenter/index.html#introduction",
-    "href": "examples/documenter/index.html#introduction",
-    "title": "Quarto and Documenter.jl",
-    "section": "",
-    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation. To make this as painless as possible, the documenterjl-commonmark format specifies a few relevant output option."
-  },
-  {
-    "objectID": "examples/documenter/index.html#usage",
-    "href": "examples/documenter/index.html#usage",
-    "title": "Quarto and Documenter.jl",
-    "section": "Usage",
-    "text": "Usage\nTBD"
-  },
-  {
-    "objectID": "examples/revealjs/index.html",
-    "href": "examples/revealjs/index.html",
-    "title": "Julia-themed Revealjs",
-    "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead. You can find an example slide deck here."
-  },
-  {
-    "objectID": "examples/revealjs/index.html#introduction",
-    "href": "examples/revealjs/index.html#introduction",
-    "title": "Julia-themed Revealjs",
-    "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead. You can find an example slide deck here."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Julia-themed Quarto.",
-    "section": "",
-    "text": "Julia-themed Quarto.\nThe quarto-julia repo is a simple Quarto extension that makes a number of Julia-themed Custom Formats for Quarto available.\nOn this website, you can find a number of examples that demonstrate how the extension can be used and what kind of output it can produce.\nAs you may have guessed from the design, this very website uses the quarto-julia extension."
-  },
-  {
-    "objectID": "examples/revealjs/example.html#details",
-    "href": "examples/revealjs/example.html#details",
-    "title": "Revealjs Presentation",
-    "section": "Details",
-    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
-  },
-  {
-    "objectID": "examples/revealjs/example.html#font",
-    "href": "examples/revealjs/example.html#font",
-    "title": "Revealjs Presentation",
-    "section": "Font",
-    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for all headers and code.\nThe Roboto font, which is used as the default font for everything else (just like on julialang.org/).\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
-  },
-  {
-    "objectID": "examples/revealjs/example.html#colors",
-    "href": "examples/revealjs/example.html#colors",
-    "title": "Revealjs Presentation",
-    "section": "Colors",
-    "text": "Colors"
-  },
-  {
-    "objectID": "examples/revealjs/example.html#code",
-    "href": "examples/revealjs/example.html#code",
-    "title": "Revealjs Presentation",
-    "section": "Code",
-    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
-  },
-  {
-    "objectID": "examples/revealjs/example.html#math",
-    "href": "examples/revealjs/example.html#math",
-    "title": "Revealjs Presentation",
-    "section": "Math",
-    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
-  },
-  {
-    "objectID": "examples/revealjs/example.html#callouts",
-    "href": "examples/revealjs/example.html#callouts",
-    "title": "Revealjs Presentation",
-    "section": "Callouts",
-    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+    "text": "In the wake of recent rapid advances in artificial intelligence (AI), it is more crucial than ever to ensure that the technologies we deploy are trustworthy. Efforts surrounding Taija have so far centered around explainability and uncertainty quantification for supervised machine learning models. CounterfactualExplanations.jl, for example, is a comprehensive package for generating counterfactual explanations for models trained in Flux.jl, MLJ.jl and more.\n\n\nIn practice, we are often required to generate many explanations for many individuals. A firm that is using a machine learning model to screen out job applicants, for example, might be required to explain to each unsuccessful applicant why they were not admitted to the interview stage. In a different context, researchers may need to generate many explanations for evaluation and benchmarking purposes. In both cases, the involved computational tasks can be parallelized through multi-threading or distributed computing.\n\n\n\nFor this purpose, we have recently released TaijaParallel.jl: a lightweight package that adds custom support for parallelization to Taija packages. Our goal has been to minimize the burden on users by facilitating different forms of parallelization through a simple macro. To multi-process the evaluation of a large set of counterfactuals using the MPI.jl backend, for example, users can proceed as follows: firstly, load the backend and instantiate the MPIParallelizer,\nusing CounterfactualExplanations, TaijaParallel\nimport MPI\nMPI.Init()\nparallelizer = MPIParallelizer(MPI.COMM_WORLD)\nand then just use the @with_parallelizer macro followed by the parallelizer object and the standard API call to evaluate counterfactuals:\n@with_parallelizer parallelizer evaluate(counterfactuals)\nUnder the hood, we use standard MPI.jl routines for distributed computing. To avoid depending on MPI.jl we use package extensions. Similarly, the ThreadsParallelizer can be used for multi-threading where we rely on Base.Threads routines. It is also possible to combine both forms of parallelization.\n\n\n\nThis new functionality has already powered research that will be published at AAAI 2024. The project involved large benchmarks of counterfactual explanations that had to be run on a supercomputer. During the talk, we will use this as a case study to discuss the challenges we encountered along the way and the solutions we have come up with.\n\n\n\nWhile we have so far focused on CounterfactualExplanations.jl, parallelization is also useful for other Taija packages. For example, some of the methods for predictive uncertainty quantification used by ConformalPrediction.jl rely on repeated model training and prediction. This is currently done sequentially and represents an obvious opportunity for parallelization.\n\n\n\nThis talk should be useful for anyone interested in either trustworthy AI or parallel computing or both. We are not experts in parallel computing, so the level of this talk should also be appropriate for beginners."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html",
@@ -294,11 +147,158 @@
     "text": "Footnotes\n\n\nImplementations of loss functions with respect to logits are often numerically more stable. For example, the logitbinarycrossentropy(ŷ, y) implementation in Flux.Losses (used here) is more stable than the mathematically equivalent binarycrossentropy(ŷ, y).↩︎\nWhile we were writing this paper, the R package counterfactuals was released (Dandl et al. 2023). The developers seem to also envision a unifying framework, but the project appears to still be in its early stages.↩︎\nFor details, see the Google Summer of Code 2022 project proposal: https://julialang.org/jsoc/gsoc/MLJ/#interpretable_machine_learning_in_julia.↩︎\nWe are currently relying on PythonCall.jl and RCall.jl and this functionality is still somewhat brittle. Since this is more of an edge case, we may move this feature into its own package in the future.↩︎\nFor multi-dimensional input data, standard dimensionality reduction techniques are used to compress the data. In this case, the classifier’s decision boundary is approximated through a Nearest Neighbour model. This is still somewhat experimental and will be improved in the future.↩︎\nMutability constraints are not yet implemented for Latent Space search.↩︎\nFlux models are now natively supported by our package and can be instantiated by calling FluxModel().↩︎\nNote that in line \\(\\ref{line:mymodel-likelihood}\\) we also provide a field determining the likelihood. This is optional and only used internally to determine which loss function to use in the counterfactual search. If this field is not provided to the model, the loss function needs to be explicitly supplied to the generator.↩︎"
   },
   {
+    "objectID": "examples/basic_formats/article/index.html",
+    "href": "examples/basic_formats/article/index.html",
+    "title": "HTML Article",
+    "section": "",
+    "text": "This Quarto notebook generates Julia-themed output."
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#introduction",
+    "href": "examples/basic_formats/article/index.html#introduction",
+    "title": "HTML Article",
+    "section": "",
+    "text": "This Quarto notebook generates Julia-themed output."
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#details",
+    "href": "examples/basic_formats/article/index.html#details",
+    "title": "HTML Article",
+    "section": "Details",
+    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#font",
+    "href": "examples/basic_formats/article/index.html#font",
+    "title": "HTML Article",
+    "section": "Font",
+    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for all headers and code.\nThe Roboto font, which is used as the default font for everything else (just like on julialang.org/).\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#colors",
+    "href": "examples/basic_formats/article/index.html#colors",
+    "title": "HTML Article",
+    "section": "Colors",
+    "text": "Colors"
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#code",
+    "href": "examples/basic_formats/article/index.html#code",
+    "title": "HTML Article",
+    "section": "Code",
+    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#math",
+    "href": "examples/basic_formats/article/index.html#math",
+    "title": "HTML Article",
+    "section": "Math",
+    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+  },
+  {
+    "objectID": "examples/basic_formats/article/index.html#callouts",
+    "href": "examples/basic_formats/article/index.html#callouts",
+    "title": "HTML Article",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an important callout in julia_red."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#details",
+    "href": "examples/basic_formats/revealjs/presentation.html#details",
+    "title": "Revealjs Presentation",
+    "section": "Details",
+    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#font",
+    "href": "examples/basic_formats/revealjs/presentation.html#font",
+    "title": "Revealjs Presentation",
+    "section": "Font",
+    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for all headers and code.\nThe Roboto font, which is used as the default font for everything else (just like on julialang.org/).\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#colors",
+    "href": "examples/basic_formats/revealjs/presentation.html#colors",
+    "title": "Revealjs Presentation",
+    "section": "Colors",
+    "text": "Colors"
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#code",
+    "href": "examples/basic_formats/revealjs/presentation.html#code",
+    "title": "Revealjs Presentation",
+    "section": "Code",
+    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#math",
+    "href": "examples/basic_formats/revealjs/presentation.html#math",
+    "title": "Revealjs Presentation",
+    "section": "Math",
+    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#callouts",
+    "href": "examples/basic_formats/revealjs/presentation.html#callouts",
+    "title": "Revealjs Presentation",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "Julia-themed Quarto\nThis website presents output from various Quarto extensions for Julia.\nThe quarto-julia extension contributes various basic format templates and is also used to style this website.\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto."
+  },
+  {
+    "objectID": "examples/documenter/index.html",
+    "href": "examples/documenter/index.html",
+    "title": "Quarto and Documenter.jl",
+    "section": "",
+    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation. To make this as painless as possible, the documenterjl-commonmark format specifies a few relevant output option."
+  },
+  {
+    "objectID": "examples/documenter/index.html#introduction",
+    "href": "examples/documenter/index.html#introduction",
+    "title": "Quarto and Documenter.jl",
+    "section": "",
+    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation. To make this as painless as possible, the documenterjl-commonmark format specifies a few relevant output option."
+  },
+  {
+    "objectID": "examples/documenter/index.html#usage",
+    "href": "examples/documenter/index.html#usage",
+    "title": "Quarto and Documenter.jl",
+    "section": "Usage",
+    "text": "Usage\nTBD"
+  },
+  {
+    "objectID": "examples/index.html",
+    "href": "examples/index.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "The Quarto extension used to style this website is called quarto-julia. This extensions contributes various basic format templates.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\nHTML Article\n\n\nA template for Julia-themed HTML articles.\n\n\n\n\nRevealjs Presentation\n\n\nA template for Julia-themed Revealjs Presentations.\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/index.html",
+    "href": "examples/basic_formats/revealjs/index.html",
+    "title": "Revealjs Presentation",
+    "section": "",
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/index.html#introduction",
+    "href": "examples/basic_formats/revealjs/index.html#introduction",
+    "title": "Revealjs Presentation",
+    "section": "",
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+  },
+  {
     "objectID": "examples/juliacon/index.html",
     "href": "examples/juliacon/index.html",
     "title": "Template",
     "section": "",
-    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see blow). To open the different version in full screen instead use the following links: HTML | PDF."
+    "text": "The quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. The rendered versions of the template are shown below. To open the different version in full screen instead use the following links: HTML | PDF."
   },
   {
     "objectID": "examples/juliacon/index.html#pdf",
@@ -311,6 +311,27 @@
     "objectID": "examples/juliacon/index.html#html",
     "href": "examples/juliacon/index.html#html",
     "title": "Template",
+    "section": "HTML",
+    "text": "HTML"
+  },
+  {
+    "objectID": "examples/juliacon/counterfactual-explanations/index.html",
+    "href": "examples/juliacon/counterfactual-explanations/index.html",
+    "title": "Explaining Black-Box Models through Counterfactuals",
+    "section": "",
+    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see blow). To open the different version in full screen instead use the following links: HTML | PDF."
+  },
+  {
+    "objectID": "examples/juliacon/counterfactual-explanations/index.html#pdf",
+    "href": "examples/juliacon/counterfactual-explanations/index.html#pdf",
+    "title": "Explaining Black-Box Models through Counterfactuals",
+    "section": "PDF",
+    "text": "PDF"
+  },
+  {
+    "objectID": "examples/juliacon/counterfactual-explanations/index.html#html",
+    "href": "examples/juliacon/counterfactual-explanations/index.html#html",
+    "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "HTML",
     "text": "HTML"
   }

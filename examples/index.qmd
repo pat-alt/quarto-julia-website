@@ -1,0 +1,11 @@
+---
+title: Getting Started
+listing:
+  contents: 
+    - "basic_formats/*/index.qmd"
+  type: table
+  categories: false
+  fields: [title, description]
+---
+
+The Quarto extension used to style this website is called [quarto-julia](https://github.com/pat-alt/quarto-julia). This extensions contributes various basic format templates. 
