@@ -1,44 +1,37 @@
-# Taija meets Supercomputing
+# Quarto Extensions for the Julia Community
 
-**Abstract**: [Taija](https://github.com/JuliaTrustworthyAI) is a growing library of packages geared towards *T*rustworthy *A*rtificial *I*ntelligence in *J*uli*a*.  Various ongoing efforts towards trustworthy artificial intelligence have one thing in common: they increase the computational burden involved in training and using machine learning models. This talk will introduce [TaijaParallel.jl](https://github.com/JuliaTrustworthyAI/TaijaParallel.jl): Taija's recent venture into supercomputing.
+**Abstract**: [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers' efforts toward effective communication and reproducibility. 
 
 ## Description
 
-In the wake of recent rapid advances in artificial intelligence (AI), it is more crucial than ever to ensure that the technologies we deploy are trustworthy. Efforts surrounding [Taija](https://github.com/JuliaTrustworthyAI) have so far centered around explainability and uncertainty quantification for supervised machine learning models. [CounterfactualExplanations.jl](https://github.com/JuliaTrustworthyAI/CounterfactualExplanations.jl), for example, is a comprehensive package for generating counterfactual explanations for models trained in [Flux.jl](https://fluxml.ai/Flux.jl/dev/), [MLJ.jl](https://alan-turing-institute.github.io/MLJ.jl/dev/) and more. 
+What if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.
 
-### 🌐 Why supercomputing?
+### 🤕 Those Damn Edge Cases ...
 
-In practice, we are often required to generate many explanations for many individuals. A firm that is using a machine learning model to screen out job applicants, for example, might be required to explain to each unsuccessful applicant why they were not admitted to the interview stage. In a different context, researchers may need to generate many explanations for [evaluation](https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/stable/tutorials/evaluation/) and [benchmarking](https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/stable/tutorials/benchmarking/) purposes. In both cases, the involved computational tasks can be parallelized through multi-threading or distributed computing. 
+The problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you're lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time in modifying or extending the behavior of Quarto.
 
-### 🤔 How supercomputing?
+### 🚑 Quarto Extensions to the Rescue
 
-For this purpose, we have recently released [TaijaParallel.jl](https://github.com/JuliaTrustworthyAI/TaijaParallel.jl): a lightweight package that adds custom support for [parallelization](https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/stable/tutorials/parallelization/) to Taija packages. Our goal has been to minimize the burden on users by facilitating different forms of parallelization through a simple macro. To multi-process the evaluation of a large set of `counterfactuals` using the [MPI.jl](https://juliaparallel.org/MPI.jl/latest/) backend, for example, users can proceed as follows: firstly, load the backend and instantiate the `MPIParallelizer`,
+Thankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: [extensions](https://quarto.org/docs/extensions/). Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case. 
 
-```julia
-using CounterfactualExplanations, TaijaParallel
-import MPI
-MPI.Init()
-parallelizer = MPIParallelizer(MPI.COMM_WORLD)
-```
+> When I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating our first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl). 
+>
+> — Speaker 1
+ 
+A few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty slides in white and blue from their browser. 
 
-and then just use the `@with_parallelizer` macro followed by the `parallelizer` object and the standard API call to evaluate counterfactuals:
+### 🔴🟢🟣 Julia-Themed Quarto
 
-```julia
-@with_parallelizer parallelizer evaluate(counterfactuals)
-```
+[Julia-Themed Quarto](https://www.paltmeyer.com/quarto-julia-website/) presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk. 
 
-Under the hood, we use standard [MPI.jl](https://juliaparallel.org/MPI.jl/latest/) routines for distributed computing. To avoid depending on [MPI.jl](https://juliaparallel.org/MPI.jl/latest/) we use [package extensions](https://www.youtube.com/watch?v=TiIZlQhFzyk). Similarly, the `ThreadsParallelizer` can be used for multi-threading where we rely on `Base.Threads` routines. It is also possible to combine both forms of parallelization.
+1. The [quarto-julia](https://github.com/pat-alt/quarto-julia) extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look. 
+2. The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing [JuliaCon Proceedings LaTeX template](https://github.com/JuliaCon/JuliaConSubmission.jl) and can be used to render standard [PDF](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf) while leveraging all of Quarto's functionalities such as executable code chunks. On top of that, provides a new [HTML](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html) template that currently inherits the style of [quarto-julia](https://github.com/pat-alt/quarto-julia). This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.
+3. Finally, the [Julia-Themed Quarto](https://www.paltmeyer.com/quarto-julia-website/) also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2. 
 
-### 🏅 Benchmarking Counterfactuals (case study)
+### 🎯 Goals and Limitations
 
-This new functionality has already powered [research](https://arxiv.org/abs/2312.10648) that will be published at AAAI 2024. The project involved large benchmarks of counterfactual explanations that had to be run on a supercomputer. During the talk, we will use this as a case study to discuss the challenges we encountered along the way and the solutions we have come up with. 
-
-### 🎯 What is next?
-
-While we have so far focused on [CounterfactualExplanations.jl](), parallelization is also useful for other Taija packages. For example, some of the methods for predictive uncertainty quantification used by [ConformalPrediction.jl](https://github.com/JuliaTrustworthyAI/ConformalPrediction.jl) rely on repeated model training and prediction. This is currently done sequentially and represents an obvious opportunity for parallelization. 
-
-### 👥 Who is this talk for?
-
-This talk should be useful for anyone interested in either trustworthy AI or parallel computing or both. We are not experts in parallel computing, so the level of this talk should also be appropriate for beginners. 
+The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) is not yet officially supported and there remain some [issues](https://github.com/pat-alt/quarto-juliacon-proceedings/issues) that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, the experience of using Quarto with Documenter.jl has scope for improvement. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts. 
 
 ## Notes
+
+We have enough content to fill 30 minutes but since this talk does not involve any Julia code, we have decided to submit this for lightning talk. Should reviewers feel that this merits more presentation time, we would also be happy to consider another more suitable track.

@@ -232,8 +232,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#guides" id="toc-guides" class="nav-link" data-scroll-target="#guides">Guides</a></li>
+  <li><a href="#packages-using-quarto-with-documenter.jl" id="toc-packages-using-quarto-with-documenter.jl" class="nav-link" data-scroll-target="#packages-using-quarto-with-documenter.jl">Packages using Quarto with Documenter.jl</a></li>
+  <li><a href="#extension" id="toc-extension" class="nav-link" data-scroll-target="#extension">Extension</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -259,13 +263,30 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Since <code>Documenter.jl</code> takes Markdown documents as input, you can use Quarto with <code>Documenter.jl</code> for package documentation. To make this as painless as possible, the <code>documenterjl-commonmark</code> format specifies a few relevant output option.</p>
+<p>Since Documenter.jl takes Markdown documents as input, you can use Quarto with <code>Documenter.jl</code> for package documentation.</p>
+<section id="guides" class="level3">
+<h3 class="anchored" data-anchor-id="guides">Guides</h3>
+<p>Here are a few guides to help you get started:</p>
+<ul>
+<li><a href="https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo">Render Quarto Tutorials in Documenter.jl with GitHub Actions</a>: this article shows how to use GitHub Actions to render Quarto tutorials in Documenter.jl for a fully automated documentation workflow.</li>
+<li><a href="https://www.paltmeyer.com/blog/posts/tips-and-tricks-for-using-quarto-with-julia/">A year of using Quarto with Julia</a>: this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with <code>Documenter.jl</code>.</li>
+</ul>
 </section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<p><strong>TBD</strong></p>
+<section id="packages-using-quarto-with-documenter.jl" class="level3">
+<h3 class="anchored" data-anchor-id="packages-using-quarto-with-documenter.jl">Packages using Quarto with Documenter.jl</h3>
+<p>Here are a few packages that use Quarto with <code>Documenter.jl</code>:</p>
+<ul>
+<li><a href="https://github.com/JuliaTrustworthyAI/CounterfactualExplanations.jl">CounterfactualExplanations.jl</a></li>
+<li><a href="https://github.com/JuliaTrustworthyAI/ConformalPrediction.jl">ConformalPrediction.jl</a></li>
+<li><a href="https://github.com/JuliaManifolds/Manopt.jl/">Manopt.jl</a></li>
+</ul>
+</section>
+<section id="extension" class="level3">
+<h3 class="anchored" data-anchor-id="extension">Extension</h3>
+<p>The <code>documenterjl-commonmark</code> format specifies a few relevant YAML options but is currently far from providing a complete solution. The <code>documenterjl-commonmark</code> format is a work in progress and will be extended as needed.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

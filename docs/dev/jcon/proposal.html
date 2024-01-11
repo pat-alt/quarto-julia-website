@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -266,15 +232,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#taija-meets-supercomputing" id="toc-taija-meets-supercomputing" class="nav-link active" data-scroll-target="#taija-meets-supercomputing">Taija meets Supercomputing</a>
+  <li><a href="#quarto-extensions-for-the-julia-community" id="toc-quarto-extensions-for-the-julia-community" class="nav-link active" data-scroll-target="#quarto-extensions-for-the-julia-community">Quarto Extensions for the Julia Community</a>
   <ul class="collapse">
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a>
   <ul class="collapse">
-  <li><a href="#why-supercomputing" id="toc-why-supercomputing" class="nav-link" data-scroll-target="#why-supercomputing">🌐 Why supercomputing?</a></li>
-  <li><a href="#how-supercomputing" id="toc-how-supercomputing" class="nav-link" data-scroll-target="#how-supercomputing">🤔 How supercomputing?</a></li>
-  <li><a href="#benchmarking-counterfactuals-case-study" id="toc-benchmarking-counterfactuals-case-study" class="nav-link" data-scroll-target="#benchmarking-counterfactuals-case-study">🏅 Benchmarking Counterfactuals (case study)</a></li>
-  <li><a href="#what-is-next" id="toc-what-is-next" class="nav-link" data-scroll-target="#what-is-next">🎯 What is next?</a></li>
-  <li><a href="#who-is-this-talk-for" id="toc-who-is-this-talk-for" class="nav-link" data-scroll-target="#who-is-this-talk-for">👥 Who is this talk for?</a></li>
+  <li><a href="#those-damn-edge-cases" id="toc-those-damn-edge-cases" class="nav-link" data-scroll-target="#those-damn-edge-cases">🤕 Those Damn Edge Cases …</a></li>
+  <li><a href="#quarto-extensions-to-the-rescue" id="toc-quarto-extensions-to-the-rescue" class="nav-link" data-scroll-target="#quarto-extensions-to-the-rescue">🚑 Quarto Extensions to the Rescue</a></li>
+  <li><a href="#julia-themed-quarto" id="toc-julia-themed-quarto" class="nav-link" data-scroll-target="#julia-themed-quarto">🔴🟢🟣 Julia-Themed Quarto</a></li>
+  <li><a href="#goals-and-limitations" id="toc-goals-and-limitations" class="nav-link" data-scroll-target="#goals-and-limitations">🎯 Goals and Limitations</a></li>
   </ul></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul></li>
@@ -286,42 +251,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="taija-meets-supercomputing" class="level1">
-<h1>Taija meets Supercomputing</h1>
-<p><strong>Abstract</strong>: <a href="https://github.com/JuliaTrustworthyAI">Taija</a> is a growing library of packages geared towards <em>T</em>rustworthy <em>A</em>rtificial <em>I</em>ntelligence in <em>J</em>uli<em>a</em>. Various ongoing efforts towards trustworthy artificial intelligence have one thing in common: they increase the computational burden involved in training and using machine learning models. This talk will introduce <a href="https://github.com/JuliaTrustworthyAI/TaijaParallel.jl">TaijaParallel.jl</a>: Taija’s recent venture into supercomputing.</p>
+<section id="quarto-extensions-for-the-julia-community" class="level1">
+<h1>Quarto Extensions for the Julia Community</h1>
+<p><strong>Abstract</strong>: <a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.</p>
 <section id="description" class="level2">
 <h2 class="anchored" data-anchor-id="description">Description</h2>
-<p>In the wake of recent rapid advances in artificial intelligence (AI), it is more crucial than ever to ensure that the technologies we deploy are trustworthy. Efforts surrounding <a href="https://github.com/JuliaTrustworthyAI">Taija</a> have so far centered around explainability and uncertainty quantification for supervised machine learning models. <a href="https://github.com/JuliaTrustworthyAI/CounterfactualExplanations.jl">CounterfactualExplanations.jl</a>, for example, is a comprehensive package for generating counterfactual explanations for models trained in <a href="https://fluxml.ai/Flux.jl/dev/">Flux.jl</a>, <a href="https://alan-turing-institute.github.io/MLJ.jl/dev/">MLJ.jl</a> and more.</p>
-<section id="why-supercomputing" class="level3">
-<h3 class="anchored" data-anchor-id="why-supercomputing">🌐 Why supercomputing?</h3>
-<p>In practice, we are often required to generate many explanations for many individuals. A firm that is using a machine learning model to screen out job applicants, for example, might be required to explain to each unsuccessful applicant why they were not admitted to the interview stage. In a different context, researchers may need to generate many explanations for <a href="https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/stable/tutorials/evaluation/">evaluation</a> and <a href="https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/stable/tutorials/benchmarking/">benchmarking</a> purposes. In both cases, the involved computational tasks can be parallelized through multi-threading or distributed computing.</p>
+<p>What if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.</p>
+<section id="those-damn-edge-cases" class="level3">
+<h3 class="anchored" data-anchor-id="those-damn-edge-cases">🤕 Those Damn Edge Cases …</h3>
+<p>The problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time in modifying or extending the behavior of Quarto.</p>
 </section>
-<section id="how-supercomputing" class="level3">
-<h3 class="anchored" data-anchor-id="how-supercomputing">🤔 How supercomputing?</h3>
-<p>For this purpose, we have recently released <a href="https://github.com/JuliaTrustworthyAI/TaijaParallel.jl">TaijaParallel.jl</a>: a lightweight package that adds custom support for <a href="https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/stable/tutorials/parallelization/">parallelization</a> to Taija packages. Our goal has been to minimize the burden on users by facilitating different forms of parallelization through a simple macro. To multi-process the evaluation of a large set of <code>counterfactuals</code> using the <a href="https://juliaparallel.org/MPI.jl/latest/">MPI.jl</a> backend, for example, users can proceed as follows: firstly, load the backend and instantiate the <code>MPIParallelizer</code>,</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CounterfactualExplanations</span>, <span class="bu">TaijaParallel</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">MPI</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>MPI.<span class="fu">Init</span>()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>parallelizer <span class="op">=</span> <span class="fu">MPIParallelizer</span>(MPI.COMM_WORLD)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>and then just use the <code>@with_parallelizer</code> macro followed by the <code>parallelizer</code> object and the standard API call to evaluate counterfactuals:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@with_parallelizer</span> parallelizer <span class="fu">evaluate</span>(counterfactuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Under the hood, we use standard <a href="https://juliaparallel.org/MPI.jl/latest/">MPI.jl</a> routines for distributed computing. To avoid depending on <a href="https://juliaparallel.org/MPI.jl/latest/">MPI.jl</a> we use <a href="https://www.youtube.com/watch?v=TiIZlQhFzyk">package extensions</a>. Similarly, the <code>ThreadsParallelizer</code> can be used for multi-threading where we rely on <code>Base.Threads</code> routines. It is also possible to combine both forms of parallelization.</p>
+<section id="quarto-extensions-to-the-rescue" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-extensions-to-the-rescue">🚑 Quarto Extensions to the Rescue</h3>
+<p>Thankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: <a href="">extensions</a>. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.</p>
+<blockquote class="blockquote">
+<p>When I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating our first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).</p>
+<p>— Speaker 1</p>
+</blockquote>
+<p>A few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty slides in white and blue from their browser.</p>
 </section>
-<section id="benchmarking-counterfactuals-case-study" class="level3">
-<h3 class="anchored" data-anchor-id="benchmarking-counterfactuals-case-study">🏅 Benchmarking Counterfactuals (case study)</h3>
-<p>This new functionality has already powered <a href="https://arxiv.org/abs/2312.10648">research</a> that will be published at AAAI 2024. The project involved large benchmarks of counterfactual explanations that had to be run on a supercomputer. During the talk, we will use this as a case study to discuss the challenges we encountered along the way and the solutions we have come up with.</p>
+<section id="julia-themed-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="julia-themed-quarto">🔴🟢🟣 Julia-Themed Quarto</h3>
+<p><a href="https://www.paltmeyer.com/quarto-julia-website/">Julia-Themed Quarto</a> presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.</p>
+<ol type="1">
+<li>The <a href="https://github.com/pat-alt/quarto-julia">quarto-julia</a> extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look.</li>
+<li>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing <a href="https://github.com/JuliaCon/JuliaConSubmission.jl">JuliaCon Proceedings LaTeX template</a> and can be used to render standard <a href="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf">PDF</a> while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, provides a new <a href="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html">HTML</a> template that currently inherits the style of <a href="https://github.com/pat-alt/quarto-julia">quarto-julia</a>. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.</li>
+<li>Finally, the <a href="https://www.paltmeyer.com/quarto-julia-website/">Julia-Themed Quarto</a> also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.</li>
+</ol>
 </section>
-<section id="what-is-next" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-next">🎯 What is next?</h3>
-<p>While we have so far focused on <a href="">CounterfactualExplanations.jl</a>, parallelization is also useful for other Taija packages. For example, some of the methods for predictive uncertainty quantification used by <a href="https://github.com/JuliaTrustworthyAI/ConformalPrediction.jl">ConformalPrediction.jl</a> rely on repeated model training and prediction. This is currently done sequentially and represents an obvious opportunity for parallelization.</p>
-</section>
-<section id="who-is-this-talk-for" class="level3">
-<h3 class="anchored" data-anchor-id="who-is-this-talk-for">👥 Who is this talk for?</h3>
-<p>This talk should be useful for anyone interested in either trustworthy AI or parallel computing or both. We are not experts in parallel computing, so the level of this talk should also be appropriate for beginners.</p>
+<section id="goals-and-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="goals-and-limitations">🎯 Goals and Limitations</h3>
+<p>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> is not yet officially supported and there remain some <a href="https://github.com/pat-alt/quarto-juliacon-proceedings/issues">issues</a> that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, the experience of using Quarto with Documenter.jl has scope for improvement. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts.</p>
 </section>
 </section>
 <section id="notes" class="level2">
 <h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<p>We have enough content to fill 30 minutes but since this talk does not involve any Julia code, we have decided to submit this for lightning talk. Should reviewers feel that this merits more presentation time, we would also be happy to present this as a main talk.</p>
 
 
 </section>

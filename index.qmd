@@ -10,8 +10,7 @@ The [`quarto-julia`](https://github.com/pat-alt/quarto-julia) extension contribu
 
 The [`quarto-juliacon-proceedings`](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto.
 
-
-
+This website also includes a [section](examples/documenter/index.qmd) on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. 
 
 
 
