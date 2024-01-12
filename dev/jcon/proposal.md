@@ -34,4 +34,4 @@ The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-pro
 
 ## Notes
 
-We have enough content to fill 30 minutes but since this talk does not involve any Julia code, we have decided to submit this for lightning talk. Should reviewers feel that this merits more presentation time, we would also be happy to consider another more suitable track.
+To cover everything we have set out for this presentation we need more than <10 minutes and have therefore decided to submit this for a main talk, despite not presenting any pure Julia developments. Nonetheless, we would also be happy to consider another track that reviewers might deem more suitable. 
