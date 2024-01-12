@@ -34,4 +34,4 @@ The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-pro
 
 ## Notes
 
-To cover everything we have set out for this presentation we need more than <10 minutes and have therefore decided to submit this for a main talk, despite not presenting any pure Julia developments. Nonetheless, we would also be happy to consider another track that reviewers might deem more suitable. 
+To cover everything we have set out for this presentation we would ideally need more than <10 minutes and have therefore decided to submit this for a main talk, despite not presenting any pure Julia developments. Nonetheless, we would also be happy to consider another track that reviewers might deem more suitable. 
