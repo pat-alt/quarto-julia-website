@@ -6,8 +6,8 @@ The `quarto-julia` theme is based on the `default` theme and adds various custom
 
 The theme imports three font faces:
 
-1. The [JuliaMono](https://juliamono.netlify.app/) font, which by default is used for all headers and code.
-2. The [Roboto](https://fonts.google.com/specimen/Roboto?query=Roboto) font, which is used as the default font for everything else (just like on [julialang.org/](https://julialang.org/)).
+1. The [JuliaMono](https://juliamono.netlify.app/) font, which by default is used for code.
+2. The [Barlow](https://tribby.com/fonts/barlow/) font, which is used as the default font for everything else.
 3. The [Bangla MN](https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d) by Muthu Nedumaran of [Murasu Systems](http://murasu.com/), which is closely related to the official Julia [logo font](https://github.com/JuliaLang/julia-logo-graphics#about-the-font). 
 
 The Bangla MN can be used to style individual elements like so:

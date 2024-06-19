@@ -91,10 +91,6 @@
 \usepackage{orcidlink}
 \definecolor{mypink}{RGB}{219, 48, 122}
 \makeatletter
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
@@ -130,25 +126,18 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
-\makeatother
-\makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{biblatex}
 \addbibresource{ref.bib}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -203,11 +192,9 @@ Intelligence, Counterfactual Explanations, Algorithmic Recourse},
 
 \setcounter{page}{1}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, enhanced, frame hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
 
 \setstretch{1}
-\hypertarget{sec-intro}{%
-\section{Introduction}\label{sec-intro}}
+\section{Introduction}\label{sec-intro}
 
 Machine Learning models like Deep Neural Networks have become so complex
 and opaque over recent years that they are generally considered
@@ -274,17 +261,15 @@ Section~\ref{sec-emp}. Finally, we also discuss the current limitations
 of our package, as well as its future outlook in
 Section~\ref{sec-outlook}. Section~\ref{sec-conclude} concludes.
 
-\hypertarget{sec-related}{%
-\section{Background and related work}\label{sec-related}}
+\section{Background and related work}\label{sec-related}
 
 In this section, we first briefly introduce the broad field of
 Explainable AI, before narrowing it down to Counterfactual Explanations.
 We introduce the methodological framework and finally point to existing
 open-source software.
 
-\hypertarget{literature-on-explainable-ai}{%
 \subsection{Literature on Explainable
-AI}\label{literature-on-explainable-ai}}
+AI}\label{literature-on-explainable-ai}
 
 The field of XAI is still relatively young and made up of a variety of
 subdomains, definitions, concepts and taxonomies. Covering all of these
@@ -366,9 +351,8 @@ the black-box classifier, not some proxy for it. That being said, CE
 should also be used with care and research around them is still in its
 early stages.
 
-\hypertarget{sec-method}{%
 \subsection{A framework for Counterfactual
-Explanations}\label{sec-method}}
+Explanations}\label{sec-method}
 
 Counterfactual search involves feature perturbations: we are interested
 in understanding how we need to change individual attributes in order to
@@ -386,18 +370,18 @@ and regression \autocite{molnar2020interpretable}.
 The counterfactual search objective originally proposed by
 \textcite{wachter2017counterfactual} is as follows
 
-\begin{equation}\protect\hypertarget{eq-obj}{}{
+\begin{equation}\phantomsection\label{eq-obj}{
 \min_{x^\prime \in \mathcal{X}} h(x^\prime) \ \ \ \mbox{s. t.} \ \ \ M(x^\prime) = t
-}\label{eq-obj}\end{equation}
+}\end{equation}
 
 where \(h(\cdot)\) quantifies how complex or costly it is to go from the
 factual \(x\) to the counterfactual \(x^\prime\). To simplify things we
 can restate this constrained objective as the following unconstrained
 and differentiable problem:
 
-\begin{equation}\protect\hypertarget{eq-solution}{}{
+\begin{equation}\phantomsection\label{eq-solution}{
 x^\prime = \arg \min_{x^\prime}  \ell(M(x^\prime),t) + \lambda h(x^\prime)
-}\label{eq-solution}\end{equation}
+}\end{equation}
 
 Here \(\ell\) denotes some loss function targeting the deviation between
 the target label and the predicted label and \(\lambda\) governs the
@@ -446,8 +430,7 @@ proposed that can handle non-differentiable models like decision trees.
 We have implemented some of these approaches and will discuss them
 further in Section~\ref{sec-gen}.
 
-\hypertarget{existing-software}{%
-\subsection{Existing software}\label{existing-software}}
+\subsection{Existing software}\label{existing-software}
 
 To the best of our knowledge, the package introduced here provides the
 first implementation of Counterfactual Explanations in Julia and
@@ -501,9 +484,8 @@ these efforts. We think that because of its unique transparency the
 Julia language naturally lends itself towards building Trustworthy AI
 systems.
 
-\hypertarget{sec-arch}{%
 \section{\texorpdfstring{Introducing:
-\texttt{CounterfactualExplanations.jl}}{Introducing: CounterfactualExplanations.jl}}\label{sec-arch}}
+\texttt{CounterfactualExplanations.jl}}{Introducing: CounterfactualExplanations.jl}}\label{sec-arch}
 
 Figure~\ref{fig-arch} provides an overview of the package architecture.
 It is built around two core modules that are designed to be as
@@ -521,7 +503,9 @@ the counterfactual search (Equation~\ref{eq-solution}).
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.38095in]{www/pkg_architecture.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.38095in]{www/pkg_architecture.png}
 
 }
 
@@ -529,10 +513,9 @@ the counterfactual search (Equation~\ref{eq-solution}).
 architecture. Modules are shown in red, structs in green and functions
 in purple.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{models}{%
-\subsection{Models}\label{models}}
+\subsection{Models}\label{models}
 
 The package currently offers native support for models built and trained
 in \href{https://fluxml.ai/}{Flux} \autocite{innes2018flux} as well as a
@@ -562,8 +545,7 @@ Python or R is also available.\footnote{We are currently relying on
   still somewhat brittle. Since this is more of an edge case, we may
   move this feature into its own package in the future.}
 
-\hypertarget{sec-gen}{%
-\subsection{Generators}\label{sec-gen}}
+\subsection{Generators}\label{sec-gen}
 
 A large and growing number of counterfactual
 \href{https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/v0.1/explanation/generators/overview/}{generators}
@@ -613,14 +595,13 @@ embedding of a Variational Autoencoder (VAE)
 that only penalises the distance to the original sample
 \autocite{wachter2017counterfactual}.
 
-\hypertarget{tbl-gen}{}
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
-\caption{\label{tbl-gen}Overview of implemented counterfactual
-generators.}\tabularnewline
+\caption{Overview of implemented counterfactual
+generators.}\label{tbl-gen}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Generator
@@ -667,8 +648,7 @@ Wachter \autocite{wachter2017counterfactual} & gradient based & feature
 & yes \\
 \end{longtable}
 
-\hypertarget{data-catalogue}{%
-\subsection{Data Catalogue}\label{data-catalogue}}
+\subsection{Data Catalogue}\label{data-catalogue}
 
 To allow researchers and practitioners to test and compare
 counterfactual generators, the package ships with
@@ -698,8 +678,7 @@ different domains. Real-world datasets include:
 Custom datasets can also be easily preprocessed as explained in the
 \href{https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/v0.1/tutorials/data_preprocessing/}{documentation}.
 
-\hypertarget{plotting}{%
-\subsection{Plotting}\label{plotting}}
+\subsection{Plotting}\label{plotting}
 
 The package also extends common \texttt{Plots.jl} methods to facilitate
 the visualization of results. Calling the generic \texttt{plot()} method
@@ -712,8 +691,7 @@ in the feature space\footnote{For multi-dimensional input data, standard
   will be improved in the future.}. We will see several examples of this
 below.
 
-\hypertarget{sec-use}{%
-\section{Basic Usage}\label{sec-use}}
+\section{Basic Usage}\label{sec-use}
 
 In the following, we begin our exploration of the package functionality
 with a simple example. We then demonstrate how more advanced generators
@@ -721,8 +699,7 @@ can be easily composed and show how users can impose mutability
 constraints on features. Finally, we also briefly explore the topics of
 counterfactual evaluation and benchmarking.
 
-\hypertarget{sec-simple}{%
-\subsection{A Simple Generic Generator}\label{sec-simple}}
+\subsection{A Simple Generic Generator}\label{sec-simple}
 
 Code \ref{lst:simple} below provides a complete example demonstrating
 how the framework presented in Section~\ref{sec-method} can be
@@ -758,14 +735,16 @@ ce = generate_counterfactual(
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.5in]{www/ce_binary.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.5in]{www/ce_binary.png}
 
 }
 
 \caption{\label{fig-binary}Counterfactual path using generic
 counterfactual generator for conventional binary classifier.}
 
-\end{figure}
+\end{figure}%
 
 In this simple example, the generic generator produces a valid
 counterfactual, since the decision boundary is crossed and the predicted
@@ -775,8 +754,7 @@ target class. This is because the generic generator does not take into
 account any of the desiderata mentioned in Section~\ref{sec-method},
 except for the distance to the factual sample.
 
-\hypertarget{sec-gen-comp}{%
-\subsection{Composing Generators}\label{sec-gen-comp}}
+\subsection{Composing Generators}\label{sec-gen-comp}
 
 To address these issues, we can leverage the ideas underlying some of
 the more advanced counterfactual generators introduced above. In
@@ -790,9 +768,9 @@ diversity. We could do this by blending ideas underlying the \emph{DiCE}
 generator with the \emph{REVISE} generator. Formally, the corresponding
 search objective would be defined as follows,
 
-\begin{equation}\protect\hypertarget{eq-comp}{}{
+\begin{equation}\phantomsection\label{eq-comp}{
 \mathbf{Z}^\prime = \arg \min_{\mathbf{Z}^\prime \in \mathcal{Z}^{L \times K}} \{  {\ell(M(f(\mathbf{Z}^\prime)),t)} + \lambda \cdot {\text{diversity}(f(\mathbf{Z}^\prime)) }  \} 
-}\label{eq-comp}\end{equation}
+}\end{equation}
 
 where \(\mathbf{X}^\prime\) is an \(L\)-dimensional array of
 counterfactuals,
@@ -838,17 +816,18 @@ counterfactuals are diverse and the majority of them are plausible.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.5in]{www/binary_advanced.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.5in]{www/binary_advanced.png}
 
 }
 
 \caption{\label{fig-binary-advanced}Counterfactual path using the
 \emph{DiCE} generator.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-mut}{%
-\subsection{Mutability Constraints}\label{sec-mut}}
+\subsection{Mutability Constraints}\label{sec-mut}
 
 In practice, features usually cannot be perturbed arbitrarily. Suppose,
 for example, that one of the features used by a bank to predict the
@@ -884,17 +863,18 @@ not reached.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.5in]{www/constraint_mutability.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.5in]{www/constraint_mutability.png}
 
 }
 
 \caption{\label{fig-mutability}Counterfactual path with immutable
 feature.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-eval}{%
-\subsection{Evaluation and Benchmarking}\label{sec-eval}}
+\subsection{Evaluation and Benchmarking}\label{sec-eval}
 
 The package also makes it easy to
 \href{https://juliatrustworthyai.github.io/CounterfactualExplanations.jl/v0.1/tutorials/evaluation/}{evaluate}
@@ -921,16 +901,17 @@ individuals and generating plausible counterfactuals.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.5in]{www/bmk.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.5in]{www/bmk.png}
 
 }
 
 \caption{\label{fig-bmk}Benchmarking results for different generators.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-custom}{%
-\section{Customization and Extensibility}\label{sec-custom}}
+\section{Customization and Extensibility}\label{sec-custom}
 
 One of our priorities has been to make our package customizable and
 extensible. In the long term, we aim to add support for more default
@@ -938,8 +919,7 @@ models and counterfactual generators. In the short term, it is designed
 to allow users to integrate models and generators themselves. These
 community efforts will facilitate our long-term goals.
 
-\hypertarget{sec-custom-mod}{%
-\subsection{Adding Custom Models}\label{sec-custom-mod}}
+\subsection{Adding Custom Models}\label{sec-custom-mod}
 
 At the high level, only two steps are necessary to make any supervised
 learning model compatible with our package:
@@ -1014,17 +994,18 @@ class (\(t=2\)).
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.5in]{www/ce_multi.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.5in]{www/ce_multi.png}
 
 }
 
 \caption{\label{fig-multi}Counterfactual path using generic
 counterfactual generator for multi-class classifier.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-custom-gen}{%
-\subsection{Adding Custom Generators}\label{sec-custom-gen}}
+\subsection{Adding Custom Generators}\label{sec-custom-gen}
 
 In some cases, composability may not be sufficient to implement specific
 logics underlying certain counterfactual generators. In such cases,
@@ -1038,9 +1019,7 @@ randomly switch features on and off in each iteration. Without dwelling
 further on the merit of this idea, we will now briefly show how this can
 be implemented.
 
-\hypertarget{a-generator-with-dropout}{%
-\subsubsection{A Generator with
-Dropout}\label{a-generator-with-dropout}}
+\subsubsection{A Generator with Dropout}\label{a-generator-with-dropout}
 
 Code \ref{lst:dropout} below implements two important steps: 1) create
 an abstract subtype of the \texttt{AbstractGradientBasedGenerator} and
@@ -1093,24 +1072,24 @@ Figure~\ref{fig-dropout}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=2.5in]{www/dropout.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=2.5in]{www/dropout.png}
 
 }
 
 \caption{\label{fig-dropout}Counterfactual path for a generator with
 dropout.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-emp}{%
-\section{A Real-World Examples}\label{sec-emp}}
+\section{A Real-World Examples}\label{sec-emp}
 
 Now that we have explained the basic functionality of
 \texttt{CounterfactualExplanations.jl} through some synthetic examples,
 it is time to work through examples involving real-world data.
 
-\hypertarget{give-me-some-credit}{%
-\subsection{Give Me Some Credit}\label{give-me-some-credit}}
+\subsection{Give Me Some Credit}\label{give-me-some-credit}
 
 The \emph{Give Me Some Credit} dataset is one of the tabular real-world
 datasets that ship with the package \autocite{kaggle2011give}. It can be
@@ -1137,17 +1116,18 @@ age and income are typically positively related to creditworthiness.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=1.33333in]{www/credit.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=1.33333in]{www/credit.png}
 
 }
 
 \caption{\label{fig-credit}Give Me Some Credit: counterfactuals for
 would-be borrowers proposed by the Gravitational Generator.}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{mnist}{%
-\subsection{MNIST}\label{mnist}}
+\subsection{MNIST}\label{mnist}
 
 For our second example, we will look at image data. The MNIST dataset
 contains 60,000 training samples of handwritten digits in the form of
@@ -1188,26 +1168,26 @@ care.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.33333in,height=1.11111in]{www/mnist_9to4_latent.png}
+\centering{
+
+\includegraphics[width=3.33333in,height=1.11111in]{www/mnist_9to4_latent.png}
 
 }
 
 \caption{\label{fig-mnist}Counterfactual explanations for MNIST using a
 Latent Space generator: turning a nine (9) into a four (4).}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-outlook}{%
-\section{Discussion and Outlook}\label{sec-outlook}}
+\section{Discussion and Outlook}\label{sec-outlook}
 
 We believe that this package in its current form offers a valuable
 contribution to ongoing efforts towards XAI in Julia. That being said,
 there is significant scope for future developments, which we briefly
 outline in this final section.
 
-\hypertarget{candidate-models-and-generators}{%
 \subsection{Candidate models and
-generators}\label{candidate-models-and-generators}}
+generators}\label{candidate-models-and-generators}
 
 The package supports various models and generators either natively or
 through minimal augmentation. In future work, we would like to
@@ -1221,8 +1201,7 @@ is a list of recent methodologies that we would like to implement
 including MINT \autocite{karimi2021algorithmic}, ROAR
 \autocite{upadhyay2021robust} and FACE \autocite{poyiadzi2020face}.
 
-\hypertarget{additional-datasets}{%
-\subsection{Additional datasets}\label{additional-datasets}}
+\subsection{Additional datasets}\label{additional-datasets}
 
 For benchmarking and testing purposes it will be crucial to add more
 datasets to our library. We have so far prioritized tabular datasets
@@ -1233,8 +1212,7 @@ adding data sources that have so far not been explored much in this
 context including additional image datasets as well as audio, natural
 language and time-series data.
 
-\hypertarget{sec-conclude}{%
-\section{Concluding remarks}\label{sec-conclude}}
+\section{Concluding remarks}\label{sec-conclude}
 
 \texttt{CounterfactualExplanation.jl} is a package for generating
 Counterfactual Explanations and Algorithmic Recourse in Julia. Through
@@ -1254,8 +1232,7 @@ package for machine learning in Julia. We invite the Julia community to
 contribute to these goals through usage, open challenge and active
 development.
 
-\hypertarget{sec-ack}{%
-\section{Acknowledgements}\label{sec-ack}}
+\section{Acknowledgements}\label{sec-ack}
 
 We are immensely grateful to the group of TU Delft students who
 contributed huge improvements to this package as part of a university
