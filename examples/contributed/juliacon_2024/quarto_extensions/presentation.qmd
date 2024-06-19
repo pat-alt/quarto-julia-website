@@ -41,8 +41,8 @@ Within some Julia package we aim to
 
 (!!! Still needs to be fixed, is executed but should not!!!)
 
-````{.markdown}
-#| eval: false
+````{markdown}
+|# eval: false
 ---
 title: "A short example"
 ---
@@ -51,10 +51,8 @@ title: "A short example"
 #| echo: false
 #| code-fold: true
 #| output: false
-using Pkg;
-cd(@__DIR__)
-Pkg.activate("."); # for reproducibility use the local tutorial environment.
-```
+using Pkg; cd(@__DIR__); Pkg.activate(".");
+```{=julia}
 
 First, load all necessary packages
 
@@ -108,6 +106,8 @@ And include rendering the tutorials in your `make.jl`
 
 ````{julia}
 #| eval: false
+#| echo: true
+#| output: false
 using CondaPkg
 CondaPkg.withenv() do
     tutorials_folder = (@__DIR__) * "/../tutorials"
@@ -170,20 +170,22 @@ Running `make.jl` from shell, one can
 
 ## Summary
 
-Quarto notebooks allow for an easy way to have
+Quarto notebooks allow for an easy way to have tutorials
 
-- executed
+- executed code
 - reproducible
-- cached
-- inegrated (with `@ref` links)
-- citing (with `[citekey](@cite)` and `DocumenterCitations.jl`)
+- cached and rendered on CI
+- inegrated (with `@ref` links in `Documenter.jl`)
+- citing (with `[citekey](@cite)` and [`DocumenterCitations.jl`](https://github.com/JuliaDocs/DocumenterCitations.jl))
+- extended referencing (`@extref` and [`DocumenterInterLinks.jl`](https://github.com/JuliaDocs/DocumenterInterLinks.jl))
 
-tutorials within your documentation.
 See [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) for a full example, rendered from
 [here](https://github.com/JuliaManifolds/Manopt.jl/blob/master/tutorials/Optimize.qmd)
 
+. . .
+
 ### Soon
 
-- the [QuartoNotebookRunner.jl](https://github.com/PumasAI/QuartoNotebookRunner.jl)
-  should provide native Quarto rendering in pure Julia
+- the [`QuartoNotebookRunner.jl`](https://github.com/PumasAI/QuartoNotebookRunner.jl)
+  should provide native rendering in pure Julia
 - Pluto notebooks might be used as [input there as well](https://github.com/PumasAI/QuartoNotebookRunner.jl/issues/125)
