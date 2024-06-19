@@ -5,6 +5,7 @@ project:
 website:
   favicon: https://raw.githubusercontent.com/pat-alt/pat-alt.github.io/main/www/favicon.ico
   title: Julia-themed Quarto
+  repo-url: https://github.com/pat-alt/quarto-julia-website
   navbar:
     background: primary
     tools:
@@ -21,25 +22,27 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - section: "Basics"
+      - section: "Available Formats"
         contents:
-          - href: examples/index.qmd
-            text: Getting Started
-          - section: "Formats"
+          - href: examples/basic_formats/article/index.qmd
+            text: "HTML Article"
+          - href: examples/basic_formats/revealjs/index.qmd
+            text: "Revealjs Presentation"
+          - section: "PDF"
             contents:
-              - href: examples/basic_formats/article/index.qmd
-                text: "HTML Article"
-              - href: examples/basic_formats/revealjs/index.qmd
-                text: "Revealjs Presentation"
-      - section: "JuliaCon Proceedings"
-        contents:
-          - href: examples/juliacon/index.qmd
-          - section: "Example Articles"
-            contents:
-              - href: examples/juliacon/counterfactual-explanations/index.qmd
+              - href: examples/juliacon/index.qmd
+              - section: "Example Articles"
+                contents:
+                  - href: examples/juliacon/counterfactual-explanations/index.qmd
       - section: "Package Documentation" 
         contents: 
           - href: examples/documenter/index.qmd
+      - section: "Examples"
+        contents: 
+          - href: examples/index.qmd
+            text: "List of Examples"
+          - href: examples/contribute.qmd
+            text: "Contribute your Work"
 
 
 format:

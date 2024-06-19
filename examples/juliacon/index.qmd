@@ -1,17 +1,17 @@
 ---
-title: Template
+title: JuliaCon Proceedings Template
 ---
 
-The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto. The rendered versions of the template are shown below. To open the different version in full screen instead use the following links: [HTML](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html){target="_blank"} | [PDF](https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf){target="_blank"}.
+The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto. The rendered versions of the template are shown below. To open the different version in full screen instead use the following links: [HTML](https://www.patalt.org/quarto-juliacon-proceedings/template.html){target="_blank"} | [PDF](https://www.patalt.org/quarto-juliacon-proceedings/template.pdf){target="_blank"}.
 
 ## PDF
 
 ```{=html}
-<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf"></iframe>
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="https://www.patalt.org/quarto-juliacon-proceedings/template.pdf"></iframe>
 ```
 
 ## HTML
 
 ```{=html}
-<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html"></iframe>
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="https://www.patalt.org/quarto-juliacon-proceedings/template.html"></iframe>
 ```

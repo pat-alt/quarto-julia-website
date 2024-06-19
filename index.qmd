@@ -6,12 +6,22 @@ toc: false
 
 This website presents output from various Quarto extensions for Julia.
 
-The [`quarto-julia`](https://github.com/pat-alt/quarto-julia) extension contributes various basic format templates and is also used to style this website.
+### Basic Formats
 
-The [`quarto-juliacon-proceedings`](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto.
+The [`quarto-julia`](https://github.com/pat-alt/quarto-julia){target="_blank"} extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats [here](examples/basic_formats/article/index.qmd) and [here](examples/basic_formats/revealjs/index.qmd). 
+
+### JuliaCon Proceedings
+
+The [`quarto-juliacon-proceedings`](https://github.com/pat-alt/quarto-juliacon-proceedings){target="_blank"} extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this [section](examples/juliacon/index.qmd).
+
+### Documenter.jl
 
 This website also includes a [section](examples/documenter/index.qmd) on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. 
 
+### Other Examples
 
+A full list of examples can be found in the [examples](examples/index.qmd) section.
 
+## Contribute
 
+If you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute [here](examples/contribute.qmd).

@@ -1,0 +1,17 @@
+# Showcase Your Work
+
+If you have a project that you've built using one of our extensions, we'd love to feature it in our [showcase](index.qmd). Sharing your work here is easy, especially if you're already familiar with Quarto. Just follow the steps below to submit your project.
+
+1. Fork this repository.
+2. Set up a new branch in your fork with the name `showcase/your-project-name`.
+3. In the [`examples/contributed`](https://github.com/pat-alt/quarto-julia-website/tree/main/examples/contributed/){target="_blank"} (or one of the subdirectories), create a new directory with the name of your project.
+4. Add your project files to the directory you just created. This should include any Quarto files, images, or other assets that are necessary to build your project.
+5. Add an `index.qmd` file to the directory you just created. This file should include a brief description of your project and a link to the actual project file (if it's already written in Quarto), which you should also include in the same directory.
+6. In the YAML header of your `index.qmd` file, include the following metadata:
+   - `title`: The title of your project.
+   - `description`: A brief description of your project.
+   - `author`: Your name.
+   - `date`: The date you're submitting your project.
+   - `categories`: A list of categories that your project falls under (e.g. "JuliaCon 2024", "Presentation")
+
+Your project will automatically be included in the showcase once your pull request is merged. If you have any questions or need help, feel free to open an issue. We're happy to help!

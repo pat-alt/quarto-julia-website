@@ -1,11 +1,10 @@
 ---
-title: Getting Started
+title: Showcase
 listing:
   contents: 
-    - "basic_formats/*/index.qmd"
+    - "**/index.qmd"
   type: table
-  categories: false
-  fields: [title, description]
+  fields: [title, description, categories]
 ---
 
-The Quarto extension used to style this website is called [quarto-julia](https://github.com/pat-alt/quarto-julia). This extensions contributes various basic format templates. 
+Below is a complete list of examples in this repository. Click on the title to view the example.

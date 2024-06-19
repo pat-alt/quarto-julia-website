@@ -1,0 +1,9 @@
+---
+title: Revealjs Presentation
+subtitle: Julia-themed Quarto
+format:
+  julia-revealjs: 
+    scrollable: true
+    smaller: true
+date: last-modified
+---
