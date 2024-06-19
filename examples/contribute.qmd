@@ -5,8 +5,8 @@ If you have a project that you've built using one of our extensions, we'd love t
 1. Fork this repository.
 2. Set up a new branch in your fork with the name `showcase/your-project-name`.
 3. In the [`examples/contributed`](https://github.com/pat-alt/quarto-julia-website/tree/main/examples/contributed/){target="_blank"} (or one of the subdirectories), create a new directory with the name of your project.
-4. Add your project files to the directory you just created. This should include any Quarto files, images, or other assets that are necessary to build your project.
-5. Add an `index.qmd` file to the directory you just created. This file should include a brief description of your project and a link to the actual project file (if it's already written in Quarto), which you should also include in the same directory.
+4. (Optionally) If you want to host your project on this website, add your project files to the directory you just created. This should include any Quarto files, images, or other assets that are necessary to build your project.
+5. Add an `index.qmd` file to the directory you just created. This file should include a brief description of your project and a link to the actual project.
 6. In the YAML header of your `index.qmd` file, include the following metadata:
    - `title`: The title of your project.
    - `description`: A brief description of your project.
