@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Julia-themed Quarto – proposal</title>
+<title>Julia-themed Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,7 +46,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -68,24 +75,24 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Julia-themed Quarto</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools ms-auto">
+        <div class="quarto-navbar-tools">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/pat-alt/quarto-julia-website/discussions/">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/pat-alt/quarto-julia-website/discussions/">
             Share your thoughts
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/pat-alt/quarto-julia-website">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/pat-alt/quarto-julia-website">
             Source Code
             </a>
           </li>
@@ -97,12 +104,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -112,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
       <img src="../../www/julia_quarto.gif" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -134,27 +141,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Basics</span></a>
+ <span class="menu-text">Available Formats</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../examples/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Formats</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/basic_formats/article/index.html" class="sidebar-item-text sidebar-link">
@@ -167,34 +159,30 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Revealjs Presentation</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">JuliaCon Proceedings</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">PDF</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/juliacon/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Template</span></a>
+ <span class="menu-text">JuliaCon Proceedings Template</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Example Articles</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/juliacon/counterfactual-explanations/index.html" class="sidebar-item-text sidebar-link">
@@ -205,15 +193,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
       </ul>
   </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Package Documentation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/documenter/index.html" class="sidebar-item-text sidebar-link">
@@ -222,10 +212,16 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">List of Examples</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -251,6 +247,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <section id="quarto-extensions-for-the-julia-community" class="level1">
 <h1>Quarto Extensions for the Julia Community</h1>
 <p><strong>Abstract</strong>: <a href="https://quarto.org/">Quarto</a> is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.</p>
@@ -259,34 +256,34 @@ ul.task-list li input[type="checkbox"] {
 <p>What if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.</p>
 <section id="those-damn-edge-cases" class="level3">
 <h3 class="anchored" data-anchor-id="those-damn-edge-cases">🤕 Those Damn Edge Cases …</h3>
-<p>The problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time in modifying or extending the behavior of Quarto.</p>
+<p>The problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time into modifying or extending the behavior of Quarto.</p>
 </section>
 <section id="quarto-extensions-to-the-rescue" class="level3">
 <h3 class="anchored" data-anchor-id="quarto-extensions-to-the-rescue">🚑 Quarto Extensions to the Rescue</h3>
-<p>Thankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: <a href="">extensions</a>. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.</p>
+<p>Thankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: <a href="https://quarto.org/docs/extensions/">extensions</a>. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.</p>
 <blockquote class="blockquote">
-<p>When I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating our first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).</p>
+<p>When I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that <a href="https://github.com/pat-alt/quarto-tudelft">template</a> to the public was almost as easy as creating my first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).</p>
 <p>— Speaker 1</p>
 </blockquote>
-<p>A few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty slides in white and blue from their browser.</p>
+<p>A few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty HTML slides in white and blue right from their browser.</p>
 </section>
 <section id="julia-themed-quarto" class="level3">
 <h3 class="anchored" data-anchor-id="julia-themed-quarto">🔴🟢🟣 Julia-Themed Quarto</h3>
-<p><a href="https://www.paltmeyer.com/quarto-julia-website/">Julia-Themed Quarto</a> presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.</p>
+<p><a href="https://www.patalt.org/quarto-julia-website/">Julia-Themed Quarto</a> presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.</p>
 <ol type="1">
 <li>The <a href="https://github.com/pat-alt/quarto-julia">quarto-julia</a> extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look.</li>
-<li>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing <a href="https://github.com/JuliaCon/JuliaConSubmission.jl">JuliaCon Proceedings LaTeX template</a> and can be used to render standard <a href="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.pdf">PDF</a> while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, provides a new <a href="https://www.paltmeyer.com/quarto-juliacon-proceedings/template.html">HTML</a> template that currently inherits the style of <a href="https://github.com/pat-alt/quarto-julia">quarto-julia</a>. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.</li>
-<li>Finally, the <a href="https://www.paltmeyer.com/quarto-julia-website/">Julia-Themed Quarto</a> also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.</li>
+<li>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> extension is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing <a href="https://github.com/JuliaCon/JuliaConSubmission.jl">JuliaCon Proceedings LaTeX template</a> and can be used to render standard <a href="https://www.patalt.org/quarto-juliacon-proceedings/template.pdf">PDF</a> while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, it provides a new <a href="https://www.patalt.org/quarto-juliacon-proceedings/template.html">HTML</a> template that currently inherits the style of <a href="https://github.com/pat-alt/quarto-julia">quarto-julia</a>. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.</li>
+<li>Finally, the <a href="https://www.patalt.org/quarto-julia-website/">Julia-Themed Quarto</a> website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.</li>
 </ol>
 </section>
 <section id="goals-and-limitations" class="level3">
 <h3 class="anchored" data-anchor-id="goals-and-limitations">🎯 Goals and Limitations</h3>
-<p>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> is not yet officially supported and there remain some <a href="https://github.com/pat-alt/quarto-juliacon-proceedings/issues">issues</a> that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, the experience of using Quarto with Documenter.jl has scope for improvement. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts.</p>
+<p>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> is not yet officially supported and there remain some <a href="https://github.com/pat-alt/quarto-juliacon-proceedings/issues">issues</a> that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, there is scope for improvement concerning the experience of using Quarto with Documenter.jl. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts.</p>
 </section>
 </section>
 <section id="notes" class="level2">
 <h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p>We have enough content to fill 30 minutes but since this talk does not involve any Julia code, we have decided to submit this for lightning talk. Should reviewers feel that this merits more presentation time, we would also be happy to present this as a main talk.</p>
+<p>To cover everything we have set out for this presentation we would ideally need more than &lt;10 minutes and have therefore decided to submit this for a main talk, despite not presenting any pure Julia developments. Nonetheless, we would also be happy to consider another track that reviewers might deem more suitable.</p>
 
 
 </section>
@@ -372,10 +369,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -385,8 +381,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -399,6 +404,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -442,6 +566,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -467,6 +592,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -527,6 +678,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

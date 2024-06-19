@@ -12,7 +12,7 @@ Since Documenter.jl takes Markdown documents as input, you can use Quarto with `
 Here are a few guides to help you get started:
 
 - [Render Quarto Tutorials in Documenter.jl with GitHub Actions](https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo): this article shows how to use GitHub Actions to render Quarto tutorials in Documenter.jl for a fully automated documentation workflow.
-- [A year of using Quarto with Julia](https://www.paltmeyer.com/blog/posts/tips-and-tricks-for-using-quarto-with-julia/): this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with `Documenter.jl`.
+- [A year of using Quarto with Julia](https://www.patalt.org/blog/posts/tips-and-tricks-for-using-quarto-with-julia/): this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with `Documenter.jl`.
 
 ### Packages using Quarto with Documenter.jl
 
