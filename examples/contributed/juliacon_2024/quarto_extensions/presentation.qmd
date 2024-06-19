@@ -12,8 +12,6 @@ execute:
 
 # Documentation
 
-Ronny (!!! FIX: Keep that here? Otherwise remove !!!)
-
 ## Goals
 
 Tutorials that are
@@ -29,34 +27,30 @@ Tutorials that are
 - reproducible
 - run on CI (cached)
 
-## Workflow I
+## General Workflow
 
-Within some Julia package we aim to
-
-- write tutorials (`.qmd`) in `tutorials/`
+- write tutorials (`.qmd`) for a package in `tutorials/`
 - run them when generating the documentation
 - should render them into `docs/src/tutorials/` (as `.md`)
 
 ### An Example
 
-(!!! Still needs to be fixed, is executed but should not!!!)
-
 ````{markdown}
-|# eval: false
 ---
 title: "A short example"
 ---
 
-```{julia}
+```{{julia}}
 #| echo: false
 #| code-fold: true
 #| output: false
-using Pkg; cd(@__DIR__); Pkg.activate(".");
-```{=julia}
+cd(@__DIR__);
+using Pkg; Pkg.activate("."); # oen reproducible environment
+```
 
 First, load all necessary packages
 
-```{julia}
+```{{julia}}
 using Manopt, Manifolds
 M = Sphere(2)
 ```
@@ -102,12 +96,7 @@ python = "3.11"
 
 And include rendering the tutorials in your `make.jl`
 
-(!!! Still needs to be fixed, is executed but should not!!!)
-
-````{julia}
-#| eval: false
-#| echo: true
-#| output: false
+````{{julia}}
 using CondaPkg
 CondaPkg.withenv() do
     tutorials_folder = (@__DIR__) * "/../tutorials"
