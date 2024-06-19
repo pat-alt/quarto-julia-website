@@ -4,21 +4,21 @@
     "href": "dev/jcon/proposal.html",
     "title": "Quarto Extensions for the Julia Community",
     "section": "",
-    "text": "Abstract: Quarto is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.\n\n\nWhat if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.\n\n\nThe problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time in modifying or extending the behavior of Quarto.\n\n\n\nThankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: extensions. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.\n\nWhen I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating our first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).\n— Speaker 1\n\nA few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty slides in white and blue from their browser.\n\n\n\nJulia-Themed Quarto presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.\n\nThe quarto-julia extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look.\nThe quarto-juliacon-proceedings is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing JuliaCon Proceedings LaTeX template and can be used to render standard PDF while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, provides a new HTML template that currently inherits the style of quarto-julia. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.\nFinally, the Julia-Themed Quarto also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.\n\n\n\n\nThe quarto-juliacon-proceedings is not yet officially supported and there remain some issues that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, the experience of using Quarto with Documenter.jl has scope for improvement. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts.\n\n\n\n\nWe have enough content to fill 30 minutes but since this talk does not involve any Julia code, we have decided to submit this for lightning talk. Should reviewers feel that this merits more presentation time, we would also be happy to present this as a main talk."
+    "text": "Abstract: Quarto is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.\n\n\nWhat if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.\n\n\nThe problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time into modifying or extending the behavior of Quarto.\n\n\n\nThankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: extensions. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.\n\nWhen I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating my first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).\n— Speaker 1\n\nA few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty HTML slides in white and blue right from their browser.\n\n\n\nJulia-Themed Quarto presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.\n\nThe quarto-julia extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look.\nThe quarto-juliacon-proceedings extension is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing JuliaCon Proceedings LaTeX template and can be used to render standard PDF while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, it provides a new HTML template that currently inherits the style of quarto-julia. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.\nFinally, the Julia-Themed Quarto website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.\n\n\n\n\nThe quarto-juliacon-proceedings is not yet officially supported and there remain some issues that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, there is scope for improvement concerning the experience of using Quarto with Documenter.jl. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts.\n\n\n\n\nTo cover everything we have set out for this presentation we would ideally need more than &lt;10 minutes and have therefore decided to submit this for a main talk, despite not presenting any pure Julia developments. Nonetheless, we would also be happy to consider another track that reviewers might deem more suitable."
   },
   {
     "objectID": "dev/jcon/proposal.html#description",
     "href": "dev/jcon/proposal.html#description",
     "title": "Quarto Extensions for the Julia Community",
     "section": "",
-    "text": "What if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.\n\n\nThe problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time in modifying or extending the behavior of Quarto.\n\n\n\nThankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: extensions. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.\n\nWhen I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating our first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).\n— Speaker 1\n\nA few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty slides in white and blue from their browser.\n\n\n\nJulia-Themed Quarto presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.\n\nThe quarto-julia extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look.\nThe quarto-juliacon-proceedings is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing JuliaCon Proceedings LaTeX template and can be used to render standard PDF while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, provides a new HTML template that currently inherits the style of quarto-julia. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.\nFinally, the Julia-Themed Quarto also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.\n\n\n\n\nThe quarto-juliacon-proceedings is not yet officially supported and there remain some issues that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, the experience of using Quarto with Documenter.jl has scope for improvement. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts."
+    "text": "What if there was a single tool, an engine that can turn your work into all kinds of different output formats? Markdown, PDF, LateX, beamer, HTML, reveal.js, ePub, MS Office, OpenOffice, entire websites, dashboards … all of that starting from the same place: a plain Markdown document blended with chunks of your favorite programming language. That is the prospect that Quarto offers.\n\n\nThe problem is that this is a very ambitious prospect. Even though Quarto is being continuously improved by a committed and responsive development team, there will always be edge cases that require customization. Your presentation at work, for example, might have to comply with certain styling rules. Similarly, the journal you are targeting for your next research project almost definitely has very specific editing guidelines that (if you’re lucky enough) are specified in a LaTeX template. In both cases, you will need to invest some time into modifying or extending the behavior of Quarto.\n\n\n\nThankfully - and in true open-source spirit - Quarto has come up with a way to ensure that such efforts never go in vain: extensions. Producing and sharing extensions is so simple that it feels almost like a by-product of tailoring Quarto to your specific use case.\n\nWhen I first learned about extensions, I had already created a custom template for myself to create reveal.js presentations in the iconic white-blue theme of Delft University of Technology. Releasing that template to the public was almost as easy as creating my first Julia package (obligatory hat tip to the folks behind PkgTemplates.jl).\n— Speaker 1\n\nA few months later, Speaker 1 heard from at least a few of their colleagues that they had presented pretty HTML slides in white and blue right from their browser.\n\n\n\nJulia-Themed Quarto presents a number of Quarto extensions that are specific to Julia and will be the topic of this talk.\n\nThe quarto-julia extension contributes various basic format templates for Julia-themed HTML content. It ships with standard Julia colors and fonts to provide your next presentation with a beautiful look.\nThe quarto-juliacon-proceedings extension is a more ambitious project. This extension adds support for writing JuliaCon Proceedings papers in Quarto. It is based on the existing JuliaCon Proceedings LaTeX template and can be used to render standard PDF while leveraging all of Quarto’s functionalities such as executable code chunks. On top of that, it provides a new HTML template that currently inherits the style of quarto-julia. This provides new opportunities for JuliaCon Proceedings papers to include animated and interactive content.\nFinally, the Julia-Themed Quarto website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage. This topic will be presented by Speaker 2.\n\n\n\n\nThe quarto-juliacon-proceedings is not yet officially supported and there remain some issues that need to be addressed to make it fully compatible with the existing LaTeX template. Similarly, there is scope for improvement concerning the experience of using Quarto with Documenter.jl. We hope that through this talk we can stimulate discussion in the community and encourage others to contribute to these efforts."
   },
   {
     "objectID": "dev/jcon/proposal.html#notes",
     "href": "dev/jcon/proposal.html#notes",
     "title": "Quarto Extensions for the Julia Community",
     "section": "",
-    "text": "We have enough content to fill 30 minutes but since this talk does not involve any Julia code, we have decided to submit this for lightning talk. Should reviewers feel that this merits more presentation time, we would also be happy to present this as a main talk."
+    "text": "To cover everything we have set out for this presentation we would ideally need more than &lt;10 minutes and have therefore decided to submit this for a main talk, despite not presenting any pure Julia developments. Nonetheless, we would also be happy to consider another track that reviewers might deem more suitable."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html",
@@ -256,28 +256,42 @@
     "href": "index.html",
     "title": "Julia-themed Quarto",
     "section": "",
-    "text": "Julia-themed Quarto\nThis website presents output from various Quarto extensions for Julia.\nThe quarto-julia extension contributes various basic format templates and is also used to style this website.\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto.\nThis website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage."
+    "text": "This website presents output from various Quarto extensions for Julia.\n\n\nThe quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.\n\n\n\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.\n\n\n\nThis website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.\n\n\n\nA full list of examples can be found in the examples section.\n\n\n\nIf you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute here.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "examples/documenter/index.html",
     "href": "examples/documenter/index.html",
     "title": "Quarto and Documenter.jl",
     "section": "",
-    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation.\n\n\nHere are a few guides to help you get started:\n\nRender Quarto Tutorials in Documenter.jl with GitHub Actions: this article shows how to use GitHub Actions to render Quarto tutorials in Documenter.jl for a fully automated documentation workflow.\nA year of using Quarto with Julia: this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with Documenter.jl.\n\n\n\n\nHere are a few packages that use Quarto with Documenter.jl:\n\nCounterfactualExplanations.jl\nConformalPrediction.jl\nManopt.jl\n\n\n\n\nThe documenterjl-commonmark format specifies a few relevant YAML options but is currently far from providing a complete solution. The documenterjl-commonmark format is a work in progress and will be extended as needed."
+    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation.\n\n\nHere are a few guides to help you get started:\n\nRender Quarto Tutorials in Documenter.jl with GitHub Actions: this article shows how to use GitHub Actions to render Quarto tutorials in Documenter.jl for a fully automated documentation workflow.\nA year of using Quarto with Julia: this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with Documenter.jl.\n\n\n\n\nHere are a few packages that use Quarto with Documenter.jl:\n\nCounterfactualExplanations.jl\nConformalPrediction.jl\nManopt.jl\n\n\n\n\nThe documenterjl-commonmark format specifies a few relevant YAML options but is currently far from providing a complete solution. The documenterjl-commonmark format is a work in progress and will be extended as needed.",
+    "crumbs": [
+      "Package Documentation",
+      "Quarto and `Documenter.jl`"
+    ]
   },
   {
     "objectID": "examples/documenter/index.html#introduction",
     "href": "examples/documenter/index.html#introduction",
     "title": "Quarto and Documenter.jl",
     "section": "",
-    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation.\n\n\nHere are a few guides to help you get started:\n\nRender Quarto Tutorials in Documenter.jl with GitHub Actions: this article shows how to use GitHub Actions to render Quarto tutorials in Documenter.jl for a fully automated documentation workflow.\nA year of using Quarto with Julia: this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with Documenter.jl.\n\n\n\n\nHere are a few packages that use Quarto with Documenter.jl:\n\nCounterfactualExplanations.jl\nConformalPrediction.jl\nManopt.jl\n\n\n\n\nThe documenterjl-commonmark format specifies a few relevant YAML options but is currently far from providing a complete solution. The documenterjl-commonmark format is a work in progress and will be extended as needed."
+    "text": "Since Documenter.jl takes Markdown documents as input, you can use Quarto with Documenter.jl for package documentation.\n\n\nHere are a few guides to help you get started:\n\nRender Quarto Tutorials in Documenter.jl with GitHub Actions: this article shows how to use GitHub Actions to render Quarto tutorials in Documenter.jl for a fully automated documentation workflow.\nA year of using Quarto with Julia: this article provides a few tips and tricks for using Quarto with Julia and includes a section on using Quarto with Documenter.jl.\n\n\n\n\nHere are a few packages that use Quarto with Documenter.jl:\n\nCounterfactualExplanations.jl\nConformalPrediction.jl\nManopt.jl\n\n\n\n\nThe documenterjl-commonmark format specifies a few relevant YAML options but is currently far from providing a complete solution. The documenterjl-commonmark format is a work in progress and will be extended as needed.",
+    "crumbs": [
+      "Package Documentation",
+      "Quarto and `Documenter.jl`"
+    ]
   },
   {
     "objectID": "examples/index.html",
     "href": "examples/index.html",
-    "title": "Getting Started",
+    "title": "Showcase",
     "section": "",
-    "text": "The Quarto extension used to style this website is called quarto-julia. This extensions contributes various basic format templates.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\nDescription\n\n\n\n\n\n\nHTML Article\n\n\nA template for Julia-themed HTML articles.\n\n\n\n\nRevealjs Presentation\n\n\nA template for Julia-themed Revealjs Presentations.\n\n\n\n\n\n\nNo matching items"
+    "text": "Below is a complete list of examples in this repository. Click on the title to view the example.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nDescription\n\n\nCategories\n\n\n\n\n\n\nExplaining Black-Box Models through Counterfactuals\n\n\n\n\n\n \n\n\n\n\nHTML Article\n\n\nA template for Julia-themed HTML articles.\n\n\n \n\n\n\n\nJuliaCon Proceedings Template\n\n\n\n\n\n \n\n\n\n\nQuarto Extensions for the Julia Community\n\n\nQuarto is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility. \n\n\nJuliaCon 2024, Presentation\n\n\n\n\nQuarto and Documenter.jl\n\n\n\n\n\n \n\n\n\n\nRevealjs Presentation\n\n\nA template for Julia-themed Revealjs Presentations.\n\n\n \n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Showcase"
+    ]
   },
   {
     "objectID": "examples/basic_formats/revealjs/index.html",
@@ -296,23 +310,38 @@
   {
     "objectID": "examples/juliacon/index.html",
     "href": "examples/juliacon/index.html",
-    "title": "Template",
+    "title": "JuliaCon Proceedings Template",
     "section": "",
-    "text": "The quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. The rendered versions of the template are shown below. To open the different version in full screen instead use the following links: HTML | PDF."
+    "text": "The quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. The rendered versions of the template are shown below. To open the different version in full screen instead use the following links: HTML | PDF.",
+    "crumbs": [
+      "Available Formats",
+      "PDF",
+      "JuliaCon Proceedings Template"
+    ]
   },
   {
     "objectID": "examples/juliacon/index.html#pdf",
     "href": "examples/juliacon/index.html#pdf",
-    "title": "Template",
+    "title": "JuliaCon Proceedings Template",
     "section": "PDF",
-    "text": "PDF"
+    "text": "PDF",
+    "crumbs": [
+      "Available Formats",
+      "PDF",
+      "JuliaCon Proceedings Template"
+    ]
   },
   {
     "objectID": "examples/juliacon/index.html#html",
     "href": "examples/juliacon/index.html#html",
-    "title": "Template",
+    "title": "JuliaCon Proceedings Template",
     "section": "HTML",
-    "text": "HTML"
+    "text": "HTML",
+    "crumbs": [
+      "Available Formats",
+      "PDF",
+      "JuliaCon Proceedings Template"
+    ]
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/index.html",
@@ -334,5 +363,97 @@
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "HTML",
     "text": "HTML"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
+    "title": "Quarto Extensions for the Julia Community",
+    "section": "",
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
+    "title": "Quarto Extensions for the Julia Community",
+    "section": "",
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+  },
+  {
+    "objectID": "index.html#basic-formats",
+    "href": "index.html#basic-formats",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "The quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#juliacon-proceedings",
+    "href": "index.html#juliacon-proceedings",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "The quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#documenter.jl",
+    "href": "index.html#documenter.jl",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "This website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#other-examples",
+    "href": "index.html#other-examples",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "A full list of examples can be found in the examples section.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "The quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.\n\n\n\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.\n\n\n\nThis website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.\n\n\n\nA full list of examples can be found in the examples section.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#contribute",
+    "href": "index.html#contribute",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "If you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute here.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "contribute.html",
+    "href": "contribute.html",
+    "title": "Showcase Your Work",
+    "section": "",
+    "text": "Showcase Your Work\nIf you have a project that you’ve built using one of our extensions, we’d love to feature it in our showcase."
+  },
+  {
+    "objectID": "examples/contribute.html",
+    "href": "examples/contribute.html",
+    "title": "Showcase Your Work",
+    "section": "",
+    "text": "Showcase Your Work\nIf you have a project that you’ve built using one of our extensions, we’d love to feature it in our showcase. Sharing your work here is easy, especially if you’re already familiar with Quarto. Just follow the steps below to submit your project.\n\nFork this repository.\nSet up a new branch in your fork with the name showcase/your-project-name.\nIn the examples/contributed (or one of the subdirectories), create a new directory with the name of your project.\nAdd an index.qmd file to the directory you just created. This file will be one of the following (preferably the first):\n\nA brief description of your project and a link to the actual project file (if it’s already written in Quarto), which you should also include in the same directory.\nYour actual project, if it’s already written in Quarto (e.g. a presentation or article).\n\n\nYour project will automatically be included in the showcase once your pull request is merged. If you have any questions or need help, feel free to open an issue. We’re happy to help!",
+    "crumbs": [
+      "Examples",
+      "Contribute your Work"
+    ]
   }
 ]

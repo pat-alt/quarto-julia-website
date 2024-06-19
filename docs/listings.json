@@ -2,7 +2,11 @@
   {
     "listing": "/examples/index.html",
     "items": [
+      "/examples/juliacon/counterfactual-explanations/index.html",
       "/examples/basic_formats/article/index.html",
+      "/examples/juliacon/index.html",
+      "/examples/contributed/juliacon_2024/quarto_extensions/index.html",
+      "/examples/documenter/index.html",
       "/examples/basic_formats/revealjs/index.html"
     ]
   }
