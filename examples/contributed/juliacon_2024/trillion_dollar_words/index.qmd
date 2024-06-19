@@ -7,10 +7,12 @@ categories:
     - Presentation
 ---
 
-[TrillionDollarWorlds.jl](https://github.com/pat-alt/TrillionDollarWords.jl) provides access to a novel financial dataset and large language model fine-tuned for classifying central bank communications as either 'hawkish', 'dovish' or 'neutral'. It ships with essential functionality for model probing, an important aspect of mechanistic interpretability.
+[TrillionDollarWorlds.jl](https://github.com/pat-alt/TrillionDollarWords.jl) provides access to a novel financial dataset and large language model fine-tuned for classifying central bank communications as either 'hawkish', 'dovish' or 'neutral'. It ships with essential functionality for model probing, an important aspect of mechanistic interpretability. This package will be presented at [JuliaCon 2024](https://pretalx.com/juliacon2024/me/submissions/PTQLR9/). 
 
-This package will be presented at JuliaCon 2024. Find the presentation slides below:
+### Come back soon for the presentation slides!
+
+<!-- Find the presentation slides below:
 
 ```{=html}
 <iframe width="800" height="500" marginheight="0" marginwidth="0" src="presentation.html"></iframe>
-```
+``` -->
