@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Patrick Altmeyer">
-<meta name="dcterms.date" content="2024-06-19">
+<meta name="dcterms.date" content="2024-06-20">
 <meta name="description" content="A template for Julia-themed HTML articles.">
 
 <title>Julia-themed Quarto - HTML Article</title>
@@ -312,12 +312,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
-  <li><a href="#font" id="toc-font" class="nav-link" data-scroll-target="#font">Font</a></li>
-  <li><a href="#colors" id="toc-colors" class="nav-link" data-scroll-target="#colors">Colors</a></li>
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#fonts" id="toc-fonts" class="nav-link" data-scroll-target="#fonts">Fonts</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
-  <li><a href="#math" id="toc-math" class="nav-link" data-scroll-target="#math">Math</a></li>
   <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts">Callouts</a></li>
+  <li><a href="#maths" id="toc-maths" class="nav-link" data-scroll-target="#maths">Maths</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -349,7 +350,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 19, 2024</p>
+      <p class="date">June 20, 2024</p>
     </div>
   </div>
   
@@ -365,25 +366,17 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This Quarto notebook generates Julia-themed output.</p>
 </section>
-<section id="details" class="level2">
-<h2 class="anchored" data-anchor-id="details">Details</h2>
-<p>The <code>quarto-julia</code> theme is based on the <code>default</code> theme and adds various custom formatting options.</p>
-</section>
-<section id="font" class="level2">
-<h2 class="anchored" data-anchor-id="font">Font</h2>
-<p>The theme imports three font faces:</p>
+<section id="introduction-1" class="level1">
+<h1>Introduction</h1>
+<p>This Quarto notebook generates Julia-themed output. The theme is based on the <code>default</code> Quarto theme and adds various custom formatting options.</p>
+<section id="fonts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="fonts">Fonts</h2>
 <ol type="1">
-<li>The <a href="https://juliamono.netlify.app/">JuliaMono</a> font, which by default is used for code.</li>
-<li>The <a href="https://tribby.com/fonts/barlow/">Barlow</a> font, which is used as the default font for everything else.</li>
-<li>The <a href="https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d">Bangla MN</a> by Muthu Nedumaran of <a href="http://murasu.com/">Murasu Systems</a>, which is closely related to the official Julia <a href="https://github.com/JuliaLang/julia-logo-graphics#about-the-font">logo font</a>.</li>
+<li>The theme uses the <a href="https://juliamono.netlify.app/">JuliaMono</a> font for <code>monospace</code> text and <code>code</code>.</li>
+<li>For headers and blockquotes, the theme uses the <a href="https://tribby.com/fonts/barlow/" style="font-family: Barlow;">Barlow</a> font.</li>
+<li>For all other text, the theme uses the <a href="https://fonts.google.com/specimen/Roboto" style="font-family: Roboto;">Roboto</a> font, just like the Julia <a href="https://julialang.org/">website</a>.</li>
+<li>Also available is the <a href="https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d" style="font-family: Bangla MN;">Bangla MN</a> by Muthu Nedumaran of <a href="http://murasu.com/">Murasu Systems</a>, which is closely related to the official Julia <a href="https://github.com/JuliaLang/julia-logo-graphics#about-the-font">logo font</a>.</li>
 </ol>
-<p>The Bangla MN can be used to style individual elements like so:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"font-family: Bangla MN"</span><span class="dt">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Some fancy text.</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p style="font-family: Bangla MN">
-Some fancy text.
-</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -398,34 +391,27 @@ Bangla MN Copyright
 </div>
 </div>
 </section>
-<section id="colors" class="level2">
-<h2 class="anchored" data-anchor-id="colors">Colors</h2>
-</section>
 <section id="code" class="level2">
 <h2 class="anchored" data-anchor-id="code">Code</h2>
-<p>Inline code looks like this <code>print("hello 🌍")</code>.</p>
-<p>Code chunks looks like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ReLU</span>(z) <span class="op">=</span> <span class="fu">max</span>(z, <span class="fl">0</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">neural_network</span>(x, 𝐕, 𝐰, <span class="cn">φ</span>, g<span class="op">=</span>ReLU)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    𝐡 <span class="op">=</span> <span class="fu">map</span>(𝐯ⱼ <span class="op">-&gt;</span> <span class="fu">g</span>(𝐯ⱼ <span class="op">⋅</span> <span class="fu">φ</span>(x)), 𝐕)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    𝐰 <span class="op">⋅</span> 𝐡</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Inline code looks like this <code>print("hello 🌍")</code>. Code blocks look like this (Revealjs not affected):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CounterfactualExplanations</span>, <span class="bu">TaijaData</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Data and Classifier:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>counterfactual_data <span class="op">=</span> <span class="fu">CounterfactualData</span>(<span class="fu">load_linearly_separable</span>()<span class="op">...</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> <span class="fu">fit_model</span>(counterfactual_data, <span class="op">:</span>Linear)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Select random sample:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="fl">2</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>factual <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>chosen <span class="op">=</span> <span class="fu">rand</span>(<span class="fu">findall</span>(<span class="fu">predict_label</span>(M, counterfactual_data) <span class="op">.==</span> factual))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">select_factual</span>(counterfactual_data, chosen)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Counterfactual search:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>generator <span class="op">=</span> <span class="fu">GenericGenerator</span>()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>ce <span class="op">=</span> <span class="fu">generate_counterfactual</span>(x, target, counterfactual_data, M, generator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="math" class="level2">
-<h2 class="anchored" data-anchor-id="math">Math</h2>
-<p>Let <span class="math inline">\(t\in\{0,1\}\)</span> denote the target label, <span class="math inline">\(M\)</span> the model (classifier) and <span class="math inline">\({x}^{\prime} \in \mathbb{R}^D\)</span> the vector of counterfactual features. In order to generate recourse the <code>GenericGenerator</code> optimizes the following objective function through steepest descent</p>
-<p><span class="math display">\[
-x\prime = \arg \min_{x\prime}  \ell(M(x\prime),t) + \lambda h(x\prime)
-\]</span></p>
-<p>where <span class="math inline">\(\ell\)</span> denotes some loss function targeting the deviation between the target label and the predicted label and <span class="math inline">\(h(\cdot)\)</span> is a complexity penalty generally addressing the <em>realism</em> or <em>cost</em> of the proposed counterfactual.</p>
-</section>
-<section id="callouts" class="level2">
-<h2 class="anchored" data-anchor-id="callouts">Callouts</h2>
+<section id="callouts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="callouts">Callouts</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -436,7 +422,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a note in <code>julia_blue</code>.</p>
+<p>This is a note in <span class="julia-blue">julia_blue</span>. Note that for Revealjs, icons are deactivated for callouts by default.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -449,7 +435,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a tip in <code>julia_green</code>.</p>
+<p>This is a tip in <span class="julia-green">julia_green</span>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -462,7 +448,7 @@ Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a caution callout in <code>julia_purple</code>.</p>
+<p>This is a caution callout in <span class="julia-purple">julia_purple</span>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -475,7 +461,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a warning in <code>julia_purple</code>.</p>
+<p>This is a warning in <span class="julia-purple">julia_purple</span> (lighter).</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -488,11 +474,23 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is an important callout in <code>julia_red</code>.</p>
+<p>This is an important callout in <span class="julia-red">julia_red</span>.</p>
 </div>
 </div>
+</section>
+<section id="maths" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="maths">Maths</h2>
+<blockquote class="blockquote">
+<p>Of course, Quarto supports LaTeX maths, for which we use default settings.</p>
+</blockquote>
+<p>Let <span class="math inline">\(t\in\{0,1\}\)</span> denote the target label, <span class="math inline">\(M\)</span> the model (classifier) and <span class="math inline">\({x}^{\prime} \in \mathbb{R}^D\)</span> the vector of counterfactual features. In order to generate recourse the <code>GenericGenerator</code> optimizes the following objective function through steepest descent</p>
+<p><span class="math display">\[
+x\prime = \arg \min_{x\prime}  \ell(M(x\prime),t) + \lambda h(x\prime)
+\]</span></p>
+<p>where <span class="math inline">\(\ell\)</span> denotes some loss function targeting the deviation between the target label and the predicted label and <span class="math inline">\(h(\cdot)\)</span> is a complexity penalty generally addressing the <em>realism</em> or <em>cost</em> of the proposed counterfactual.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

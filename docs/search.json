@@ -176,33 +176,11 @@
     ]
   },
   {
-    "objectID": "examples/basic_formats/article/index.html#details",
-    "href": "examples/basic_formats/article/index.html#details",
+    "objectID": "examples/basic_formats/article/index.html#fonts",
+    "href": "examples/basic_formats/article/index.html#fonts",
     "title": "HTML Article",
-    "section": "Details",
-    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options.",
-    "crumbs": [
-      "Available Formats",
-      "HTML Article"
-    ]
-  },
-  {
-    "objectID": "examples/basic_formats/article/index.html#font",
-    "href": "examples/basic_formats/article/index.html#font",
-    "title": "HTML Article",
-    "section": "Font",
-    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for code.\nThe Barlow font, which is used as the default font for everything else.\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it.",
-    "crumbs": [
-      "Available Formats",
-      "HTML Article"
-    ]
-  },
-  {
-    "objectID": "examples/basic_formats/article/index.html#colors",
-    "href": "examples/basic_formats/article/index.html#colors",
-    "title": "HTML Article",
-    "section": "Colors",
-    "text": "Colors",
+    "section": "Fonts",
+    "text": "Fonts\n\nThe theme uses the JuliaMono font for monospace text and code.\nFor headers and blockquotes, the theme uses the Barlow font.\nFor all other text, the theme uses the Roboto font, just like the Julia website.\nAlso available is the Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it.",
     "crumbs": [
       "Available Formats",
       "HTML Article"
@@ -213,18 +191,7 @@
     "href": "examples/basic_formats/article/index.html#code",
     "title": "HTML Article",
     "section": "Code",
-    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend",
-    "crumbs": [
-      "Available Formats",
-      "HTML Article"
-    ]
-  },
-  {
-    "objectID": "examples/basic_formats/article/index.html#math",
-    "href": "examples/basic_formats/article/index.html#math",
-    "title": "HTML Article",
-    "section": "Math",
-    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual.",
+    "text": "Code\nInline code looks like this print(\"hello 🌍\"). Code blocks look like this (Revealjs not affected):\nusing CounterfactualExplanations, TaijaData\n\n# Data and Classifier:\ncounterfactual_data = CounterfactualData(load_linearly_separable()...)\nM = fit_model(counterfactual_data, :Linear)\n\n# Select random sample:\ntarget = 2\nfactual = 1\nchosen = rand(findall(predict_label(M, counterfactual_data) .== factual))\nx = select_factual(counterfactual_data, chosen)\n\n# Counterfactual search:\ngenerator = GenericGenerator()\nce = generate_counterfactual(x, target, counterfactual_data, M, generator)",
     "crumbs": [
       "Available Formats",
       "HTML Article"
@@ -235,53 +202,50 @@
     "href": "examples/basic_formats/article/index.html#callouts",
     "title": "HTML Article",
     "section": "Callouts",
-    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an important callout in julia_red.",
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nThis is a note in julia_blue. Note that for Revealjs, icons are deactivated for callouts by default.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a warning in julia_purple (lighter).\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an important callout in julia_red.",
     "crumbs": [
       "Available Formats",
       "HTML Article"
     ]
   },
   {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#details",
-    "href": "examples/basic_formats/revealjs/presentation.html#details",
-    "title": "Revealjs Presentation",
-    "section": "Details",
-    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
+    "objectID": "examples/basic_formats/article/index.html#maths",
+    "href": "examples/basic_formats/article/index.html#maths",
+    "title": "HTML Article",
+    "section": "Maths",
+    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual.",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#font",
-    "href": "examples/basic_formats/revealjs/presentation.html#font",
+    "objectID": "examples/basic_formats/revealjs/presentation.html#fonts",
+    "href": "examples/basic_formats/revealjs/presentation.html#fonts",
     "title": "Revealjs Presentation",
-    "section": "Font",
-    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for code.\nThe Barlow font, which is used as the default font for everything else.\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
-  },
-  {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#colors",
-    "href": "examples/basic_formats/revealjs/presentation.html#colors",
-    "title": "Revealjs Presentation",
-    "section": "Colors",
-    "text": "Colors"
+    "section": "Fonts",
+    "text": "Fonts\n\nThe theme uses the JuliaMono font for monospace text and code.\nFor headers and blockquotes, the theme uses the Barlow font.\nFor all other text, the theme uses the Roboto font, just like the Julia website.\nAlso available is the Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
   },
   {
     "objectID": "examples/basic_formats/revealjs/presentation.html#code",
     "href": "examples/basic_formats/revealjs/presentation.html#code",
     "title": "Revealjs Presentation",
     "section": "Code",
-    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
-  },
-  {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#math",
-    "href": "examples/basic_formats/revealjs/presentation.html#math",
-    "title": "Revealjs Presentation",
-    "section": "Math",
-    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+    "text": "Code\nInline code looks like this print(\"hello 🌍\"). Code blocks look like this (Revealjs not affected):\nusing CounterfactualExplanations, TaijaData\n\n# Data and Classifier:\ncounterfactual_data = CounterfactualData(load_linearly_separable()...)\nM = fit_model(counterfactual_data, :Linear)\n\n# Select random sample:\ntarget = 2\nfactual = 1\nchosen = rand(findall(predict_label(M, counterfactual_data) .== factual))\nx = select_factual(counterfactual_data, chosen)\n\n# Counterfactual search:\ngenerator = GenericGenerator()\nce = generate_counterfactual(x, target, counterfactual_data, M, generator)"
   },
   {
     "objectID": "examples/basic_formats/revealjs/presentation.html#callouts",
     "href": "examples/basic_formats/revealjs/presentation.html#callouts",
     "title": "Revealjs Presentation",
     "section": "Callouts",
-    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+    "text": "Callouts\n\n\n\nNote\n\n\nThis is a note in julia_blue. Note that for Revealjs, icons are deactivated for callouts by default.\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple (lighter).\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#maths",
+    "href": "examples/basic_formats/revealjs/presentation.html#maths",
+    "title": "Revealjs Presentation",
+    "section": "Maths",
+    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
   },
   {
     "objectID": "examples/contribute.html",
