@@ -512,5 +512,33 @@
     "title": "Quarto Extensions",
     "section": "Callouts",
     "text": "Callouts\n\n\n\nNote\n\n\nThis is a note in julia_blue. Note that for Revealjs, icons are deactivated for callouts by default.\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started-1",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started-1",
+    "title": "Quarto Extensions",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo install the JuliaCon Proceedings extension, run:\nquarto add pat-alt/quarto-juliacon-proceedings\n\n\n\n\n\nDisclaimer\n\n\nPDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team.\nSee this issue.\n\n\n\n\nSupports both PDF and HTML:\ntitle: JuliaCon Proceedings in Quarto\nformat:\n  juliacon-proceedings-pdf:\n    keep-tex: true  \n  juliacon-proceedings-html: default\nauthor:\n  - name: Patrick Altmeyer\n    affiliations:\n      - Delft University of Technology\n    orcid: 0000-0003-4726-8613"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#motivation",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#motivation",
+    "title": "Quarto Extensions",
+    "section": "Motivation",
+    "text": "Motivation\n\nBy embracing Quarto, JuliaCon Proceedings can set an example for how to write reproducible documents.\n\nCode and results are directly integrated into the document.\nExecutable code blocks serve as a form of testing.\nSame document can be rendered into HTML, PDF, …\n\nEasier for authors to write their submissions.\nGateway to more advanced features such as interactive figures and executable code blocks in HTML documents."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#showcase",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#showcase",
+    "title": "Quarto Extensions",
+    "section": "Showcase",
+    "text": "Showcase\n\n\nThe following two example articles were rendered using the extension:\n\nOfficial extension template: [pdf, html]\nAltmeyer, Deursen, et al. (2023): [pdf, html]"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#references",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#references",
+    "title": "Quarto Extensions",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nAltmeyer, Patrick, Arie van Deursen, et al. 2023. “Explaining Black-Box Models Through Counterfactuals.” In Proceedings of the JuliaCon Conferences, 1:130. 1."
   }
 ]

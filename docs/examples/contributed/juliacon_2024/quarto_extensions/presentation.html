@@ -97,7 +97,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -483,8 +503,12 @@ Ronny Bergmann
 </section>
 
 <section id="sec-quarto" class="title-slide slide level1 nostretch center">
-<h1>What is Quarto?</h1>
-
+<h1>What is <a href="https://quarto.org/">Quarto</a>?</h1>
+<ul>
+<li><p>Cross-platform open-source scientific publishing tool with a focus on reproducibility.</p></li>
+<li><p>It is based on Markdown, which is easy to learn and write.</p></li>
+<li><p>Very flexible and can be extended with custom templates and styles.</p></li>
+</ul>
 </section>
 
 <section>
@@ -492,7 +516,10 @@ Ronny Bergmann
 <h1>Julia-themed Quarto</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Simple Quarto extensions that add a Julia-themed touch to your documents.</p>
+<p>Simple Quarto extension that adds a Julia-themed touch to your documents.</p>
+<blockquote>
+<p>Extensions are a powerful way to modify and extend the behavior of Quarto.</p>
+</blockquote>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -764,15 +791,101 @@ Ronny Bergmann
 </ul>
 </div>
 </section></section>
-<section id="sec-proceedings" class="title-slide slide level1 center">
+<section>
+<section id="sec-proceedings" class="title-slide slide level1 nostretch center">
 <h1>JuliaCon Proceedings</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>The <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">quarto-juliacon-proceedings</a> extension adds support for writing a JuliaCon Proceedings article in Quarto.</p>
+</div><div class="column" style="width:40%;">
+
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="www/jcon_logo.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-started-1" class="slide level2">
+<h2>Getting Started</h2>
+<p>To install the <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">JuliaCon Proceedings extension</a>, run:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a></a>quarto add pat-alt/quarto-juliacon-proceedings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="callout callout-caution no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Disclaimer</strong></p>
+</div>
+<div class="callout-content">
+<p>PDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team.</p>
+<p>See this <a href="https://github.com/JuliaCon/JuliaConSubmission.jl/issues/36">issue</a>.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p>Supports both PDF and HTML:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> JuliaCon Proceedings in Quarto</span></span>
+<span id="cb10-2"><a></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">juliacon-proceedings-pdf</span><span class="kw">:</span></span>
+<span id="cb10-4"><a></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="at">  </span></span>
+<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">juliacon-proceedings-html</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb10-6"><a></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb10-7"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Patrick Altmeyer</span></span>
+<span id="cb10-8"><a></a><span class="at">    </span><span class="fu">affiliations</span><span class="kw">:</span></span>
+<span id="cb10-9"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> Delft University of Technology</span></span>
+<span id="cb10-10"><a></a><span class="at">    </span><span class="fu">orcid</span><span class="kw">:</span><span class="at"> 0000-0003-4726-8613</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<ul>
+<li>By embracing Quarto, JuliaCon Proceedings can set an example for how to write reproducible documents.
+<ul>
+<li>Code and results are directly integrated into the document.</li>
+<li>Executable code blocks serve as a form of testing.</li>
+<li>Same document can be rendered into HTML, PDF, …</li>
+</ul></li>
+<li>Easier for authors to write their submissions.</li>
+<li>Gateway to more advanced features such as interactive figures and executable code blocks in HTML documents.</li>
+</ul>
+</section>
+<section id="showcase" class="slide level2">
+<h2>Showcase</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>The following two example articles were rendered using the extension:</p>
+<ul>
+<li>Official extension template: [<a href="https://www.patalt.org/quarto-juliacon-proceedings/template.pdf">pdf</a>, <a href="https://www.patalt.org/quarto-juliacon-proceedings/template.html">html</a>]</li>
+<li><span class="citation" data-cites="altmeyer2023explaining">Altmeyer, Deursen, et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>: [<a href="../../../juliacon/counterfactual-explanations/paper.pdf">pdf</a>, <a href="../../../juliacon/counterfactual-explanations/paper.html">html</a>]</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.html"></iframe>
+</div>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-altmeyer2023explaining" class="csl-entry" role="listitem">
+Altmeyer, Patrick, Arie van Deursen, et al. 2023. <span>“Explaining Black-Box Models Through Counterfactuals.”</span> In <em>Proceedings of the JuliaCon Conferences</em>, 1:130. 1.
+</div>
+</div>
+</section></section>
     </div>
   </div>
 

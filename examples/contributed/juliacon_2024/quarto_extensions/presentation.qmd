@@ -7,6 +7,7 @@ format:
 date: July 12, 2024
 execute:
   eval: false
+bibliography: bib.bib
 ---
 
 # Overview {.nostretch} 
@@ -23,15 +24,21 @@ execute:
 :::
 ::::
 
-# What is Quarto? {#sec-quarto .nostretch}
+# What is [Quarto](https://quarto.org/)? {#sec-quarto .nostretch}
+
+- Cross-platform open-source scientific publishing tool with a focus on reproducibility.
+
+- It is based on Markdown, which is easy to learn and write.
+
+- Very flexible and can be extended with custom templates and styles. 
 
 # Julia-themed Quarto {#sec-simple .nostretch} 
 
 ::::{.columns}::::
 :::{.column width='50%'}
-Simple Quarto extensions that add a Julia-themed touch to your documents. 
+Simple Quarto extension that adds a Julia-themed touch to your documents. 
 
-
+> Extensions are a powerful way to modify and extend the behavior of Quarto.
 :::
 :::{.column width='50%'}
 ![](www/julia_quarto.gif){fig-align="center" height="400"}
@@ -312,4 +319,91 @@ See [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) for a
   should provide native rendering in pure Julia
 - Pluto notebooks might be used as [input there as well](https://github.com/PumasAI/QuartoNotebookRunner.jl/issues/125)
 
-# JuliaCon Proceedings {#sec-proceedings}
+# JuliaCon Proceedings {#sec-proceedings .nostretch}
+
+::::{.columns}::::
+:::{.column width='60%'}
+The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto. 
+:::
+:::{.column width='40%'}
+:::
+::::
+
+::::{.columns}::::
+:::{.column width='50%'}
+:::
+:::{.column width='50%'}
+![](www/jcon_logo.png){fig-align="center"}
+:::
+::::
+
+
+## Getting Started 
+
+To install the [JuliaCon Proceedings extension](https://github.com/pat-alt/quarto-juliacon-proceedings), run:
+
+```shell
+quarto add pat-alt/quarto-juliacon-proceedings
+```
+
+::::{.columns}::::
+:::{.column width='40%'}
+
+:::{.callout-caution}
+
+# Disclaimer
+
+PDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team. 
+
+See this [issue](https://github.com/JuliaCon/JuliaConSubmission.jl/issues/36).
+
+:::
+:::
+:::{.column width='60%'}
+Supports both PDF and HTML:
+
+```yaml
+title: JuliaCon Proceedings in Quarto
+format:
+  juliacon-proceedings-pdf:
+    keep-tex: true  
+  juliacon-proceedings-html: default
+author:
+  - name: Patrick Altmeyer
+    affiliations:
+      - Delft University of Technology
+    orcid: 0000-0003-4726-8613
+```
+:::
+::::
+
+
+## Motivation
+
+- By embracing Quarto, JuliaCon Proceedings can set an example for how to write reproducible documents.
+    - Code and results are directly integrated into the document.
+    - Executable code blocks serve as a form of testing.
+    - Same document can be rendered into HTML, PDF, ...
+- Easier for authors to write their submissions.
+- Gateway to more advanced features such as interactive figures and executable code blocks in HTML documents. 
+
+## Showcase
+
+::::{.columns}::::
+:::{.column width='50%'}
+
+The following two example articles were rendered using the extension:
+
+- Official extension template: [[pdf](https://www.patalt.org/quarto-juliacon-proceedings/template.pdf), [html](https://www.patalt.org/quarto-juliacon-proceedings/template.html)]
+- @altmeyer2023explaining: [[pdf](../../../juliacon/counterfactual-explanations/paper.pdf), [html](../../../juliacon/counterfactual-explanations/paper.html)]
+:::
+:::{.column width='50%'}
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.html"></iframe>
+```
+:::
+::::
+
+## References {.smaller}
+
+
