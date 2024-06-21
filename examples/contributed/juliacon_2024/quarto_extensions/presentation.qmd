@@ -4,13 +4,30 @@ subtitle: for the Julia Community
 format:
   julia-revealjs:
     scrollable: true
-    smaller: true
 date: July 12, 2024
 execute:
   eval: false
 ---
 
-# Documentation
+# Overview {.nostretch} 
+
+::::{.columns}::::
+:::{.column width='50%'}
+1. What is Quarto?
+2. [Julia-themed Quarto: Simple Extensions](#sec-simple)
+3. Quarto for Documentation
+4. Quarto for JuliaCon Proceedings
+:::
+:::{.column width='50%'}
+![](www/poster.png){fig-align="center" height="400"}
+:::
+::::
+
+# Julia-themed Quarto {#sec-simple .nostretch} 
+
+![](www/julia_quarto.gif){fig-align="center"}
+
+# Documentation {#sec-docs}
 
 ## Goals
 

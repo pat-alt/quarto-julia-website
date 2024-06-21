@@ -428,5 +428,54 @@
       "Example Articles",
       "Explaining Black-Box Models through Counterfactuals"
     ]
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#goals",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#goals",
+    "title": "Quarto Extensions",
+    "section": "Goals",
+    "text": "Goals\nTutorials that are\n\nintegrated in the documentation (Documenter.jl)\n\nIntegrated Links within the documentation\ninclude mathematical formulae\n\nrender into Markdown\n\n\n\nshow code and results\nreproducible\nrun on CI (cached)"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#general-workflow",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#general-workflow",
+    "title": "Quarto Extensions",
+    "section": "General Workflow",
+    "text": "General Workflow\n\nwrite tutorials (.qmd) for a package in tutorials/\nrun them when generating the documentation\nshould render them into docs/src/tutorials/ (as .md)\n\nAn Example\n---\ntitle: \"A short example\"\n---\n\n```{julia}\n#| echo: false\n#| code-fold: true\n#| output: false\ncd(@__DIR__);\nusing Pkg; Pkg.activate(\".\"); # oen reproducible environment\n```\n\nFirst, load all necessary packages\n\n```{julia}\nusing Manopt, Manifolds\nM = Sphere(2)\n```"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-quarto",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-quarto",
+    "title": "Quarto Extensions",
+    "section": "Workflow II: Quarto",
+    "text": "Workflow II: Quarto\nPut a _quarto.yml file in tutorials/ with\nproject:\n  title: \"My Tutorials\"\n  output-dir: ../docs/src/tutorials\n  render:\n    - \"*.qmd\"\n    - \"!NotThisFile.qmd\"\nLast line: Exclude for example benchmark from general runs.\n\n\nquarto render filename.qmd to render a certain one\nquarto render in tutorials/ to generate aøø but the !-excluded ones\ntutorials/_freeze is a Cache: only renders if file has been changed.\n\n\n\nTipp\nUse the Quarto VS Code extension and Quarto Preview while writing a tutorial"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
+    "title": "Quarto Extensions",
+    "section": "Workflow III: Documenter",
+    "text": "Workflow III: Documenter\n\nUse CondaPkg.jl to handle/install Python, creating a CondaPkg.toml specifying the Python version\n\n[deps]\njupyter = \"\"\npython = \"3.11\"\nAnd include rendering the tutorials in your make.jl\n```{julia}\nusing CondaPkg\nCondaPkg.withenv() do\n    tutorials_folder = (@__DIR__) * \"/../tutorials\"\n    run(`quarto render $(tutorials_folder)`)\nend\n```"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iv-github-action",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iv-github-action",
+    "title": "Quarto Extensions",
+    "section": "Workflow IV: GitHub Action",
+    "text": "Workflow IV: GitHub Action\n- name: Cache Quarto\n  uses: actions/cache@v4\n  with:\n    path: tutorials/_freeze\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\n- name: Cache Documenter\n  uses: actions/cache@v4\n  with:\n    path: docs/src/tutorials\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\nThis sets up Caches for the folders\n\ndocs/src/tutorials rendered Markdown files\ntutorials/_freeze Quarto Cache\none could also cache docs/.CondaPkg to reduce loading Python packages\n\n\nThere we are!\nCached, reproducible Tutorials that integrate with Documenter.jl."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#comments",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#comments",
+    "title": "Quarto Extensions",
+    "section": "Comments",
+    "text": "Comments\nRunning make.jl from shell, one can\n\n(de)activate running Quarto\n(de)activate generting the tutorials menu (locally)\nclear cache\n\n\nChallenges\n\nCache vs. breaking versions of the package\nRecommendation: Maybe print Package versions\nQuarto replaces spaces in markdown links [A](@ref B) with [A](@ref%20B).\nThese have to be “escaped” `[A](@ref B)`{=commonmark} to stay unmodified\nDue to pandoc: for now write math in $...$ and not ``...``"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#summary",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#summary",
+    "title": "Quarto Extensions",
+    "section": "Summary",
+    "text": "Summary\nQuarto notebooks allow for an easy way to have tutorials\n\nexecuted code\nreproducible\ncached and rendered on CI\ninegrated (with @ref links in Documenter.jl)\nciting (with [citekey](@cite) and DocumenterCitations.jl)\nextended referencing (@extref and DocumenterInterLinks.jl)\n\nSee Manopt.jl: Optimize for a full example, rendered from here\n\nSoon\n\nthe QuartoNotebookRunner.jl should provide native rendering in pure Julia\nPluto notebooks might be used as input there as well"
   }
 ]
