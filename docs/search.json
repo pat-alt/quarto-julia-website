@@ -60,7 +60,7 @@
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-gen",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "3.2 Generators",
-    "text": "3.2 Generators\nA large and growing number of counterfactual generators have already been implemented in our package (Table 1). At a high level, we distinguish generators in terms of their compatible model types, their default search space, and their composability. All “gradient-based” generators are compatible with differentiable models, e.g. Flux and torch, while “tree-based” generators are only applicable to models that involve decision trees. Concerning the search space, it is possible to search counterfactuals in a lower-dimensional latent embedding of the feature space that implicitly encodes the data-generating process (DGP). To learn the latent embedding, existing work has typically relied on generative models or existing causal knowledge (Joshi et al. 2019; Karimi, Schölkopf, and Valera 2021). While this notion is compatible with all of our gradient-based generators, only some generators search a latent space by default. Finally, composability implies that the given generator can be blended with any other composable generator, which we discuss in Section 4.2.\nBeyond these broad technical distinctions, generators largely differ in terms of how they address the various desiderata mentioned above: ClapROAR aims to preserve the classifier, i.e. to generate counterfactuals that are robust to endogenous model shifts (Altmeyer et al. 2023); CLUE searches plausible counterfactuals in the latent embedding of a generative model by explicitly minimising predictive entropy (Antorán et al. 2020); DiCE is designed to generate multiple, maximally diverse counterfactuals (Mothilal, Sharma, and Tan 2020); FeatureTweak leverages the internals of decision trees to search counterfactuals on a feature-by-feature basis, finding the counterfactual that tweaks the features in the least costly way (Tolomei et al. 2017); Gravitational aims to generate plausible and robust counterfactuals by minimising the distance to observed samples in the target class (Altmeyer et al. 2023); Greedy aims to generate plausible counterfactuals by implicitly minimising predictive uncertainty of Bayesian classifiers (Schut et al. 2021); GrowingSpheres is model-agnostic, relying solely on identifying nearest neighbours of counterfactuals in the target class by gradually increasing the search radius and then moving counterfactuals in that direction(Laugel et al. 2017); PROBE generates probabilistically robust counterfactuals (Pawelczyk et al. 2022); REVISE addresses the need for plausibility by searching counterfactuals in the latent embedding of a Variational Autoencoder (VAE) (Joshi et al. 2019); Wachter is the baseline approach that only penalises the distance to the original sample (Wachter, Mittelstadt, and Russell 2017).\n\n\nTable 1: Overview of implemented counterfactual generators.\n\n\n\n\n\n\n\n\nGenerator\nModel Type\nSearch Space\nComposable\n\n\n\n\nClaPROAR (Altmeyer et al. 2023)\ngradient based\nfeature\nyes\n\n\nCLUE (Antorán et al. 2020)\ngradient based\nlatent\nyes\n\n\nDiCE (Mothilal, Sharma, and Tan 2020)\ngradient based\nfeature\nyes\n\n\nFeatureTweak (Tolomei et al. 2017)\ntree based\nfeature\nno\n\n\nGravitational (Altmeyer et al. 2023)\ngradient based\nfeature\nyes\n\n\nGreedy (Schut et al. 2021)\ngradient based\nfeature\nyes\n\n\nGrowingSpheres (Laugel et al. 2017)\nagnostic\nfeature\nno\n\n\nPROBE (Pawelczyk et al. 2022)\ngradient based\nfeature\nno\n\n\nREVISE (Joshi et al. 2019)\ngradient based\nlatent\nyes\n\n\nWachter (Wachter, Mittelstadt, and Russell 2017)\ngradient based\nfeature\nyes"
+    "text": "3.2 Generators\nA large and growing number of counterfactual generators have already been implemented in our package (Table 1). At a high level, we distinguish generators in terms of their compatible model types, their default search space, and their composability. All “gradient-based” generators are compatible with differentiable models, e.g. Flux and torch, while “tree-based” generators are only applicable to models that involve decision trees. Concerning the search space, it is possible to search counterfactuals in a lower-dimensional latent embedding of the feature space that implicitly encodes the data-generating process (DGP). To learn the latent embedding, existing work has typically relied on generative models or existing causal knowledge (Joshi et al. 2019; Karimi, Schölkopf, and Valera 2021). While this notion is compatible with all of our gradient-based generators, only some generators search a latent space by default. Finally, composability implies that the given generator can be blended with any other composable generator, which we discuss in Section 4.2.\nBeyond these broad technical distinctions, generators largely differ in terms of how they address the various desiderata mentioned above: ClapROAR aims to preserve the classifier, i.e. to generate counterfactuals that are robust to endogenous model shifts (Altmeyer et al. 2023); CLUE searches plausible counterfactuals in the latent embedding of a generative model by explicitly minimising predictive entropy (Antorán et al. 2020); DiCE is designed to generate multiple, maximally diverse counterfactuals (Mothilal, Sharma, and Tan 2020); FeatureTweak leverages the internals of decision trees to search counterfactuals on a feature-by-feature basis, finding the counterfactual that tweaks the features in the least costly way (Tolomei et al. 2017); Gravitational aims to generate plausible and robust counterfactuals by minimising the distance to observed samples in the target class (Altmeyer et al. 2023); Greedy aims to generate plausible counterfactuals by implicitly minimising predictive uncertainty of Bayesian classifiers (Schut et al. 2021); GrowingSpheres is model-agnostic, relying solely on identifying nearest neighbours of counterfactuals in the target class by gradually increasing the search radius and then moving counterfactuals in that direction(Laugel et al. 2017); PROBE generates probabilistically robust counterfactuals (Pawelczyk et al. 2022); REVISE addresses the need for plausibility by searching counterfactuals in the latent embedding of a Variational Autoencoder (VAE) (Joshi et al. 2019); Wachter is the baseline approach that only penalises the distance to the original sample (Wachter, Mittelstadt, and Russell 2017).\n\n\n\nTable 1: Overview of implemented counterfactual generators.\n\n\n\n\n\n\n\n\n\n\n\nGenerator\nModel Type\nSearch Space\nComposable\n\n\n\n\nClaPROAR (Altmeyer et al. 2023)\ngradient based\nfeature\nyes\n\n\nCLUE (Antorán et al. 2020)\ngradient based\nlatent\nyes\n\n\nDiCE (Mothilal, Sharma, and Tan 2020)\ngradient based\nfeature\nyes\n\n\nFeatureTweak (Tolomei et al. 2017)\ntree based\nfeature\nno\n\n\nGravitational (Altmeyer et al. 2023)\ngradient based\nfeature\nyes\n\n\nGreedy (Schut et al. 2021)\ngradient based\nfeature\nyes\n\n\nGrowingSpheres (Laugel et al. 2017)\nagnostic\nfeature\nno\n\n\nPROBE (Pawelczyk et al. 2022)\ngradient based\nfeature\nno\n\n\nREVISE (Joshi et al. 2019)\ngradient based\nlatent\nyes\n\n\nWachter (Wachter, Mittelstadt, and Russell 2017)\ngradient based\nfeature\nyes"
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#data-catalogue",
@@ -81,56 +81,56 @@
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-simple",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "4.1 A Simple Generic Generator",
-    "text": "4.1 A Simple Generic Generator\nCode \\(\\ref{lst:simple}\\) below provides a complete example demonstrating how the framework presented in Section 2.2 can be implemented through our package. Using a synthetic data set with linearly separable features we first fit a linear classifier (line \\(\\ref{line:simple-class}\\)). Next, we define the target class (line \\(\\ref{line:simple-t}\\)) and then draw a random sample from the other class (line \\(\\ref{line:simple-x}\\)). Finally, we instantiate a generic generator (line \\(\\ref{line:simple-gen}\\)) and run the counterfactual search (line \\(\\ref{line:simple-search}\\)). Figure 2 illustrates the resulting counterfactual path in the two-dimensional feature space. Features go through iterative perturbations until the desired confidence level is reached as illustrated by the contour in the background, which shows the softmax output for the target class.\n\n\n\nFigure 2: Counterfactual path using generic counterfactual generator for conventional binary classifier.\n\n\nIn this simple example, the generic generator produces a valid counterfactual, since the decision boundary is crossed and the predicted label is flipped. But the counterfactual is not plausible: it does not appear to be generated by the same DGP as the observed data in the target class. This is because the generic generator does not take into account any of the desiderata mentioned in Section 2.2, except for the distance to the factual sample."
+    "text": "4.1 A Simple Generic Generator\nCode \\(\\ref{lst:simple}\\) below provides a complete example demonstrating how the framework presented in Section 2.2 can be implemented through our package. Using a synthetic data set with linearly separable features we first fit a linear classifier (line \\(\\ref{line:simple-class}\\)). Next, we define the target class (line \\(\\ref{line:simple-t}\\)) and then draw a random sample from the other class (line \\(\\ref{line:simple-x}\\)). Finally, we instantiate a generic generator (line \\(\\ref{line:simple-gen}\\)) and run the counterfactual search (line \\(\\ref{line:simple-search}\\)). Figure 2 illustrates the resulting counterfactual path in the two-dimensional feature space. Features go through iterative perturbations until the desired confidence level is reached as illustrated by the contour in the background, which shows the softmax output for the target class.\n\n\n\n\n\n\nFigure 2: Counterfactual path using generic counterfactual generator for conventional binary classifier.\n\n\n\nIn this simple example, the generic generator produces a valid counterfactual, since the decision boundary is crossed and the predicted label is flipped. But the counterfactual is not plausible: it does not appear to be generated by the same DGP as the observed data in the target class. This is because the generic generator does not take into account any of the desiderata mentioned in Section 2.2, except for the distance to the factual sample."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#sec-gen-comp",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-gen-comp",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "4.2 Composing Generators",
-    "text": "4.2 Composing Generators\nTo address these issues, we can leverage the ideas underlying some of the more advanced counterfactual generators introduced above. In particular, we will now show how easy it is to compose custom generators that blend different ideas through user-friendly macros.\nSuppose we wanted to address the desiderata of plausibility and diversity. We could do this by blending ideas underlying the DiCE generator with the REVISE generator. Formally, the corresponding search objective would be defined as follows,\n\\[\n\\mathbf{Z}^\\prime = \\arg \\min_{\\mathbf{Z}^\\prime \\in \\mathcal{Z}^{L \\times K}} \\{  {\\ell(M(f(\\mathbf{Z}^\\prime)),t)} + \\lambda \\cdot {\\text{diversity}(f(\\mathbf{Z}^\\prime)) }  \\}\n\\tag{3}\\]\nwhere \\(\\mathbf{X}^\\prime\\) is an \\(L\\)-dimensional array of counterfactuals, \\(f: \\mathcal{Z}^{L \\times K} \\mapsto \\mathcal{X}^{L \\times D}\\) is a function that maps the \\(L \\times K\\)-dimensional latent space \\(\\mathcal{Z}\\) to the \\(L \\times D\\)-dimensional feature space \\(\\mathcal{X}\\) and \\(\\text{diversity}(\\cdot)\\) is the penalty proposed by Mothilal, Sharma, and Tan (2020) that induces diverse sets of counterfactuals. As in Equation 2, \\(\\ell\\) is the loss function, \\(M\\) is the black-box model, \\(t\\) is the target class, and \\(\\lambda\\) is the strength of the penalty.\nCode \\(\\ref{lst:composed}\\) demonstrates how Equation 3 can be seamlessly translated into Julia code. We begin by instantiating a GradientBasedGenerator in line \\(\\ref{line:composed-init}\\). Next, we use chained macros for composition: firstly, we define the counterfactual search @objective corresponding to DiCE in line \\(\\ref{line:composed-dice}\\); secondly, we define the latent space search strategy corresponding to REVISE using the @search_latent_space macro in line \\(\\ref{line:composed-latent}\\); finally, we specify our prefered optimisation method using the @with_optimiser macro in line \\(\\ref{line:composed-adam}\\).\nIn this case, the counterfactual search is performed in the latent space of a Variational Autoencoder (VAE) that is automatically trained on the observed data. It is important to specify the keyword argument num_counterfactuals of the generate_counterfactual to some value higher than \\(1\\) (default), to ensure that the diversity penalty is effective. The resulting counterfactual path is shown in Figure 3 below. We observe that the resulting counterfactuals are diverse and the majority of them are plausible.\n\n\n\nFigure 3: Counterfactual path using the DiCE generator."
+    "text": "4.2 Composing Generators\nTo address these issues, we can leverage the ideas underlying some of the more advanced counterfactual generators introduced above. In particular, we will now show how easy it is to compose custom generators that blend different ideas through user-friendly macros.\nSuppose we wanted to address the desiderata of plausibility and diversity. We could do this by blending ideas underlying the DiCE generator with the REVISE generator. Formally, the corresponding search objective would be defined as follows,\n\\[\n\\mathbf{Z}^\\prime = \\arg \\min_{\\mathbf{Z}^\\prime \\in \\mathcal{Z}^{L \\times K}} \\{  {\\ell(M(f(\\mathbf{Z}^\\prime)),t)} + \\lambda \\cdot {\\text{diversity}(f(\\mathbf{Z}^\\prime)) }  \\}\n\\tag{3}\\]\nwhere \\(\\mathbf{X}^\\prime\\) is an \\(L\\)-dimensional array of counterfactuals, \\(f: \\mathcal{Z}^{L \\times K} \\mapsto \\mathcal{X}^{L \\times D}\\) is a function that maps the \\(L \\times K\\)-dimensional latent space \\(\\mathcal{Z}\\) to the \\(L \\times D\\)-dimensional feature space \\(\\mathcal{X}\\) and \\(\\text{diversity}(\\cdot)\\) is the penalty proposed by Mothilal, Sharma, and Tan (2020) that induces diverse sets of counterfactuals. As in Equation 2, \\(\\ell\\) is the loss function, \\(M\\) is the black-box model, \\(t\\) is the target class, and \\(\\lambda\\) is the strength of the penalty.\nCode \\(\\ref{lst:composed}\\) demonstrates how Equation 3 can be seamlessly translated into Julia code. We begin by instantiating a GradientBasedGenerator in line \\(\\ref{line:composed-init}\\). Next, we use chained macros for composition: firstly, we define the counterfactual search @objective corresponding to DiCE in line \\(\\ref{line:composed-dice}\\); secondly, we define the latent space search strategy corresponding to REVISE using the @search_latent_space macro in line \\(\\ref{line:composed-latent}\\); finally, we specify our prefered optimisation method using the @with_optimiser macro in line \\(\\ref{line:composed-adam}\\).\nIn this case, the counterfactual search is performed in the latent space of a Variational Autoencoder (VAE) that is automatically trained on the observed data. It is important to specify the keyword argument num_counterfactuals of the generate_counterfactual to some value higher than \\(1\\) (default), to ensure that the diversity penalty is effective. The resulting counterfactual path is shown in Figure 3 below. We observe that the resulting counterfactuals are diverse and the majority of them are plausible.\n\n\n\n\n\n\nFigure 3: Counterfactual path using the DiCE generator."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#sec-mut",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-mut",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "4.3 Mutability Constraints",
-    "text": "4.3 Mutability Constraints\nIn practice, features usually cannot be perturbed arbitrarily. Suppose, for example, that one of the features used by a bank to predict the creditworthiness of its clients is age. If a counterfactual explanation for the prediction model indicates that older clients should “grow younger” to improve their creditworthiness, then this is an interesting insight (it reveals age bias), but the provided recourse is not actionable. In such cases, we may want to constrain the mutability of features. To illustrate how this can be implemented in our package, we will continue with the example from above.\nMutability can be defined in terms of four different options: 1) the feature is mutable in both directions, 2) the feature can only increase (e.g. age), 3) the feature can only decrease (e.g. time left until your next deadline) and 4) the feature is not mutable (e.g. skin colour, ethnicity, …). To specify which category a feature belongs to, users can pass a vector of symbols containing the mutability constraints at the pre-processing stage. For each feature one can choose from these four options: :both (mutable in both directions), :increase (only up), :decrease (only down) and :none (immutable). By default, nothing is passed to that keyword argument and it is assumed that all features are mutable in both directions.6\nWe can impose that the first feature is immutable as follows: counterfactual_data.mutability = [:none, :both]. The resulting counterfactual path is shown in Figure 4 below. Since only the second feature can be perturbed, the sample can only move along the vertical axis. In this case, the counterfactual search does not yield a valid counterfactual, since the target class is not reached.\n\n\n\nFigure 4: Counterfactual path with immutable feature."
+    "text": "4.3 Mutability Constraints\nIn practice, features usually cannot be perturbed arbitrarily. Suppose, for example, that one of the features used by a bank to predict the creditworthiness of its clients is age. If a counterfactual explanation for the prediction model indicates that older clients should “grow younger” to improve their creditworthiness, then this is an interesting insight (it reveals age bias), but the provided recourse is not actionable. In such cases, we may want to constrain the mutability of features. To illustrate how this can be implemented in our package, we will continue with the example from above.\nMutability can be defined in terms of four different options: 1) the feature is mutable in both directions, 2) the feature can only increase (e.g. age), 3) the feature can only decrease (e.g. time left until your next deadline) and 4) the feature is not mutable (e.g. skin colour, ethnicity, …). To specify which category a feature belongs to, users can pass a vector of symbols containing the mutability constraints at the pre-processing stage. For each feature one can choose from these four options: :both (mutable in both directions), :increase (only up), :decrease (only down) and :none (immutable). By default, nothing is passed to that keyword argument and it is assumed that all features are mutable in both directions.6\nWe can impose that the first feature is immutable as follows: counterfactual_data.mutability = [:none, :both]. The resulting counterfactual path is shown in Figure 4 below. Since only the second feature can be perturbed, the sample can only move along the vertical axis. In this case, the counterfactual search does not yield a valid counterfactual, since the target class is not reached.\n\n\n\n\n\n\nFigure 4: Counterfactual path with immutable feature."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#sec-eval",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-eval",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "4.4 Evaluation and Benchmarking",
-    "text": "4.4 Evaluation and Benchmarking\nThe package also makes it easy to evaluate counterfactuals with respect to many of the desiderata mentioned above. For example, users may want to infer how costly the provided recourse is to individuals. To this end, we can measure the distance of the counterfactual from its original value. The API call to compute the distance metric defined in Wachter, Mittelstadt, and Russell (2017), for instance, is as simple as evaluate(ce; measure=distance_mad), where ce can also be a vector of CounterfactualExplanations.\nAdditionally, the package provides a benchmarking framework that allows users to compare the performance of different generators on a given dataset. In Figure 5 we show the results of a benchmark comparing several generators in terms of the average cost and implausibility of the generated counterfactuals. The cost is proxied by the L1-norm of the difference between the factual and counterfactual features, while implausibility is measured by the distance of the counterfactuals from samples in the target class. The results illustrate that there is a tradeoff between minimizing costs to individuals and generating plausible counterfactuals.\n\n\n\nFigure 5: Benchmarking results for different generators."
+    "text": "4.4 Evaluation and Benchmarking\nThe package also makes it easy to evaluate counterfactuals with respect to many of the desiderata mentioned above. For example, users may want to infer how costly the provided recourse is to individuals. To this end, we can measure the distance of the counterfactual from its original value. The API call to compute the distance metric defined in Wachter, Mittelstadt, and Russell (2017), for instance, is as simple as evaluate(ce; measure=distance_mad), where ce can also be a vector of CounterfactualExplanations.\nAdditionally, the package provides a benchmarking framework that allows users to compare the performance of different generators on a given dataset. In Figure 5 we show the results of a benchmark comparing several generators in terms of the average cost and implausibility of the generated counterfactuals. The cost is proxied by the L1-norm of the difference between the factual and counterfactual features, while implausibility is measured by the distance of the counterfactuals from samples in the target class. The results illustrate that there is a tradeoff between minimizing costs to individuals and generating plausible counterfactuals.\n\n\n\n\n\n\nFigure 5: Benchmarking results for different generators."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#sec-custom-mod",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-custom-mod",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "5.1 Adding Custom Models",
-    "text": "5.1 Adding Custom Models\nAt the high level, only two steps are necessary to make any supervised learning model compatible with our package:\n\n: We need to subtype the .\n: The functions and need to be extended through custom methods for the model in question.\n\nTo demonstrate how this can be done in practice, we will reiterate here how native support for Flux.jl (Innes 2018) deep learning models was enabled.7 Once again we use synthetic data for an illustrative example. Code \\(\\ref{lst:nn}\\) below builds a simple model architecture that can be used for a multi-class prediction task. Note how outputs from the final layer are not passed through a softmax activation function, since the counterfactual loss is evaluated with respect to logits as we discussed earlier. The model is trained with dropout.\nCode \\(\\ref{lst:mymodel}\\) below implements the two steps that were necessary to make Flux models compatible with the package. In line \\(\\ref{line:mymodel-subtype}\\) we declare our new struct as a subtype of AbstractDifferentiableModel, which itself is an abstract subtype of AbstractFittedModel.8 Computing logits amounts to just calling the model on inputs. Predicted probabilities for labels can be computed by passing logits through the softmax function.\nThe API call for generating counterfactuals for our new model is the same as before. Figure 6 shows the resulting counterfactual path for a randomly chosen sample. In this case, the contour shows the predicted probability that the input is in the target class (\\(t=2\\)).\n\n\n\nFigure 6: Counterfactual path using generic counterfactual generator for multi-class classifier."
+    "text": "5.1 Adding Custom Models\nAt the high level, only two steps are necessary to make any supervised learning model compatible with our package:\n\n: We need to subtype the .\n: The functions and need to be extended through custom methods for the model in question.\n\nTo demonstrate how this can be done in practice, we will reiterate here how native support for Flux.jl (Innes 2018) deep learning models was enabled.7 Once again we use synthetic data for an illustrative example. Code \\(\\ref{lst:nn}\\) below builds a simple model architecture that can be used for a multi-class prediction task. Note how outputs from the final layer are not passed through a softmax activation function, since the counterfactual loss is evaluated with respect to logits as we discussed earlier. The model is trained with dropout.\nCode \\(\\ref{lst:mymodel}\\) below implements the two steps that were necessary to make Flux models compatible with the package. In line \\(\\ref{line:mymodel-subtype}\\) we declare our new struct as a subtype of AbstractDifferentiableModel, which itself is an abstract subtype of AbstractFittedModel.8 Computing logits amounts to just calling the model on inputs. Predicted probabilities for labels can be computed by passing logits through the softmax function.\nThe API call for generating counterfactuals for our new model is the same as before. Figure 6 shows the resulting counterfactual path for a randomly chosen sample. In this case, the contour shows the predicted probability that the input is in the target class (\\(t=2\\)).\n\n\n\n\n\n\nFigure 6: Counterfactual path using generic counterfactual generator for multi-class classifier."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#sec-custom-gen",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#sec-custom-gen",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "5.2 Adding Custom Generators",
-    "text": "5.2 Adding Custom Generators\nIn some cases, composability may not be sufficient to implement specific logics underlying certain counterfactual generators. In such cases, users may want to implement custom generators. To illustrate how this can be done we will consider a simple extension of our GenericGenerator. As we have seen above, Counterfactual Explanations are not unique. In light of this, we might be interested in quantifying the uncertainty around the generated counterfactuals (Delaney, Greene, and Keane 2021). One idea could be, to use dropout to randomly switch features on and off in each iteration. Without dwelling further on the merit of this idea, we will now briefly show how this can be implemented.\n\n5.2.1 A Generator with Dropout\nCode \\(\\ref{lst:dropout}\\) below implements two important steps: 1) create an abstract subtype of the AbstractGradientBasedGenerator and 2) create a constructor with an additional field for the dropout probability.\nNext, in Code \\(\\ref{lst:generate}\\) we define how feature perturbations are generated for our custom dropout generator: in particular, we extend the relevant function through a method that implements the dropout logic.\nFinally, we proceed to generate counterfactuals in the same way we always do. The resulting counterfactual path is shown in Figure 7.\n\n\n\nFigure 7: Counterfactual path for a generator with dropout."
+    "text": "5.2 Adding Custom Generators\nIn some cases, composability may not be sufficient to implement specific logics underlying certain counterfactual generators. In such cases, users may want to implement custom generators. To illustrate how this can be done we will consider a simple extension of our GenericGenerator. As we have seen above, Counterfactual Explanations are not unique. In light of this, we might be interested in quantifying the uncertainty around the generated counterfactuals (Delaney, Greene, and Keane 2021). One idea could be, to use dropout to randomly switch features on and off in each iteration. Without dwelling further on the merit of this idea, we will now briefly show how this can be implemented.\n\n5.2.1 A Generator with Dropout\nCode \\(\\ref{lst:dropout}\\) below implements two important steps: 1) create an abstract subtype of the AbstractGradientBasedGenerator and 2) create a constructor with an additional field for the dropout probability.\nNext, in Code \\(\\ref{lst:generate}\\) we define how feature perturbations are generated for our custom dropout generator: in particular, we extend the relevant function through a method that implements the dropout logic.\nFinally, we proceed to generate counterfactuals in the same way we always do. The resulting counterfactual path is shown in Figure 7.\n\n\n\n\n\n\nFigure 7: Counterfactual path for a generator with dropout."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#give-me-some-credit",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#give-me-some-credit",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "6.1 Give Me Some Credit",
-    "text": "6.1 Give Me Some Credit\nThe Give Me Some Credit dataset is one of the tabular real-world datasets that ship with the package (Kaggle 2011). It can be used to train a binary classifier to predict whether a borrower is likely to experience financial difficulties in the next two years. In particular, we have an output variable \\(y \\in \\{0=\\texttt{no stress},1=\\texttt{stress}\\}\\) and a feature matrix \\(X\\) that includes socio-demographic variables like age and income. A retail bank might use such a classifier to determine if potential borrowers should receive credit or not.\nFor the classification task, we use a Multi-Layer Perceptron with dropout regularization. Using the Gravitational generator (Altmeyer et al. 2023) we will generate counterfactuals for ten randomly chosen individuals that would be denied credit based on our pre-trained model. Concerning the mutability of features, we only impose that the age cannot be decreased.\nFigure 8 shows the resulting counterfactuals proposed by Wachter in the two-dimensional feature space spanned by the age and income variables. An increase in income and age is recommended for the majority of individuals, which seems plausible: both age and income are typically positively related to creditworthiness.\n\n\n\nFigure 8: Give Me Some Credit: counterfactuals for would-be borrowers proposed by the Gravitational Generator."
+    "text": "6.1 Give Me Some Credit\nThe Give Me Some Credit dataset is one of the tabular real-world datasets that ship with the package (Kaggle 2011). It can be used to train a binary classifier to predict whether a borrower is likely to experience financial difficulties in the next two years. In particular, we have an output variable \\(y \\in \\{0=\\texttt{no stress},1=\\texttt{stress}\\}\\) and a feature matrix \\(X\\) that includes socio-demographic variables like age and income. A retail bank might use such a classifier to determine if potential borrowers should receive credit or not.\nFor the classification task, we use a Multi-Layer Perceptron with dropout regularization. Using the Gravitational generator (Altmeyer et al. 2023) we will generate counterfactuals for ten randomly chosen individuals that would be denied credit based on our pre-trained model. Concerning the mutability of features, we only impose that the age cannot be decreased.\nFigure 8 shows the resulting counterfactuals proposed by Wachter in the two-dimensional feature space spanned by the age and income variables. An increase in income and age is recommended for the majority of individuals, which seems plausible: both age and income are typically positively related to creditworthiness.\n\n\n\n\n\n\nFigure 8: Give Me Some Credit: counterfactuals for would-be borrowers proposed by the Gravitational Generator."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#mnist",
     "href": "examples/juliacon/counterfactual-explanations/paper.html#mnist",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "6.2 MNIST",
-    "text": "6.2 MNIST\nFor our second example, we will look at image data. The MNIST dataset contains 60,000 training samples of handwritten digits in the form of 28x28 pixel grey-scale images (LeCun 1998). Each image is associated with a label indicating the digit (0-9) that the image represents. The data makes for an interesting case study of CE because humans have a good idea of what plausible counterfactuals of digits look like. For example, if you were asked to pick up an eraser and turn the digit in the left panel of Figure 9 into a four (4) you would know exactly what to do: just erase the top part.\nOn the model side, we will use a simple multi-layer perceptron (MLP). Code \\(\\ref{lst:mnist-setup}\\) loads the data and the pre-trained MLP. It also loads two pre-trained Variational Auto-Encoders, which will be used by our counterfactual generator of choice for this task: REVISE.\nThe proposed counterfactuals are shown in Figure 9. In the case in which REVISE has access to an expressive VAE (centre), the result looks convincing: the perturbed image does look like it represents a four (4). In terms of explainability, we may conclude that removing the top part of the handwritten nine (9) leads the black-box model to predict that the perturbed image represents a four (4). We should note, however, that the quality of counterfactuals produced by REVISE hinges on the performance of the underlying generative model, as demonstrated by the result on the right. In this case, REVISE uses a weak VAE and the resulting counterfactual is invalid. In light of this, we recommend using Latent Space search with care.\n\n\n\nFigure 9: Counterfactual explanations for MNIST using a Latent Space generator: turning a nine (9) into a four (4)."
+    "text": "6.2 MNIST\nFor our second example, we will look at image data. The MNIST dataset contains 60,000 training samples of handwritten digits in the form of 28x28 pixel grey-scale images (LeCun 1998). Each image is associated with a label indicating the digit (0-9) that the image represents. The data makes for an interesting case study of CE because humans have a good idea of what plausible counterfactuals of digits look like. For example, if you were asked to pick up an eraser and turn the digit in the left panel of Figure 9 into a four (4) you would know exactly what to do: just erase the top part.\nOn the model side, we will use a simple multi-layer perceptron (MLP). Code \\(\\ref{lst:mnist-setup}\\) loads the data and the pre-trained MLP. It also loads two pre-trained Variational Auto-Encoders, which will be used by our counterfactual generator of choice for this task: REVISE.\nThe proposed counterfactuals are shown in Figure 9. In the case in which REVISE has access to an expressive VAE (centre), the result looks convincing: the perturbed image does look like it represents a four (4). In terms of explainability, we may conclude that removing the top part of the handwritten nine (9) leads the black-box model to predict that the perturbed image represents a four (4). We should note, however, that the quality of counterfactuals produced by REVISE hinges on the performance of the underlying generative model, as demonstrated by the result on the right. In this case, REVISE uses a weak VAE and the resulting counterfactual is invalid. In light of this, we recommend using Latent Space search with care.\n\n\n\n\n\n\nFigure 9: Counterfactual explanations for MNIST using a Latent Space generator: turning a nine (9) into a four (4)."
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/paper.html#candidate-models-and-generators",
@@ -158,107 +158,104 @@
     "href": "examples/basic_formats/article/index.html",
     "title": "HTML Article",
     "section": "",
-    "text": "This Quarto notebook generates Julia-themed output."
+    "text": "This Quarto notebook generates Julia-themed output.",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
     "objectID": "examples/basic_formats/article/index.html#introduction",
     "href": "examples/basic_formats/article/index.html#introduction",
     "title": "HTML Article",
     "section": "",
-    "text": "This Quarto notebook generates Julia-themed output."
+    "text": "This Quarto notebook generates Julia-themed output.",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
-    "objectID": "examples/basic_formats/article/index.html#details",
-    "href": "examples/basic_formats/article/index.html#details",
+    "objectID": "examples/basic_formats/article/index.html#fonts",
+    "href": "examples/basic_formats/article/index.html#fonts",
     "title": "HTML Article",
-    "section": "Details",
-    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
-  },
-  {
-    "objectID": "examples/basic_formats/article/index.html#font",
-    "href": "examples/basic_formats/article/index.html#font",
-    "title": "HTML Article",
-    "section": "Font",
-    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for all headers and code.\nThe Roboto font, which is used as the default font for everything else (just like on julialang.org/).\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
-  },
-  {
-    "objectID": "examples/basic_formats/article/index.html#colors",
-    "href": "examples/basic_formats/article/index.html#colors",
-    "title": "HTML Article",
-    "section": "Colors",
-    "text": "Colors"
+    "section": "Fonts",
+    "text": "Fonts\n\nThe theme uses the JuliaMono font for monospace text and code.\nFor headers and blockquotes, the theme uses the Barlow font.\nFor all other text, the theme uses the Roboto font, just like the Julia website.\nAlso available is the Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it.",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
     "objectID": "examples/basic_formats/article/index.html#code",
     "href": "examples/basic_formats/article/index.html#code",
     "title": "HTML Article",
     "section": "Code",
-    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
-  },
-  {
-    "objectID": "examples/basic_formats/article/index.html#math",
-    "href": "examples/basic_formats/article/index.html#math",
-    "title": "HTML Article",
-    "section": "Math",
-    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+    "text": "Code\nInline code looks like this print(\"hello 🌍\"). Code blocks look like this (Revealjs not affected):\nusing CounterfactualExplanations, TaijaData\n\n# Data and Classifier:\ncounterfactual_data = CounterfactualData(load_linearly_separable()...)\nM = fit_model(counterfactual_data, :Linear)\n\n# Select random sample:\ntarget = 2\nfactual = 1\nchosen = rand(findall(predict_label(M, counterfactual_data) .== factual))\nx = select_factual(counterfactual_data, chosen)\n\n# Counterfactual search:\ngenerator = GenericGenerator()\nce = generate_counterfactual(x, target, counterfactual_data, M, generator)",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
     "objectID": "examples/basic_formats/article/index.html#callouts",
     "href": "examples/basic_formats/article/index.html#callouts",
     "title": "HTML Article",
     "section": "Callouts",
-    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an important callout in julia_red."
+    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\n\nThis is a note in julia_blue. Note that for Revealjs, icons are deactivated for callouts by default.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is a warning in julia_purple (lighter).\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an important callout in julia_red.",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#details",
-    "href": "examples/basic_formats/revealjs/presentation.html#details",
-    "title": "Revealjs Presentation",
-    "section": "Details",
-    "text": "Details\nThe quarto-julia theme is based on the default theme and adds various custom formatting options."
+    "objectID": "examples/basic_formats/article/index.html#maths",
+    "href": "examples/basic_formats/article/index.html#maths",
+    "title": "HTML Article",
+    "section": "Maths",
+    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual.",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
   },
   {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#font",
-    "href": "examples/basic_formats/revealjs/presentation.html#font",
+    "objectID": "examples/basic_formats/revealjs/presentation.html#fonts",
+    "href": "examples/basic_formats/revealjs/presentation.html#fonts",
     "title": "Revealjs Presentation",
-    "section": "Font",
-    "text": "Font\nThe theme imports three font faces:\n\nThe JuliaMono font, which by default is used for all headers and code.\nThe Roboto font, which is used as the default font for everything else (just like on julialang.org/).\nThe Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\nThe Bangla MN can be used to style individual elements like so:\n&lt;p style=\"font-family: Bangla MN\"&gt;\n    Some fancy text.\n&lt;/p&gt;\n\nSome fancy text.\n\n\n\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
-  },
-  {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#colors",
-    "href": "examples/basic_formats/revealjs/presentation.html#colors",
-    "title": "Revealjs Presentation",
-    "section": "Colors",
-    "text": "Colors"
+    "section": "Fonts",
+    "text": "Fonts\n\nThe theme uses the JuliaMono font for monospace text and code.\nFor headers and blockquotes, the theme uses the Barlow font.\nFor all other text, the theme uses the Roboto font, just like the Julia website.\nAlso available is the Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
   },
   {
     "objectID": "examples/basic_formats/revealjs/presentation.html#code",
     "href": "examples/basic_formats/revealjs/presentation.html#code",
     "title": "Revealjs Presentation",
     "section": "Code",
-    "text": "Code\nInline code looks like this print(\"hello 🌍\").\nCode chunks looks like this:\n# lifted from: https://github.com/mossr/BeautifulAlgorithms.jl/blob/master/src/neural_network.jl\n\nusing LinearAlgebra\n\nReLU(z) = max(z, 0)\n\nfunction neural_network(x, 𝐕, 𝐰, φ, g=ReLU)\n    𝐡 = map(𝐯ⱼ -&gt; g(𝐯ⱼ ⋅ φ(x)), 𝐕)\n    𝐰 ⋅ 𝐡\nend"
-  },
-  {
-    "objectID": "examples/basic_formats/revealjs/presentation.html#math",
-    "href": "examples/basic_formats/revealjs/presentation.html#math",
-    "title": "Revealjs Presentation",
-    "section": "Math",
-    "text": "Math\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+    "text": "Code\nInline code looks like this print(\"hello 🌍\"). Code blocks look like this (Revealjs not affected):\nusing CounterfactualExplanations, TaijaData\n\n# Data and Classifier:\ncounterfactual_data = CounterfactualData(load_linearly_separable()...)\nM = fit_model(counterfactual_data, :Linear)\n\n# Select random sample:\ntarget = 2\nfactual = 1\nchosen = rand(findall(predict_label(M, counterfactual_data) .== factual))\nx = select_factual(counterfactual_data, chosen)\n\n# Counterfactual search:\ngenerator = GenericGenerator()\nce = generate_counterfactual(x, target, counterfactual_data, M, generator)"
   },
   {
     "objectID": "examples/basic_formats/revealjs/presentation.html#callouts",
     "href": "examples/basic_formats/revealjs/presentation.html#callouts",
     "title": "Revealjs Presentation",
     "section": "Callouts",
-    "text": "Callouts\n\n\n\n\n\n\nNote\n\n\nThis is a note in julia_blue.\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+    "text": "Callouts\n\n\n\nNote\n\n\nThis is a note in julia_blue. Note that for Revealjs, icons are deactivated for callouts by default.\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple (lighter).\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Julia-themed Quarto",
+    "objectID": "examples/basic_formats/revealjs/presentation.html#maths",
+    "href": "examples/basic_formats/revealjs/presentation.html#maths",
+    "title": "Revealjs Presentation",
+    "section": "Maths",
+    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+  },
+  {
+    "objectID": "examples/contribute.html",
+    "href": "examples/contribute.html",
+    "title": "Showcase Your Work",
     "section": "",
-    "text": "This website presents output from various Quarto extensions for Julia.\n\n\nThe quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.\n\n\n\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.\n\n\n\nThis website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.\n\n\n\nA full list of examples can be found in the examples section.\n\n\n\nIf you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute here.",
+    "text": "Showcase Your Work\nIf you have a project that you’ve built using one of our extensions, we’d love to feature it in our showcase. Sharing your work here is easy, especially if you’re already familiar with Quarto. Just follow the steps below to submit your project.\n\nFork this repository.\nSet up a new branch in your fork with the name showcase/your-project-name.\nIn the examples/contributed (or one of the subdirectories), create a new directory with the name of your project.\n(Optionally) If you want to host your project on this website, add your project files to the directory you just created. This should include any Quarto files, images, or other assets that are necessary to build your project.\nAdd an index.qmd file to the directory you just created. This file should include a brief description of your project and a link to the actual project.\nIn the YAML header of your index.qmd file, include the following metadata:\n\ntitle: The title of your project.\ndescription: A brief description of your project.\nauthor: Your name.\ndate: The date you’re submitting your project.\ncategories: A list of categories that your project falls under (e.g. “JuliaCon 2024”, “Presentation”)\n\n\nYour project will automatically be included in the showcase once your pull request is merged. If you have any questions or need help, feel free to open an issue. We’re happy to help!",
     "crumbs": [
-      "Home"
+      "Examples",
+      "Contribute your Work"
     ]
   },
   {
@@ -284,6 +281,47 @@
     ]
   },
   {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
+    "title": "Quarto Extensions for the Julia Community",
+    "section": "",
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
+    "title": "Quarto Extensions for the Julia Community",
+    "section": "",
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "This website presents output from various Quarto extensions for Julia.\n\n\nThe quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.\n\n\n\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.\n\n\n\nThis website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.\n\n\n\nA full list of examples can be found in the examples section.\n\n\n\nIf you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute here.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#contribute",
+    "href": "index.html#contribute",
+    "title": "Julia-themed Quarto",
+    "section": "",
+    "text": "If you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute here.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/index.html",
+    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/index.html",
+    "title": "💰 Trillion Dollar Words in Julia",
+    "section": "",
+    "text": "TrillionDollarWorlds.jl provides access to a novel financial dataset and large language model fine-tuned for classifying central bank communications as either ‘hawkish’, ‘dovish’ or ‘neutral’. It ships with essential functionality for model probing, an important aspect of mechanistic interpretability. This package will be presented at JuliaCon 2024.\n\nCome back soon for the presentation slides!"
+  },
+  {
     "objectID": "examples/index.html",
     "href": "examples/index.html",
     "title": "Showcase",
@@ -299,14 +337,22 @@
     "href": "examples/basic_formats/revealjs/index.html",
     "title": "Revealjs Presentation",
     "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen.",
+    "crumbs": [
+      "Available Formats",
+      "Revealjs Presentation"
+    ]
   },
   {
     "objectID": "examples/basic_formats/revealjs/index.html#introduction",
     "href": "examples/basic_formats/revealjs/index.html#introduction",
     "title": "Revealjs Presentation",
     "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen.",
+    "crumbs": [
+      "Available Formats",
+      "Revealjs Presentation"
+    ]
   },
   {
     "objectID": "examples/juliacon/index.html",
@@ -349,259 +395,38 @@
     "href": "examples/juliacon/counterfactual-explanations/index.html",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "",
-    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see blow). To open the different version in full screen instead use the following links: HTML | PDF."
+    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see blow). To open the different version in full screen instead use the following links: HTML | PDF.",
+    "crumbs": [
+      "Available Formats",
+      "PDF",
+      "Example Articles",
+      "Explaining Black-Box Models through Counterfactuals"
+    ]
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/index.html#pdf",
     "href": "examples/juliacon/counterfactual-explanations/index.html#pdf",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "PDF",
-    "text": "PDF"
+    "text": "PDF",
+    "crumbs": [
+      "Available Formats",
+      "PDF",
+      "Example Articles",
+      "Explaining Black-Box Models through Counterfactuals"
+    ]
   },
   {
     "objectID": "examples/juliacon/counterfactual-explanations/index.html#html",
     "href": "examples/juliacon/counterfactual-explanations/index.html#html",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "HTML",
-    "text": "HTML"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
-    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
-    "title": "Quarto Extensions for the Julia Community",
-    "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
-    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
-    "title": "Quarto Extensions for the Julia Community",
-    "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
-  },
-  {
-    "objectID": "index.html#basic-formats",
-    "href": "index.html#basic-formats",
-    "title": "Julia-themed Quarto",
-    "section": "",
-    "text": "The quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.",
+    "text": "HTML",
     "crumbs": [
-      "Home"
+      "Available Formats",
+      "PDF",
+      "Example Articles",
+      "Explaining Black-Box Models through Counterfactuals"
     ]
-  },
-  {
-    "objectID": "index.html#juliacon-proceedings",
-    "href": "index.html#juliacon-proceedings",
-    "title": "Julia-themed Quarto",
-    "section": "",
-    "text": "The quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#documenter.jl",
-    "href": "index.html#documenter.jl",
-    "title": "Julia-themed Quarto",
-    "section": "",
-    "text": "This website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#other-examples",
-    "href": "index.html#other-examples",
-    "title": "Julia-themed Quarto",
-    "section": "",
-    "text": "A full list of examples can be found in the examples section.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "Julia-themed Quarto",
-    "section": "",
-    "text": "The quarto-julia extension contributes various basic format templates and is also used to style this website. You can find basic examples of the available formats here and here.\n\n\n\nThe quarto-juliacon-proceedings extension adds support for writing a JuliaCon Proceedings article in Quarto. Find out more about in this section.\n\n\n\nThis website also includes a section on the marriage of Quarto and Documenter.jl. This has not yet been turned into a fully-fledged extension but we provide guides for common workflows that facilitate this marriage.\n\n\n\nA full list of examples can be found in the examples section.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#contribute",
-    "href": "index.html#contribute",
-    "title": "Julia-themed Quarto",
-    "section": "",
-    "text": "If you have used one of our extensions, showcasing it here is easy! Find out more about how to contribute here.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "contribute.html",
-    "href": "contribute.html",
-    "title": "Showcase Your Work",
-    "section": "",
-    "text": "Showcase Your Work\nIf you have a project that you’ve built using one of our extensions, we’d love to feature it in our showcase."
-  },
-  {
-    "objectID": "examples/contribute.html",
-    "href": "examples/contribute.html",
-    "title": "Showcase Your Work",
-    "section": "",
-    "text": "Showcase Your Work\nIf you have a project that you’ve built using one of our extensions, we’d love to feature it in our showcase. Sharing your work here is easy, especially if you’re already familiar with Quarto. Just follow the steps below to submit your project.\n\nFork this repository.\nSet up a new branch in your fork with the name showcase/your-project-name.\nIn the examples/contributed (or one of the subdirectories), create a new directory with the name of your project.\n(Optionally) If you want to host your project on this website, add your project files to the directory you just created. This should include any Quarto files, images, or other assets that are necessary to build your project.\nAdd an index.qmd file to the directory you just created. This file should include a brief description of your project and a link to the actual project.\nIn the YAML header of your index.qmd file, include the following metadata:\n\ntitle: The title of your project.\ndescription: A brief description of your project.\nauthor: Your name.\ndate: The date you’re submitting your project.\ncategories: A list of categories that your project falls under (e.g. “JuliaCon 2024”, “Presentation”)\n\n\nYour project will automatically be included in the showcase once your pull request is merged. If you have any questions or need help, feel free to open an issue. We’re happy to help!",
-    "crumbs": [
-      "Examples",
-      "Contribute your Work"
-    ]
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/index.html",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/index.html",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "",
-    "text": "TrillionDollarWorlds.jl provides access to a novel financial dataset and large language model fine-tuned for classifying central bank communications as either ‘hawkish’, ‘dovish’ or ‘neutral’. It ships with essential functionality for model probing, an important aspect of mechanistic interpretability. This package will be presented at JuliaCon 2024.\n\nCome back soon for the presentation slides!"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#motivation",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#motivation",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Motivation",
-    "text": "Motivation\n\n\\(A_1\\): \\(enc(\\)„It is essential to bring inflation back to target to avoid drifting into deflation territory.“\\()\\)\n\\(A_2\\): \\(enc(\\)„It is essential to bring the numbers of doves back to target to avoid drifting into dovelation territory.“\\()\\)"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#motivation-1",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#motivation-1",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Motivation",
-    "text": "Motivation\n\n\n\n\\(A_1\\): \\(enc(\\)„It is essential to bring inflation back to target to avoid drifting into deflation territory.“\\()\\)\n\\(A_2\\): \\(enc(\\)„It is essential to bring the numbers of doves back to target to avoid drifting into dovelation territory.“\\()\\)\n\n\n“They’re exactly the same.”\n— Linear probe \\(\\widehat{cpi}=f(A)\\)"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#position",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#position",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Position",
-    "text": "Position\n\nCurrent LLMs embed knowledge. They don‘t „understand“ anything. They are useful tools, but tools nonetheless.\n\n\n\nMeaningful patterns in embeddings are like doves in the sky.\nHumans are prone to seek patterns and anthropomorphize.\nObserved ‘sparks’ of Artificial General Intelligence are spurious.\nThe academic community should exercise extra caution.\nPublishing incentives need to be adjusted."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#outline",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#outline",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Outline",
-    "text": "Outline\n\n\nExperiments: We probe models of varying complexity including random projections, matrix decompositions, deep autoencoders and transformers.\n\nAll of them successfully distill knowledge and yet none of them develop true understanding.\n\nSocial sciences review: Humans are prone to seek patterns and anthropomorphize.\nConclusion and outlook: More caution at the individual level, and different incentives at the institutional level."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#the-holy-grail",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#the-holy-grail",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "The Holy Grail",
-    "text": "The Holy Grail\nAchievement of Artificial General Intelligence (AGI) has become a grand challenge, and in some cases, an explicit business goal.\n\n\nDefinition\nThe definition of AGI itself is not as clear-cut or consistent:\n\n(loosely) a phenomenon contrasting with ‘narrow AI’ systems, that were trained for specific tasks [@goertzel2014artificial].\n\n\nPractice\nResearchers have sought to show that AI models generalize to different (and possibly unseen) tasks or show performance considered ‘surprising’ to humans.\n\nFor example, Google DeepMind claimed their AlphaGeometry model [@trinh2024geometry] reached a ‘milestone’ towards AGI."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#a-perfect-storm",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#a-perfect-storm",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "A Perfect Storm",
-    "text": "A Perfect Storm\nRecent developments in the field have created a ‘perfect storm’ for inflated claims:\n\n\nEarly sharing of preprints and code.\nVolume of publishable work has exploded.\nSocial media influencers start playing a role in article discovery and citeability [@weissburg2024tweets].\nComplexity is increasing because it is incentivized [@values_in_ML]."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#not-mere-stochastic-parrots",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#not-mere-stochastic-parrots",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "“Not Mere Stochastic Parrots”",
-    "text": "“Not Mere Stochastic Parrots”\n\nWe consider a recently viral work [@gurnee2023languagev1], in which claims about the learning of world models by LLMs were made.\n\nLinear probes (ridge regression) were successfully used to predict geographical locations from LLM embeddings.\n\nClaims on X that this indicates that LLMs are not mere ‘stochastic parrots’ [@bender2021dangers].\nReactions on X seemed to largely exhibit excitement and surprise at the authors’ findings."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#are-neural-networks-born-with-world-models",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#are-neural-networks-born-with-world-models",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Are Neural Networks Born with World Models?",
-    "text": "Are Neural Networks Born with World Models?\n\n\n\nLlama-2 model tested in @gurnee2023languagev2 has ingested huge amounts of publicly available data [@touvron2023llama].\n\nGeographical locations are literally in the training data: e.g. Wikipedia article for “London”.\nWhere would this information be encoded if not in the embedding space \\(\\mathcal{A}\\)? Is it surprising that \\(A_{\\text{LDN}}=enc(\\text{\"London\"}) \\not\\!\\perp\\!\\!\\!\\perp (\\text{lat}_{\\text{LDN}},\\text{long}_{\\text{LDN}})\\)?\n\nFigure 1 shows the predicted coordinates of a linear probe on the final-layer activations of an untrained neural network.\n\n\n\n\n\n\n\n\nFigure 1: Predicted coordinate values (out-of-sample) from a linear probe on final-layer activations of an untrained neural network.\n\n\n\n\nModel has seen noisy coordinates plus \\(d\\) random features.\nSingle hidden layer with \\(h &lt; d\\) hidden units."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#pca-as-a-yield-curve-interpreter",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#pca-as-a-yield-curve-interpreter",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "PCA as a Yield Curve Interpreter",
-    "text": "PCA as a Yield Curve Interpreter\nWhat are principal components if not model embeddings?\n\n\n\n\n\n\nFigure 2: Top chart: The first two principal components of US Treasury yields over time at daily frequency. Bottom chart: Observed average level and 10yr-3mo spread of the yield curve. Vertical stalks roughly indicate the onset (|GFC) and the beginning of the aftermath (GFC|) of the Global Financial Crisis."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#autoencoders-as-economic-growth-predictors",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#autoencoders-as-economic-growth-predictors",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Autoencoders as Economic Growth Predictors",
-    "text": "Autoencoders as Economic Growth Predictors\n\n\n\nWe train a neural network with a bottleneck layer to predict GDP growth from the yield curve Figure 3.\n\nInput: UST yields at different maturities.\nHidden layer, bottleneck layer, hidden layer.\nOutput: GDP growth.\n\nCan we use this for more than just forecasting?\n\n\n\n\n\n\n\n\nFigure 3: Simple autoencoder architecture."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#autoencoders-as-economic-growth-predictors-1",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#autoencoders-as-economic-growth-predictors-1",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Autoencoders as Economic Growth Predictors",
-    "text": "Autoencoders as Economic Growth Predictors\n\nYes, this can be used for feature extraction and forecasting:\n\nBottle-neck layer embeddings predict spread and level of the yield curve.\n\n\n\n\n\n\n\n\nFigure 4: The left chart shows the actual GDP growth and fitted values from the autoencoder model. The right chart shows the observed average level and spread of the yield curve (solid) along with the predicted values (in-sample) from the linear probe based on the latent embeddings (dashed)"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#embedding-fomc-comms",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#embedding-fomc-comms",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Embedding FOMC comms",
-    "text": "Embedding FOMC comms\n\nBERT-based model trained on FOMC minutes, speeches and press conferences to classify statements as hawkish or dovish (or neutral) [@shah2023trillion].\nWe linearly probe all layers to predict unseen economic indicators (CPI, PPI, UST yields).\nPredictive power increases with layer depth and probes outperform simple AR(\\(p\\)) models.\n\n\n\n\n\n\n\nFigure 5: Out-of-sample root mean squared error (RMSE) for the linear probe plotted against FOMC-RoBERTa’s n-th layer for different indicators."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#sparks-of-economic-understanding",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#sparks-of-economic-understanding",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Sparks of Economic Understanding?",
-    "text": "Sparks of Economic Understanding?\nPremise: If probe results were indicative of some intrinsic ‘understanding’ of the economy, then the probe should not be sensitive to random sentences unrelated to economics.\nParrot Test\n\nSelect the best-performing probe for each economic indicator.\nPredict inflation levels for real (related) and perturbed (unrelated) sentences.\n\n\n\n\n\n\n\nFigure 6: Probe predictions for sentences about inflation of prices (IP), deflation of prices (DP), inflation of birds (IB) and deflation of birds (DB). The vertical axis shows predicted inflation levels subtracted by the average predicted value of the probe for random noise.\n\n\n\nAs evidenced by Figure 6, the probe is easily fooled."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#spurious-relationships",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#spurious-relationships",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Spurious Relationships",
-    "text": "Spurious Relationships\nDefiniton: Varies somewhat [@haig2003spurious] but distinctly implies that the observation of correlations does not imply causation.\n\nHumans struggle to tell the difference between random and non-random sequences [@falk1997making].\nLack of expectation that randomness that hints towards a causal relationship will still appear at random.\nEven experts perceive correlations of inflated magnitude [@nickerson1998confirmation] and causal relationships where none exist [@zgraggen2018investigating]."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#antropomorphism",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#antropomorphism",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Antropomorphism",
-    "text": "Antropomorphism\nDefinition: Human tendency to attribute human-like characteristics to non-human agents and/or objects.\n\nExperience as humans is an always-readily-available template to interpret the world [@epley2007seeing].\nMotivation to avoid loneliness may lead us to anthropomorphize inanimate objects [@epley2007seeing,@waytz2010social].\nMotivation to be competent may lead us anthropomorphize opaque technologies like LLMs [@epley2007seeing,@waytz2010social]"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#confirmation-bias",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#confirmation-bias",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Confirmation Bias",
-    "text": "Confirmation Bias\nDefinition: Favoring interpretations of evidence that support existing beliefs or hypotheses [@nickerson1998confirmation].\n\nHypotheses in present-day AI research are often implicit, often framed simply as a system being more accurate or efficient, compared to other systems.\n\nFailing to articulate a sufficiently strong null hypothesis leading to a ‘weak’ experiment [@claesen2022severity].\n\nIndividuals may place greater emphasis on evidence in support of their hypothesis, and lesser emphasis on evidence that opposes it [@nickerson1998confirmation]."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#conclusion-and-outlook",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#conclusion-and-outlook",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Conclusion and Outlook",
-    "text": "Conclusion and Outlook\n\nWe call for the community to create explicit room for organized skepticism\n\nWelcome negative results\nEncouraging replication studies.\nMove from authorship to contribution-based credit (see e.g. Liem and Demetriou, 2023 and Smith, 1997).\n\nReturn to the Mertonian norms (communism, universalism, disinterestedness, organized skepticism) [@merton1942science]."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#references",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#references",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "References",
-    "text": "References"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#image-sources",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#image-sources",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Image sources",
-    "text": "Image sources\n\nLeonardo DiCaprio: Meme template by user on Reddit\nTarot cards: Photo by Viva Luna Studios on Unsplash\nWall-E: Photo by ray rui on Unsplash"
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#quote-sources",
-    "href": "examples/contributed/juliacon_2024/trillion_dollar_words/presentation.html#quote-sources",
-    "title": "💰 Trillion Dollar Words in Julia",
-    "section": "Quote sources",
-    "text": "Quote sources\n\n“There! It’s sentient”—that engineer at Google (probably!)\n“The human mind is a pattern-seeking device”—Daniel Kahneman\n“We’re fascinated with robots because they are reflections of ourselves.”—Ken Goldberg"
   }
 ]
