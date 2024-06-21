@@ -13,19 +13,137 @@ execute:
 
 ::::{.columns}::::
 :::{.column width='50%'}
-1. What is Quarto?
-2. [Julia-themed Quarto: Simple Extensions](#sec-simple)
-3. Quarto for Documentation
-4. Quarto for JuliaCon Proceedings
+1. What is [Quarto](#sec-quarto)?
+2. Julia-themed Quarto: [Simple Extensions](#sec-simple)
+3. Quarto for [Documentation](#sec-docs)
+4. Quarto for [JuliaCon Proceedings](#sec-proceedings)
 :::
 :::{.column width='50%'}
 ![](www/poster.png){fig-align="center" height="400"}
 :::
 ::::
 
+# What is Quarto? {#sec-quarto .nostretch}
+
 # Julia-themed Quarto {#sec-simple .nostretch} 
 
-![](www/julia_quarto.gif){fig-align="center"}
+::::{.columns}::::
+:::{.column width='50%'}
+Simple Quarto extensions that add a Julia-themed touch to your documents. 
+
+
+:::
+:::{.column width='50%'}
+![](www/julia_quarto.gif){fig-align="center" height="400"}
+:::
+::::
+
+## Getting Started
+
+To install the Julia-themed Quarto extensions, run:
+
+```shell
+quarto add pat-alt/quarto-julia
+```
+
+::::{.columns}::::
+:::{.column width='50%'}
+
+### Formats
+
+- HTML (articles) 
+- Revealjs (presentations)
+- LaTeX only through `quarto-juliacon-proceedings` (more on that later)
+  
+:::
+:::{.column width='50%'}
+
+### Usage
+
+Simply adjust the YAML front matter of your document:
+
+```yaml
+title: Julia-themed Quarto
+format:
+  julia-html: default
+  julia-revealjs: 
+    scrollable: true
+author: pat-alt
+date: last-modified
+```
+
+:::
+::::
+
+## Fonts {.smaller}
+
+1. The theme uses the [JuliaMono](https://juliamono.netlify.app/) font for `monospace` text and `code`.
+2. For headers and blockquotes, the theme uses the [Barlow](https://tribby.com/fonts/barlow/){style="font-family: Barlow;"} font. 
+3. For all other text, the theme uses the [Roboto](https://fonts.google.com/specimen/Roboto){style="font-family: Roboto;"} font, just like the Julia [website](https://julialang.org/). 
+4. Also available is the [Bangla MN](https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d){style="font-family: Bangla MN;"} by Muthu Nedumaran of [Murasu Systems](http://murasu.com/), which is closely related to the official Julia [logo font](https://github.com/JuliaLang/julia-logo-graphics#about-the-font).
+
+::: {.callout-caution}
+
+## Bangla MN Copyright
+
+This Bangla MN font is copyrighted by MN, so make sure you are allowed to use it. 
+:::
+
+## Code
+
+Inline code looks like this `print("hello 🌍")`. Code blocks look like [this](https://www.patalt.org/quarto-julia-website/examples/basic_formats/article/#code) (Revealjs not affected):
+
+```{.julia}
+using CounterfactualExplanations, TaijaData
+
+# Data and Classifier:
+counterfactual_data = CounterfactualData(load_linearly_separable()...)
+M = fit_model(counterfactual_data, :Linear)
+
+# Select random sample:
+target = 2
+factual = 1
+chosen = rand(findall(predict_label(M, counterfactual_data) .== factual))
+x = select_factual(counterfactual_data, chosen)
+
+# Counterfactual search:
+generator = GenericGenerator()
+ce = generate_counterfactual(x, target, counterfactual_data, M, generator)
+```
+
+## Callouts {.smaller}
+
+::: {.callout-note}
+
+# Note
+
+This is a note in [julia_blue]{class="julia-blue"}. Note that for Revealjs, icons are deactivated for callouts by default.
+
+:::
+
+::: {.callout-tip}
+
+# Tip
+
+This is a tip in [julia_green]{class="julia-green"}.
+
+:::
+
+::: {.callout-caution}
+
+# Caution
+
+This is a caution callout in [julia_purple]{class="julia-purple"}.
+
+:::
+
+::: {.callout-important}
+
+# Important
+
+This is an important callout in [julia_red]{class="julia-red"}.
+
+:::
 
 # Documentation {#sec-docs}
 
@@ -44,7 +162,7 @@ Tutorials that are
 - reproducible
 - run on CI (cached)
 
-## General Workflow
+## General Workflow {.smaller}
 
 - write tutorials (`.qmd`) for a package in `tutorials/`
 - run them when generating the documentation
@@ -73,7 +191,7 @@ M = Sphere(2)
 ```
 ````
 
-## Workflow II: Quarto
+## Workflow II: Quarto {.smaller}
 
 Put a `_quarto.yml` file in `tutorials/` with
 
@@ -96,7 +214,7 @@ Last line: Exclude for example benchmark from general runs.
 
 . . .
 
-### Tipp
+### Tip
 
 Use the [Quarto VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) and `Quarto Preview` while writing a tutorial
 
@@ -121,9 +239,7 @@ CondaPkg.withenv() do
 end
 ````
 
-
-
-## Workflow IV: GitHub Action
+## Workflow IV: GitHub Action {.smaller}
 
 ````{.yaml}
 - name: Cache Quarto
@@ -155,7 +271,7 @@ This sets up Caches for the folders
 Cached, reproducible Tutorials that integrate with `Documenter.jl`.
 
 
-## Comments
+## Comments {.smaller}
 
 Running `make.jl` from shell, one can
 
@@ -174,7 +290,7 @@ Running `make.jl` from shell, one can
   These have to be “escaped” ``` `[A](@ref B)`{=commonmark} ``` to stay unmodified
 - Due to pandoc: for now write math in `$...$` and not ``` ``...`` ```
 
-## Summary
+## Summary {.smaller}
 
 Quarto notebooks allow for an easy way to have tutorials
 
@@ -195,3 +311,5 @@ See [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) for a
 - the [`QuartoNotebookRunner.jl`](https://github.com/PumasAI/QuartoNotebookRunner.jl)
   should provide native rendering in pure Julia
 - Pluto notebooks might be used as [input there as well](https://github.com/PumasAI/QuartoNotebookRunner.jl/issues/125)
+
+# JuliaCon Proceedings {#sec-proceedings}

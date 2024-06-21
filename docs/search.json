@@ -448,7 +448,7 @@
     "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-quarto",
     "title": "Quarto Extensions",
     "section": "Workflow II: Quarto",
-    "text": "Workflow II: Quarto\nPut a _quarto.yml file in tutorials/ with\nproject:\n  title: \"My Tutorials\"\n  output-dir: ../docs/src/tutorials\n  render:\n    - \"*.qmd\"\n    - \"!NotThisFile.qmd\"\nLast line: Exclude for example benchmark from general runs.\n\n\nquarto render filename.qmd to render a certain one\nquarto render in tutorials/ to generate aøø but the !-excluded ones\ntutorials/_freeze is a Cache: only renders if file has been changed.\n\n\n\nTipp\nUse the Quarto VS Code extension and Quarto Preview while writing a tutorial"
+    "text": "Workflow II: Quarto\nPut a _quarto.yml file in tutorials/ with\nproject:\n  title: \"My Tutorials\"\n  output-dir: ../docs/src/tutorials\n  render:\n    - \"*.qmd\"\n    - \"!NotThisFile.qmd\"\nLast line: Exclude for example benchmark from general runs.\n\n\nquarto render filename.qmd to render a certain one\nquarto render in tutorials/ to generate aøø but the !-excluded ones\ntutorials/_freeze is a Cache: only renders if file has been changed.\n\n\n\nTip\nUse the Quarto VS Code extension and Quarto Preview while writing a tutorial"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
@@ -477,5 +477,40 @@
     "title": "Quarto Extensions",
     "section": "Summary",
     "text": "Summary\nQuarto notebooks allow for an easy way to have tutorials\n\nexecuted code\nreproducible\ncached and rendered on CI\ninegrated (with @ref links in Documenter.jl)\nciting (with [citekey](@cite) and DocumenterCitations.jl)\nextended referencing (@extref and DocumenterInterLinks.jl)\n\nSee Manopt.jl: Optimize for a full example, rendered from here\n\nSoon\n\nthe QuartoNotebookRunner.jl should provide native rendering in pure Julia\nPluto notebooks might be used as input there as well"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started",
+    "title": "Quarto Extensions",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo install the Julia-themed Quarto extensions, run:\nquarto add pat-alt/quarto-julia\n\n\nFormats\n\nHTML (articles)\nRevealjs (presentations)\nLaTeX only through quarto-juliacon-proceedings (more on that later)\n\n\nUsage\nSimply adjust the YAML front matter of your document:\ntitle: Julia-themed Quarto\nformat:\n  julia-html: default\n  julia-revealjs: \n    scrollable: true\nauthor: pat-alt\ndate: last-modified"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#features",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#features",
+    "title": "Quarto Extensions",
+    "section": "Features",
+    "text": "Features"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#fonts",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#fonts",
+    "title": "Quarto Extensions",
+    "section": "Fonts",
+    "text": "Fonts\n\nThe theme uses the JuliaMono font for monospace text and code.\nFor headers and blockquotes, the theme uses the Barlow font.\nFor all other text, the theme uses the Roboto font, just like the Julia website.\nAlso available is the Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font.\n\n\n\n\nBangla MN Copyright\n\n\nThis Bangla MN font is copyrighted by MN, so make sure you are allowed to use it."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#code",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#code",
+    "title": "Quarto Extensions",
+    "section": "Code",
+    "text": "Code\nInline code looks like this print(\"hello 🌍\"). Code blocks look like this (Revealjs not affected):\nusing CounterfactualExplanations, TaijaData\n\n# Data and Classifier:\ncounterfactual_data = CounterfactualData(load_linearly_separable()...)\nM = fit_model(counterfactual_data, :Linear)\n\n# Select random sample:\ntarget = 2\nfactual = 1\nchosen = rand(findall(predict_label(M, counterfactual_data) .== factual))\nx = select_factual(counterfactual_data, chosen)\n\n# Counterfactual search:\ngenerator = GenericGenerator()\nce = generate_counterfactual(x, target, counterfactual_data, M, generator)"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#callouts",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#callouts",
+    "title": "Quarto Extensions",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\nNote\n\n\nThis is a note in julia_blue. Note that for Revealjs, icons are deactivated for callouts by default.\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
   }
 ]
