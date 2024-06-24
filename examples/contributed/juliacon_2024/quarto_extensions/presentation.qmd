@@ -121,7 +121,7 @@ generator = GenericGenerator()
 ce = generate_counterfactual(x, target, counterfactual_data, M, generator)
 ```
 
-## Callouts 
+## Callouts
 
 ::: {.callout-note}
 
@@ -172,13 +172,24 @@ This is an important callout in [julia_red]{class="julia-red"}.
 :::
 ::::
 
+# Documentation {#sec-docs .nostretch}
 
+::::{.columns}::::
+:::{.column width='80%'}
+Write tutorials in Quarto that fully integrate into the rendered documenation.
+:::
+:::{.column width='20%'}
+:::
+::::
 
-
-
-
-
-# Documentation {#sec-docs}
+::::{.columns}::::
+:::{.column width='80%'}
+:::
+:::{.column width='20%' .smaller}
+![](www/manopt_logo.png){fig-align="center"}
+[`Manopt.jl`](https://manoptjl.org)
+:::
+::::
 
 ## Goals
 
@@ -195,13 +206,17 @@ Tutorials that are
 - reproducible
 - run on CI (cached)
 
-## General Workflow {.smaller}
+## General Workflow
 
-- write tutorials (`.qmd`) for a package in `tutorials/`
-- run them when generating the documentation
-- should render them into `docs/src/tutorials/` (as `.md`)
+::::{.columns}::::
+:::{.column width='55%'}
 
-### An Example
+1. write tutorials (`.qmd`) for a package in `tutorials/`
+2. run their code when generating the documentation
+3. render them (as `.md`) into `docs/src/tutorials/`
+
+:::
+:::{.column width='45%'}
 
 ````{markdown}
 ---
@@ -210,46 +225,61 @@ title: "A short example"
 
 ```{{julia}}
 #| echo: false
-#| code-fold: true
 #| output: false
-cd(@__DIR__);
-using Pkg; Pkg.activate("."); # oen reproducible environment
+cd(@__DIR__); # activate env.
+using Pkg; Pkg.activate(".");
 ```
 
-First, load all necessary packages
+Let's start with loading
+necessary packages
 
 ```{{julia}}
 using Manopt, Manifolds
 M = Sphere(2)
 ```
+
+and then we continue with [...]
 ````
+:::
+::::
 
-## Workflow II: Quarto {.smaller}
+## Workflow II: Configure Quarto
 
-Put a `_quarto.yml` file in `tutorials/` with
+::::{.columns}::::
+:::{.column width='45%'}
 
-```{YAML}
+`_quarto.yml` in `tutorials/`:
+
+- one file: <br> `quarto render file.qmd`
+- `quarto render` in `tutorials/` renders all but `!`
+- cached in `tutorials/_freeze`
+
+:::
+:::{.column width='50%'}
+
+```{.yaml}
 project:
   title: "My Tutorials"
   output-dir: ../docs/src/tutorials
-  render:
+  render: # specify some
     - "*.qmd"
     - "!NotThisFile.qmd"
+
+format: #specify to render to md
+  commonmark:
+    variant: -tex_math_dollars
+    wrap: preserve
 ```
 
-Last line: Exclude for example benchmark from general runs.
-
-. . .
-
-- `quarto render filename.qmd` to render a certain one
-- `quarto render` in `tutorials/` to generate aøø but the `!`-excluded ones
-- `tutorials/_freeze` is a Cache: only renders if file has been changed.
-
-. . .
+(!! Break here? !!)
 
 ### Tip
 
-Use the [Quarto VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) and `Quarto Preview` while writing a tutorial
+Use the <br>[Quarto VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) <br> and `Quarto Preview`
+
+:::
+::::
+
 
 
 ## Workflow III: Documenter
@@ -264,7 +294,7 @@ python = "3.11"
 
 And include rendering the tutorials in your `make.jl`
 
-````{{julia}}
+````{.julia}
 using CondaPkg
 CondaPkg.withenv() do
     tutorials_folder = (@__DIR__) * "/../tutorials"
@@ -272,74 +302,57 @@ CondaPkg.withenv() do
 end
 ````
 
-## Workflow IV: GitHub Action {.smaller}
+## Workflow IV: GitHub Action
 
+On CI: Set up caches:
 ````{.yaml}
 - name: Cache Quarto
   uses: actions/cache@v4
   with:
-    path: tutorials/_freeze
+    path: tutorials/_freeze # Quarto Cache
     key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}
     restore-keys: |
       ${{ runner.os }}-${{ env.cache-name }}-
 - name: Cache Documenter
   uses: actions/cache@v4
   with:
-    path: docs/src/tutorials
+    path: docs/src/tutorials # Cache rendered tutorials
     key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}
     restore-keys: |
       ${{ runner.os }}-${{ env.cache-name }}-
 ````
 
-This sets up Caches for the folders
-
-- `docs/src/tutorials` rendered Markdown files
-- `tutorials/_freeze` Quarto Cache
-- one could also cache `docs/.CondaPkg` to reduce loading Python packages
-
 . . .
 
 #### There we are!
 
-Cached, reproducible Tutorials that integrate with `Documenter.jl`.
+Cached, reproducible tutorials within `Documenter.jl`.
 
-
-## Comments {.smaller}
-
-Running `make.jl` from shell, one can
-
-- (de)activate running Quarto
-- (de)activate generting the tutorials menu (locally)
-- clear cache
-
-. . .
-
-### Challenges
+## Challenges
 
 - Cache vs. breaking versions of the package
-- Recommendation: Maybe print Package versions
-- Quarto replaces spaces in markdown links ``[A](@ref B)`` with ``[A](@ref%20B)``.
+- Recommendation: Maybe print package versions
+- Quarto replaces spaces in markdown links
+  <br> ``[A](@ref B)`` with ``[A](@ref%20B)``.
 
-  These have to be “escaped” ``` `[A](@ref B)`{=commonmark} ``` to stay unmodified
-- Due to pandoc: for now write math in `$...$` and not ``` ``...`` ```
+  These have to be “escaped”:
+  <br> ``` `[A](@ref B)`{=commonmark} ```
+- Due to pandoc:<br> for now write math in `$...$` and not ``` ``...`` ```
 
-## Documenter Summary {.smaller}
+## Documenter Summary
 
-Quarto notebooks allow for an easy way to have tutorials
 
-- executed code
-- reproducible
+- tutorials with reproducible, executed code
 - cached and rendered on CI
-- inegrated (with `@ref` links in `Documenter.jl`)
-- citing (with `[citekey](@cite)` and [`DocumenterCitations.jl`](https://github.com/JuliaDocs/DocumenterCitations.jl))
-- extended referencing (`@extref` and [`DocumenterInterLinks.jl`](https://github.com/JuliaDocs/DocumenterInterLinks.jl))
+- inegrated: we can use
+  - `@ref` from `Documenter.jl`
+  - `[citekey](@cite)` from [`DocumenterCitations.jl`](https://github.com/JuliaDocs/DocumenterCitations.jl)
+  - `@extref` from [`DocumenterInterLinks.jl`](https://github.com/JuliaDocs/DocumenterInterLinks.jl)
 
-See [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) for a full example, rendered from
-[here](https://github.com/JuliaManifolds/Manopt.jl/blob/master/tutorials/Optimize.qmd)
+- Full example: [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) | [source](https://github.com/JuliaManifolds/Manopt.jl/blob/master/tutorials/Optimize.qmd)
+- longer tutorial at [Julia Forem](https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo)
 
-. . .
-
-### Soon
+## Outlook / Soon
 
 - the [`QuartoNotebookRunner.jl`](https://github.com/PumasAI/QuartoNotebookRunner.jl)
   should provide native rendering in pure Julia
