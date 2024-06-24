@@ -10,7 +10,7 @@ execute:
 bibliography: bib.bib
 ---
 
-# Overview {.nostretch} 
+# Overview {.nostretch}
 
 ::::{.columns}::::
 :::{.column width='50%'}
@@ -30,13 +30,13 @@ bibliography: bib.bib
 
 - It is based on Markdown, which is easy to learn and write.
 
-- Very flexible and can be extended with custom templates and styles. 
+- Very flexible and can be extended with custom templates and styles.
 
-# Julia-themed Quarto {#sec-simple .nostretch} 
+# Julia-themed Quarto {#sec-simple .nostretch}
 
 ::::{.columns}::::
 :::{.column width='50%'}
-Simple Quarto extension that adds a Julia-themed touch to your documents. 
+Simple Quarto extension that adds a Julia-themed touch to your documents.
 
 > Extensions are a powerful way to modify and extend the behavior of Quarto.
 :::
@@ -58,10 +58,9 @@ quarto add pat-alt/quarto-julia
 
 ### Formats
 
-- HTML (articles) 
+- HTML (articles)
 - Revealjs (presentations)
-- LaTeX only through `quarto-juliacon-proceedings` (more on that later)
-  
+
 :::
 :::{.column width='50%'}
 
@@ -73,7 +72,7 @@ Simply adjust the YAML front matter of your document:
 title: Julia-themed Quarto
 format:
   julia-html: default
-  julia-revealjs: 
+  julia-revealjs:
     scrollable: true
 author: pat-alt
 date: last-modified
@@ -85,15 +84,15 @@ date: last-modified
 ## Fonts {.smaller}
 
 1. The theme uses the [JuliaMono](https://juliamono.netlify.app/) font for `monospace` text and `code`.
-2. For headers and blockquotes, the theme uses the [Barlow](https://tribby.com/fonts/barlow/){style="font-family: Barlow;"} font. 
-3. For all other text, the theme uses the [Roboto](https://fonts.google.com/specimen/Roboto){style="font-family: Roboto;"} font, just like the Julia [website](https://julialang.org/). 
+2. For headers and blockquotes, the theme uses the [Barlow](https://tribby.com/fonts/barlow/){style="font-family: Barlow;"} font.
+3. For all other text, the theme uses the [Roboto](https://fonts.google.com/specimen/Roboto){style="font-family: Roboto;"} font, just like the Julia [website](https://julialang.org/).
 4. Also available is the [Bangla MN](https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d){style="font-family: Bangla MN;"} by Muthu Nedumaran of [Murasu Systems](http://murasu.com/), which is closely related to the official Julia [logo font](https://github.com/JuliaLang/julia-logo-graphics#about-the-font).
 
 ::: {.callout-caution}
 
 ## Bangla MN Copyright
 
-This Bangla MN font is copyrighted by MN, so make sure you are allowed to use it. 
+This Bangla MN font is copyrighted by MN, so make sure you are allowed to use it.
 :::
 
 ## Code
@@ -297,7 +296,7 @@ Running `make.jl` from shell, one can
   These have to be “escaped” ``` `[A](@ref B)`{=commonmark} ``` to stay unmodified
 - Due to pandoc: for now write math in `$...$` and not ``` ``...`` ```
 
-## Summary {.smaller}
+## Documenter Summary {.smaller}
 
 Quarto notebooks allow for an easy way to have tutorials
 
@@ -323,7 +322,7 @@ See [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) for a
 
 ::::{.columns}::::
 :::{.column width='60%'}
-The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto. 
+The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto.
 :::
 :::{.column width='40%'}
 :::
@@ -338,7 +337,7 @@ The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-pro
 ::::
 
 
-## Getting Started 
+## Getting Started
 
 To install the [JuliaCon Proceedings extension](https://github.com/pat-alt/quarto-juliacon-proceedings), run:
 
@@ -353,7 +352,7 @@ quarto add pat-alt/quarto-juliacon-proceedings
 
 # Disclaimer
 
-PDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team. 
+PDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team.
 
 See this [issue](https://github.com/JuliaCon/JuliaConSubmission.jl/issues/36).
 
@@ -362,17 +361,19 @@ See this [issue](https://github.com/JuliaCon/JuliaConSubmission.jl/issues/36).
 :::{.column width='60%'}
 Supports both PDF and HTML:
 
-```yaml
+```{.yaml}
+---
 title: JuliaCon Proceedings in Quarto
 format:
   juliacon-proceedings-pdf:
-    keep-tex: true  
+    keep-tex: true
   juliacon-proceedings-html: default
 author:
   - name: Patrick Altmeyer
     affiliations:
       - Delft University of Technology
     orcid: 0000-0003-4726-8613
+---
 ```
 :::
 ::::
@@ -385,7 +386,7 @@ author:
     - Executable code blocks serve as a form of testing.
     - Same document can be rendered into HTML, PDF, ...
 - Easier for authors to write their submissions.
-- Gateway to more advanced features such as interactive figures and executable code blocks in HTML documents. 
+- Gateway to more advanced features such as interactive figures and executable code blocks in HTML documents.
 
 ## Showcase
 
@@ -405,5 +406,3 @@ The following two example articles were rendered using the extension:
 ::::
 
 ## References {.smaller}
-
-
