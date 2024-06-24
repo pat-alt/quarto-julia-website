@@ -178,13 +178,6 @@ This is an important callout in [julia_red]{class="julia-red"}.
 :::{.column width='80%'}
 Write tutorials in Quarto that fully integrate into the rendered documenation.
 :::
-:::{.column width='20%'}
-:::
-::::
-
-::::{.columns}::::
-:::{.column width='80%'}
-:::
 :::{.column width='20%' .smaller}
 ![](www/manopt_logo.png){fig-align="center"}
 [`Manopt.jl`](https://manoptjl.org)
