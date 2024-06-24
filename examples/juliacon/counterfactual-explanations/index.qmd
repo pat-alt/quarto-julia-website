@@ -2,7 +2,7 @@
 title: Explaining Black-Box Models through Counterfactuals
 ---
 
-The paper has been re-rendered using the [quarto-juliacon-proceedings]() extension (see blow). To open the different version in full screen instead use the following links: [HTML](paper.html){target="_blank"} | [PDF](paper.pdf){target="_blank"}.
+The paper has been re-rendered using the [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension (see below). To open the different version in full screen instead use the following links: [HTML](paper.html){target="_blank"} | [PDF](paper.pdf){target="_blank"}.
 
 ## PDF
 
