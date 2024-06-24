@@ -535,64 +535,58 @@ Ronny Bergmann
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>quarto add pat-alt/quarto-julia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="formats">Formats</h3>
+<h3 id="usage">Usage</h3>
+<p>Simply adjust the Quarto header of your document:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="pp">---</span></span>
+<span id="cb2-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Julia-themed Quarto</span></span>
+<span id="cb2-3"><a></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">julia-html</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">julia-revealjs</span><span class="kw">:</span></span>
+<span id="cb2-6"><a></a><span class="at">    </span><span class="fu">scrollable</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-7"><a></a><span class="fu">author</span><span class="kw">:</span><span class="at"> pat-alt</span></span>
+<span id="cb2-8"><a></a><span class="fu">date</span><span class="kw">:</span><span class="at"> last-modified</span></span>
+<span id="cb2-9"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h3 id="available-formats">Available Formats</h3>
 <ul>
 <li>HTML (articles)</li>
 <li>Revealjs (presentations)</li>
-<li>LaTeX only through <code>quarto-juliacon-proceedings</code> (more on that later)</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<h3 id="usage">Usage</h3>
-<p>Simply adjust the YAML front matter of your document:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Julia-themed Quarto</span></span>
-<span id="cb2-2"><a></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">julia-html</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">julia-revealjs</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-5"><a></a><span class="at">    </span><span class="fu">scrollable</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-6"><a></a><span class="fu">author</span><span class="kw">:</span><span class="at"> pat-alt</span></span>
-<span id="cb2-7"><a></a><span class="fu">date</span><span class="kw">:</span><span class="at"> last-modified</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="preview-and-render">Preview and Render</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>quarto preview yourdoc.qmd</span>
+<span id="cb3-2"><a></a>quarto render yourdoc.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="fonts" class="slide level2 smaller scrollable">
+<section id="fonts" class="slide level2 scrollable">
 <h2>Fonts</h2>
 <ol type="1">
-<li>The theme uses the <a href="https://juliamono.netlify.app/">JuliaMono</a> font for <code>monospace</code> text and <code>code</code>.</li>
-<li>For headers and blockquotes, the theme uses the <a href="https://tribby.com/fonts/barlow/" style="font-family: Barlow;">Barlow</a> font.</li>
-<li>For all other text, the theme uses the <a href="https://fonts.google.com/specimen/Roboto" style="font-family: Roboto;">Roboto</a> font, just like the Julia <a href="https://julialang.org/">website</a>.</li>
-<li>Also available is the <a href="https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d" style="font-family: Bangla MN;">Bangla MN</a> by Muthu Nedumaran of <a href="http://murasu.com/">Murasu Systems</a>, which is closely related to the official Julia <a href="https://github.com/JuliaLang/julia-logo-graphics#about-the-font">logo font</a>.</li>
+<li><a href="https://juliamono.netlify.app/">JuliaMono</a> font for <code>monospace</code> text and <code>code</code>.</li>
+<li><a href="https://tribby.com/fonts/barlow/" style="font-family: Barlow;">Barlow</a> font for headers and blockquotes (thanks <a href="https://github.com/cormullion">@cormullion</a>).</li>
+<li><a href="https://fonts.google.com/specimen/Roboto" style="font-family: Roboto;">Roboto</a> font for everything else.</li>
+<li>Also available is <a href="https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d" style="font-family: Bangla MN;">Bangla MN</a> by Muthu Nedumaran of <a href="http://murasu.com/">Murasu Systems</a>, which is closely related to the official <span style="font-family: Bangla MN;">Julia</span> logo <a href="https://github.com/JuliaLang/julia-logo-graphics#about-the-font">font</a>.</li>
 </ol>
-<div class="callout callout-caution no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Bangla MN Copyright</strong></p>
-</div>
-<div class="callout-content">
-<p>This Bangla MN font is copyrighted by MN, so make sure you are allowed to use it.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="code" class="slide level2">
 <h2>Code</h2>
 <p>Inline code looks like this <code>print("hello 🌍")</code>. Code blocks look like <a href="https://www.patalt.org/quarto-julia-website/examples/basic_formats/article/#code">this</a> (Revealjs not affected):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a></a><span class="im">using</span> <span class="bu">CounterfactualExplanations</span>, <span class="bu">TaijaData</span></span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="co"># Data and Classifier:</span></span>
-<span id="cb3-4"><a></a>counterfactual_data <span class="op">=</span> <span class="fu">CounterfactualData</span>(<span class="fu">load_linearly_separable</span>()<span class="op">...</span>)</span>
-<span id="cb3-5"><a></a>M <span class="op">=</span> <span class="fu">fit_model</span>(counterfactual_data, <span class="op">:</span>Linear)</span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a><span class="co"># Select random sample:</span></span>
-<span id="cb3-8"><a></a>target <span class="op">=</span> <span class="fl">2</span></span>
-<span id="cb3-9"><a></a>factual <span class="op">=</span> <span class="fl">1</span></span>
-<span id="cb3-10"><a></a>chosen <span class="op">=</span> <span class="fu">rand</span>(<span class="fu">findall</span>(<span class="fu">predict_label</span>(M, counterfactual_data) <span class="op">.==</span> factual))</span>
-<span id="cb3-11"><a></a>x <span class="op">=</span> <span class="fu">select_factual</span>(counterfactual_data, chosen)</span>
-<span id="cb3-12"><a></a></span>
-<span id="cb3-13"><a></a><span class="co"># Counterfactual search:</span></span>
-<span id="cb3-14"><a></a>generator <span class="op">=</span> <span class="fu">GenericGenerator</span>()</span>
-<span id="cb3-15"><a></a>ce <span class="op">=</span> <span class="fu">generate_counterfactual</span>(x, target, counterfactual_data, M, generator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a></a><span class="im">using</span> <span class="bu">CounterfactualExplanations</span>, <span class="bu">TaijaData</span></span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="co"># Data and Classifier:</span></span>
+<span id="cb4-4"><a></a>counterfactual_data <span class="op">=</span> <span class="fu">CounterfactualData</span>(<span class="fu">load_linearly_separable</span>()<span class="op">...</span>)</span>
+<span id="cb4-5"><a></a>M <span class="op">=</span> <span class="fu">fit_model</span>(counterfactual_data, <span class="op">:</span>Linear)</span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a><span class="co"># Select random sample:</span></span>
+<span id="cb4-8"><a></a>target <span class="op">=</span> <span class="fl">2</span></span>
+<span id="cb4-9"><a></a>factual <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb4-10"><a></a>chosen <span class="op">=</span> <span class="fu">rand</span>(<span class="fu">findall</span>(<span class="fu">predict_label</span>(M, counterfactual_data) <span class="op">.==</span> factual))</span>
+<span id="cb4-11"><a></a>x <span class="op">=</span> <span class="fu">select_factual</span>(counterfactual_data, chosen)</span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a><span class="co"># Counterfactual search:</span></span>
+<span id="cb4-14"><a></a>generator <span class="op">=</span> <span class="fu">GenericGenerator</span>()</span>
+<span id="cb4-15"><a></a>ce <span class="op">=</span> <span class="fu">generate_counterfactual</span>(x, target, counterfactual_data, M, generator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="callouts" class="slide level2 smaller">
+<section id="callouts" class="slide level2">
 <h2>Callouts</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -600,10 +594,12 @@ Ronny Bergmann
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>This is a note in <span class="julia-blue">julia_blue</span>. Note that for Revealjs, icons are deactivated for callouts by default.</p>
+<p>This is a note in <span class="julia-blue">julia_blue</span>. Icons are deactivated in Revealjs.</p>
 </div>
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -624,6 +620,17 @@ Ronny Bergmann
 </div>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>This is a warning in <span class="julia-purple">julia_purple</span>.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -631,6 +638,8 @@ Ronny Bergmann
 </div>
 <div class="callout-content">
 <p>This is an important callout in <span class="julia-red">julia_red</span>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -667,34 +676,34 @@ Ronny Bergmann
 <li>should render them into <code>docs/src/tutorials/</code> (as <code>.md</code>)</li>
 </ul>
 <h3 id="an-example">An Example</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown {markdown} number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a><span class="co">---</span></span>
-<span id="cb4-2"><a></a><span class="an">title:</span><span class="co"> "A short example"</span></span>
-<span id="cb4-3"><a></a><span class="co">---</span></span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="in">```{julia}</span></span>
-<span id="cb4-6"><a></a><span class="in">#| echo: false</span></span>
-<span id="cb4-7"><a></a><span class="in">#| code-fold: true</span></span>
-<span id="cb4-8"><a></a><span class="in">#| output: false</span></span>
-<span id="cb4-9"><a></a><span class="in">cd(@__DIR__);</span></span>
-<span id="cb4-10"><a></a><span class="in">using Pkg; Pkg.activate("."); # oen reproducible environment</span></span>
-<span id="cb4-11"><a></a><span class="in">```</span></span>
-<span id="cb4-12"><a></a></span>
-<span id="cb4-13"><a></a>First, load all necessary packages</span>
-<span id="cb4-14"><a></a></span>
-<span id="cb4-15"><a></a><span class="in">```{julia}</span></span>
-<span id="cb4-16"><a></a><span class="in">using Manopt, Manifolds</span></span>
-<span id="cb4-17"><a></a><span class="in">M = Sphere(2)</span></span>
-<span id="cb4-18"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown {markdown} number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a><span class="co">---</span></span>
+<span id="cb5-2"><a></a><span class="an">title:</span><span class="co"> "A short example"</span></span>
+<span id="cb5-3"><a></a><span class="co">---</span></span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="in">```{julia}</span></span>
+<span id="cb5-6"><a></a><span class="in">#| echo: false</span></span>
+<span id="cb5-7"><a></a><span class="in">#| code-fold: true</span></span>
+<span id="cb5-8"><a></a><span class="in">#| output: false</span></span>
+<span id="cb5-9"><a></a><span class="in">cd(@__DIR__);</span></span>
+<span id="cb5-10"><a></a><span class="in">using Pkg; Pkg.activate("."); # oen reproducible environment</span></span>
+<span id="cb5-11"><a></a><span class="in">```</span></span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a>First, load all necessary packages</span>
+<span id="cb5-14"><a></a></span>
+<span id="cb5-15"><a></a><span class="in">```{julia}</span></span>
+<span id="cb5-16"><a></a><span class="in">using Manopt, Manifolds</span></span>
+<span id="cb5-17"><a></a><span class="in">M = Sphere(2)</span></span>
+<span id="cb5-18"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="workflow-ii-quarto" class="slide level2 smaller">
 <h2>Workflow II: Quarto</h2>
 <p>Put a <code>_quarto.yml</code> file in <code>tutorials/</code> with</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {YAML} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>project:</span>
-<span id="cb5-2"><a></a>  title: "My Tutorials"</span>
-<span id="cb5-3"><a></a>  output-dir: ../docs/src/tutorials</span>
-<span id="cb5-4"><a></a>  render:</span>
-<span id="cb5-5"><a></a>    - "*.qmd"</span>
-<span id="cb5-6"><a></a>    - "!NotThisFile.qmd"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {YAML} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>project:</span>
+<span id="cb6-2"><a></a>  title: "My Tutorials"</span>
+<span id="cb6-3"><a></a>  output-dir: ../docs/src/tutorials</span>
+<span id="cb6-4"><a></a>  render:</span>
+<span id="cb6-5"><a></a>    - "*.qmd"</span>
+<span id="cb6-6"><a></a>    - "!NotThisFile.qmd"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Last line: Exclude for example benchmark from general runs.</p>
 <div class="fragment">
 <ul>
@@ -713,34 +722,34 @@ Ronny Bergmann
 <ul>
 <li>Use <code>CondaPkg.jl</code> to handle/install Python, creating a <code>CondaPkg.toml</code> specifying the Python version</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {toml} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>[deps]</span>
-<span id="cb6-2"><a></a>jupyter = ""</span>
-<span id="cb6-3"><a></a>python = "3.11"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {toml} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a></a>[deps]</span>
+<span id="cb7-2"><a></a>jupyter = ""</span>
+<span id="cb7-3"><a></a>python = "3.11"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And include rendering the tutorials in your <code>make.jl</code></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a></a><span class="in">```{julia}</span></span>
-<span id="cb7-2"><a></a><span class="in">using CondaPkg</span></span>
-<span id="cb7-3"><a></a><span class="in">CondaPkg.withenv() do</span></span>
-<span id="cb7-4"><a></a><span class="in">    tutorials_folder = (@__DIR__) * "/../tutorials"</span></span>
-<span id="cb7-5"><a></a><span class="in">    run(`quarto render $(tutorials_folder)`)</span></span>
-<span id="cb7-6"><a></a><span class="in">end</span></span>
-<span id="cb7-7"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="in">```{julia}</span></span>
+<span id="cb8-2"><a></a><span class="in">using CondaPkg</span></span>
+<span id="cb8-3"><a></a><span class="in">CondaPkg.withenv() do</span></span>
+<span id="cb8-4"><a></a><span class="in">    tutorials_folder = (@__DIR__) * "/../tutorials"</span></span>
+<span id="cb8-5"><a></a><span class="in">    run(`quarto render $(tutorials_folder)`)</span></span>
+<span id="cb8-6"><a></a><span class="in">end</span></span>
+<span id="cb8-7"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="workflow-iv-github-action" class="slide level2 smaller">
 <h2>Workflow IV: GitHub Action</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Quarto</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
-<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-4"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> tutorials/_freeze</span></span>
-<span id="cb8-5"><a></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}</span></span>
-<span id="cb8-6"><a></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb8-7"><a></a>      ${{ runner.os }}-${{ env.cache-name }}-</span>
-<span id="cb8-8"><a></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Documenter</span></span>
-<span id="cb8-9"><a></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
-<span id="cb8-10"><a></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb8-11"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/src/tutorials</span></span>
-<span id="cb8-12"><a></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}</span></span>
-<span id="cb8-13"><a></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb8-14"><a></a>      ${{ runner.os }}-${{ env.cache-name }}-</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Quarto</span></span>
+<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
+<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb9-4"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> tutorials/_freeze</span></span>
+<span id="cb9-5"><a></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}</span></span>
+<span id="cb9-6"><a></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb9-7"><a></a>      ${{ runner.os }}-${{ env.cache-name }}-</span>
+<span id="cb9-8"><a></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Documenter</span></span>
+<span id="cb9-9"><a></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
+<span id="cb9-10"><a></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb9-11"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/src/tutorials</span></span>
+<span id="cb9-12"><a></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}</span></span>
+<span id="cb9-13"><a></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb9-14"><a></a>      ${{ runner.os }}-${{ env.cache-name }}-</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This sets up Caches for the folders</p>
 <ul>
 <li><code>docs/src/tutorials</code> rendered Markdown files</li>
@@ -771,8 +780,8 @@ Ronny Bergmann
 </ul>
 </div>
 </section>
-<section id="summary" class="slide level2 smaller">
-<h2>Summary</h2>
+<section id="documenter-summary" class="slide level2 smaller">
+<h2>Documenter Summary</h2>
 <p>Quarto notebooks allow for an easy way to have tutorials</p>
 <ul>
 <li>executed code</li>
@@ -816,7 +825,7 @@ Ronny Bergmann
 <section id="getting-started-1" class="slide level2">
 <h2>Getting Started</h2>
 <p>To install the <a href="https://github.com/pat-alt/quarto-juliacon-proceedings">JuliaCon Proceedings extension</a>, run:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a></a>quarto add pat-alt/quarto-juliacon-proceedings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>quarto add pat-alt/quarto-juliacon-proceedings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="callout callout-caution no-icon callout-titled callout-style-default">
@@ -832,31 +841,36 @@ Ronny Bergmann
 </div>
 </div><div class="column" style="width:60%;">
 <p>Supports both PDF and HTML:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> JuliaCon Proceedings in Quarto</span></span>
-<span id="cb10-2"><a></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">juliacon-proceedings-pdf</span><span class="kw">:</span></span>
-<span id="cb10-4"><a></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="at">  </span></span>
-<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">juliacon-proceedings-html</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb10-6"><a></a><span class="fu">author</span><span class="kw">:</span></span>
-<span id="cb10-7"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Patrick Altmeyer</span></span>
-<span id="cb10-8"><a></a><span class="at">    </span><span class="fu">affiliations</span><span class="kw">:</span></span>
-<span id="cb10-9"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> Delft University of Technology</span></span>
-<span id="cb10-10"><a></a><span class="at">    </span><span class="fu">orcid</span><span class="kw">:</span><span class="at"> 0000-0003-4726-8613</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a></a><span class="pp">---</span></span>
+<span id="cb11-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> JuliaCon Proceedings in Quarto</span></span>
+<span id="cb11-3"><a></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb11-4"><a></a><span class="at">  </span><span class="fu">juliacon-proceedings-pdf</span><span class="kw">:</span></span>
+<span id="cb11-5"><a></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-6"><a></a><span class="at">  </span><span class="fu">juliacon-proceedings-html</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb11-7"><a></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb11-8"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Patrick Altmeyer</span></span>
+<span id="cb11-9"><a></a><span class="at">    </span><span class="fu">affiliations</span><span class="kw">:</span></span>
+<span id="cb11-10"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> Delft University of Technology</span></span>
+<span id="cb11-11"><a></a><span class="at">    </span><span class="fu">orcid</span><span class="kw">:</span><span class="at"> 0000-0003-4726-8613</span></span>
+<span id="cb11-12"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
+<p>JuliaCon Proceedings to set an example for reproducibility:</p>
 <ul>
-<li>By embracing Quarto, JuliaCon Proceedings can set an example for how to write reproducible documents.
-<ul>
-<li>Code and results are directly integrated into the document.</li>
+<li>Code, results and text in one document.</li>
 <li>Executable code blocks serve as a form of testing.</li>
 <li>Same document can be rendered into HTML, PDF, …</li>
-</ul></li>
-<li>Easier for authors to write their submissions.</li>
-<li>Gateway to more advanced features such as interactive figures and executable code blocks in HTML documents.</li>
 </ul>
+<div class="fragment">
+<p>Benefits for the authors:</p>
+<ul>
+<li>Essentially zero maintenance for the authors.</li>
+<li>LaTeX option still available for those who prefer it.</li>
+</ul>
+</div>
 </section>
 <section id="showcase" class="slide level2">
 <h2>Showcase</h2>
@@ -869,6 +883,18 @@ Ronny Bergmann
 </ul>
 </div><div class="column" style="width:50%;">
 <iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.html"></iframe>
+</div>
+</div>
+</section>
+<section id="comparison" class="slide level2">
+<h2>Comparison</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="proposed-version"><a href="../../../juliacon/counterfactual-explanations/paper.pdf" target="_blank">Proposed Version</a></h4>
+<iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.pdf"></iframe>
+</div><div class="column" style="width:50%;">
+<h4 id="published-version"><a href="https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf">Published Version</a></h4>
+<iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf"></iframe>
 </div>
 </div>
 </section>
@@ -1172,6 +1198,24 @@ Altmeyer, Patrick, Arie van Deursen, et al. 2023. <span>“Explaining Black-Box 
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+              // target, if specified
+              link.setAttribute("target", "_blank");
+              if (link.getAttribute("rel") === null) {
+                link.setAttribute("rel", "noopener");
+              }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,

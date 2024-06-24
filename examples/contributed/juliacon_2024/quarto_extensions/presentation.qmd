@@ -4,6 +4,8 @@ subtitle: for the Julia Community
 format:
   julia-revealjs:
     scrollable: true
+    preview-links: false
+    link-external-newwindow: true
 date: July 12, 2024
 execute:
   eval: false
@@ -56,19 +58,12 @@ quarto add pat-alt/quarto-julia
 ::::{.columns}::::
 :::{.column width='50%'}
 
-### Formats
-
-- HTML (articles)
-- Revealjs (presentations)
-
-:::
-:::{.column width='50%'}
-
 ### Usage
 
-Simply adjust the YAML front matter of your document:
+Simply adjust the Quarto header of your document:
 
 ```yaml
+---
 title: Julia-themed Quarto
 format:
   julia-html: default
@@ -76,24 +71,33 @@ format:
     scrollable: true
 author: pat-alt
 date: last-modified
+---
+```
+
+:::
+:::{.column width='50%'}
+
+### Available Formats
+
+- HTML (articles)
+- Revealjs (presentations)
+
+### Preview and Render
+
+```shell
+quarto preview yourdoc.qmd
+quarto render yourdoc.qmd
 ```
 
 :::
 ::::
 
-## Fonts {.smaller}
+## Fonts
 
-1. The theme uses the [JuliaMono](https://juliamono.netlify.app/) font for `monospace` text and `code`.
-2. For headers and blockquotes, the theme uses the [Barlow](https://tribby.com/fonts/barlow/){style="font-family: Barlow;"} font.
-3. For all other text, the theme uses the [Roboto](https://fonts.google.com/specimen/Roboto){style="font-family: Roboto;"} font, just like the Julia [website](https://julialang.org/).
-4. Also available is the [Bangla MN](https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d){style="font-family: Bangla MN;"} by Muthu Nedumaran of [Murasu Systems](http://murasu.com/), which is closely related to the official Julia [logo font](https://github.com/JuliaLang/julia-logo-graphics#about-the-font).
-
-::: {.callout-caution}
-
-## Bangla MN Copyright
-
-This Bangla MN font is copyrighted by MN, so make sure you are allowed to use it.
-:::
+1. [JuliaMono](https://juliamono.netlify.app/) font for `monospace` text and `code`.
+2. [Barlow](https://tribby.com/fonts/barlow/){style="font-family: Barlow;"} font for headers and blockquotes (thanks [\@cormullion](https://github.com/cormullion)).
+3. [Roboto](https://fonts.google.com/specimen/Roboto){style="font-family: Roboto;"} font for everything else.
+4. Also available is [Bangla MN](https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d){style="font-family: Bangla MN;"} by Muthu Nedumaran of [Murasu Systems](http://murasu.com/), which is closely related to the official [Julia]{style="font-family: Bangla MN;"} logo [font](https://github.com/JuliaLang/julia-logo-graphics#about-the-font).
 
 ## Code
 
@@ -117,15 +121,18 @@ generator = GenericGenerator()
 ce = generate_counterfactual(x, target, counterfactual_data, M, generator)
 ```
 
-## Callouts {.smaller}
+## Callouts 
 
 ::: {.callout-note}
 
 # Note
 
-This is a note in [julia_blue]{class="julia-blue"}. Note that for Revealjs, icons are deactivated for callouts by default.
+This is a note in [julia_blue]{class="julia-blue"}. Icons are deactivated in Revealjs.
 
 :::
+
+::::{.columns}::::
+:::{.column width='50%'}
 
 ::: {.callout-tip}
 
@@ -143,6 +150,17 @@ This is a caution callout in [julia_purple]{class="julia-purple"}.
 
 :::
 
+:::
+:::{.column width='50%'}
+
+::: {.callout-warning}
+
+# Warning
+
+This is a warning in [julia_purple]{class="julia-purple"}.
+
+:::
+
 ::: {.callout-important}
 
 # Important
@@ -150,6 +168,15 @@ This is a caution callout in [julia_purple]{class="julia-purple"}.
 This is an important callout in [julia_red]{class="julia-red"}.
 
 :::
+
+:::
+::::
+
+
+
+
+
+
 
 # Documentation {#sec-docs}
 
@@ -381,12 +408,18 @@ author:
 
 ## Motivation
 
-- By embracing Quarto, JuliaCon Proceedings can set an example for how to write reproducible documents.
-    - Code and results are directly integrated into the document.
-    - Executable code blocks serve as a form of testing.
-    - Same document can be rendered into HTML, PDF, ...
-- Easier for authors to write their submissions.
-- Gateway to more advanced features such as interactive figures and executable code blocks in HTML documents.
+JuliaCon Proceedings to set an example for reproducibility:
+
+- Code, results and text in one document.
+- Executable code blocks serve as a form of testing.
+- Same document can be rendered into HTML, PDF, ...
+
+. . .
+
+Benefits for the authors:
+
+- Essentially zero maintenance for the authors.
+- LaTeX option still available for those who prefer it.
 
 ## Showcase
 
@@ -401,6 +434,25 @@ The following two example articles were rendered using the extension:
 :::{.column width='50%'}
 ```{=html}
 <iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.html"></iframe>
+```
+:::
+::::
+
+## Comparison
+
+::::{.columns}::::
+:::{.column width='50%'}
+#### [Proposed Version](../../../juliacon/counterfactual-explanations/paper.pdf){target="_blank"}
+
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.pdf"></iframe>
+```
+:::
+:::{.column width='50%'}
+#### [Published Version](https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf)
+
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf"></iframe>
 ```
 :::
 ::::

@@ -9,7 +9,7 @@ categories:
 
 [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers' efforts toward effective communication and reproducibility.
 
-Find the presentation slides below:
+Find the presentation slides below or click [here](presentation.qmd){target="_blank"} to view the slides in a new tab.
 
 ```{=html}
 <iframe width="800" height="500" marginheight="0" marginwidth="0" src="presentation.html"></iframe>
