@@ -245,8 +245,8 @@ and then we continue with [...]
 
 ## Workflow II: Configure Quarto
 
-::::{.columns}::::
-:::{.column width='45%'}
+:::::{.columns}:::::
+::::{.column width='50%'}
 
 `_quarto.yml` in `tutorials/`:
 
@@ -254,8 +254,8 @@ and then we continue with [...]
 - `quarto render` in `tutorials/` renders all but `!`
 - cached in `tutorials/_freeze`
 
-:::
-:::{.column width='50%'}
+::::
+::::{.column width='50%'}
 
 ```{.yaml}
 project:
@@ -265,20 +265,18 @@ project:
     - "*.qmd"
     - "!NotThisFile.qmd"
 
-format: #specify to render to md
+format: #render to md
   commonmark:
     variant: -tex_math_dollars
     wrap: preserve
 ```
 
-(!! Break here? !!)
-
-### Tip
-
-Use the <br>[Quarto VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) <br> and `Quarto Preview`
-
+:::{.fragment}
+*Tip*.
+Use the <br>[Quarto VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) <br> and the command <br>`Quarto Preview`
 :::
 ::::
+:::::
 
 
 
