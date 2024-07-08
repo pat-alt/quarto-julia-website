@@ -220,6 +220,17 @@
     ]
   },
   {
+    "objectID": "examples/basic_formats/article/index.html#qr-code-on-title-slide",
+    "href": "examples/basic_formats/article/index.html#qr-code-on-title-slide",
+    "title": "HTML Article",
+    "section": "QR Code on Title Slide",
+    "text": "QR Code on Title Slide\nTo add a custom QR code to the title slide, just specify the path to the image in the front matter of the document:\ntitle-slide-attributes:\n    data-background-image: [path-to-image]",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
+  },
+  {
     "objectID": "examples/basic_formats/revealjs/presentation.html#fonts",
     "href": "examples/basic_formats/revealjs/presentation.html#fonts",
     "title": "Revealjs Presentation",
@@ -246,6 +257,13 @@
     "title": "Revealjs Presentation",
     "section": "Maths",
     "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#qr-code-on-title-slide",
+    "href": "examples/basic_formats/revealjs/presentation.html#qr-code-on-title-slide",
+    "title": "Revealjs Presentation",
+    "section": "QR Code on Title Slide",
+    "text": "QR Code on Title Slide\nTo add a custom QR code to the title slide, just specify the path to the image in the front matter of the document:\ntitle-slide-attributes:\n    data-background-image: [path-to-image]"
   },
   {
     "objectID": "examples/contribute.html",
@@ -347,42 +365,49 @@
     "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#general-workflow",
     "title": "Quarto Extensions",
     "section": "General Workflow",
-    "text": "General Workflow\n\nwrite tutorials (.qmd) for a package in tutorials/\nrun them when generating the documentation\nshould render them into docs/src/tutorials/ (as .md)\n\nAn Example\n---\ntitle: \"A short example\"\n---\n\n```{julia}\n#| echo: false\n#| code-fold: true\n#| output: false\ncd(@__DIR__);\nusing Pkg; Pkg.activate(\".\"); # oen reproducible environment\n```\n\nFirst, load all necessary packages\n\n```{julia}\nusing Manopt, Manifolds\nM = Sphere(2)\n```"
+    "text": "General Workflow\n\n\n\nwrite tutorials (.qmd) for a package in tutorials/\nrun their code when generating the documentation\nrender them (as .md) into docs/src/tutorials/\n\n\n---\ntitle: \"A short example\"\n---\n\n```{julia}\n#| echo: false\n#| output: false\ncd(@__DIR__); # activate env.\nusing Pkg; Pkg.activate(\".\");\n```\n\nLet's start with loading\nnecessary packages\n\n```{julia}\nusing Manopt, Manifolds\nM = Sphere(2)\n```\n\nand then we continue with [...]"
   },
   {
-    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-quarto",
-    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-quarto",
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-configure-quarto",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-configure-quarto",
     "title": "Quarto Extensions",
-    "section": "Workflow II: Quarto",
-    "text": "Workflow II: Quarto\nPut a _quarto.yml file in tutorials/ with\nproject:\n  title: \"My Tutorials\"\n  output-dir: ../docs/src/tutorials\n  render:\n    - \"*.qmd\"\n    - \"!NotThisFile.qmd\"\nLast line: Exclude for example benchmark from general runs.\n\n\nquarto render filename.qmd to render a certain one\nquarto render in tutorials/ to generate aøø but the !-excluded ones\ntutorials/_freeze is a Cache: only renders if file has been changed.\n\n\n\nTip\nUse the Quarto VS Code extension and Quarto Preview while writing a tutorial"
+    "section": "Workflow II: Configure Quarto",
+    "text": "Workflow II: Configure Quarto\n\n\n_quarto.yml in tutorials/:\n\none file:  quarto render file.qmd\nquarto render in tutorials/ renders all but !\ncached in tutorials/_freeze\n\n\nproject:\n  title: \"My Tutorials\"\n  output-dir: ../docs/src/tutorials\n  render: # specify some\n    - \"*.qmd\"\n    - \"!NotThisFile.qmd\"\n\nformat: #render to md\n  commonmark:\n    variant: -tex_math_dollars\n    wrap: preserve\n\nTip. Use the Quarto VS Code extension  and the command Quarto Preview"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
     "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
     "title": "Quarto Extensions",
     "section": "Workflow III: Documenter",
-    "text": "Workflow III: Documenter\n\nUse CondaPkg.jl to handle/install Python, creating a CondaPkg.toml specifying the Python version\n\n[deps]\njupyter = \"\"\npython = \"3.11\"\nAnd include rendering the tutorials in your make.jl\n```{julia}\nusing CondaPkg\nCondaPkg.withenv() do\n    tutorials_folder = (@__DIR__) * \"/../tutorials\"\n    run(`quarto render $(tutorials_folder)`)\nend\n```"
+    "text": "Workflow III: Documenter\n\nUse CondaPkg.jl to handle/install Python, creating a CondaPkg.toml specifying the Python version\n\n[deps]\njupyter = \"\"\npython = \"3.11\"\nAnd include rendering the tutorials in your make.jl\nusing CondaPkg\nCondaPkg.withenv() do\n    tutorials_folder = (@__DIR__) * \"/../tutorials\"\n    run(`quarto render $(tutorials_folder)`)\nend"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iv-github-action",
     "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iv-github-action",
     "title": "Quarto Extensions",
     "section": "Workflow IV: GitHub Action",
-    "text": "Workflow IV: GitHub Action\n- name: Cache Quarto\n  uses: actions/cache@v4\n  with:\n    path: tutorials/_freeze\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\n- name: Cache Documenter\n  uses: actions/cache@v4\n  with:\n    path: docs/src/tutorials\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\nThis sets up Caches for the folders\n\ndocs/src/tutorials rendered Markdown files\ntutorials/_freeze Quarto Cache\none could also cache docs/.CondaPkg to reduce loading Python packages\n\n\nThere we are!\nCached, reproducible Tutorials that integrate with Documenter.jl."
+    "text": "Workflow IV: GitHub Action\nOn CI: Set up caches:\n- name: Cache Quarto\n  uses: actions/cache@v4\n  with:\n    path: tutorials/_freeze # Quarto Cache\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\n- name: Cache Documenter\n  uses: actions/cache@v4\n  with:\n    path: docs/src/tutorials # Cache rendered tutorials\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\n\nThere we are!\nCached, reproducible tutorials within Documenter.jl."
   },
   {
-    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#comments",
-    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#comments",
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#challenges",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#challenges",
     "title": "Quarto Extensions",
-    "section": "Comments",
-    "text": "Comments\nRunning make.jl from shell, one can\n\n(de)activate running Quarto\n(de)activate generting the tutorials menu (locally)\nclear cache\n\n\nChallenges\n\nCache vs. breaking versions of the package\nRecommendation: Maybe print Package versions\nQuarto replaces spaces in markdown links [A](@ref B) with [A](@ref%20B).\nThese have to be “escaped” `[A](@ref B)`{=commonmark} to stay unmodified\nDue to pandoc: for now write math in $...$ and not ``...``"
+    "section": "Challenges",
+    "text": "Challenges\n\nCache vs. breaking versions of the package\nRecommendation: Maybe print package versions\nQuarto replaces spaces in markdown links  [A](@ref B) with [A](@ref%20B).\nThese have to be “escaped”:  `[A](@ref B)`{=commonmark}\nDue to pandoc: for now write math in $...$ and not ``...``"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#documenter-summary",
     "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#documenter-summary",
     "title": "Quarto Extensions",
     "section": "Documenter Summary",
-    "text": "Documenter Summary\nQuarto notebooks allow for an easy way to have tutorials\n\nexecuted code\nreproducible\ncached and rendered on CI\ninegrated (with @ref links in Documenter.jl)\nciting (with [citekey](@cite) and DocumenterCitations.jl)\nextended referencing (@extref and DocumenterInterLinks.jl)\n\nSee Manopt.jl: Optimize for a full example, rendered from here\n\nSoon\n\nthe QuartoNotebookRunner.jl should provide native rendering in pure Julia\nPluto notebooks might be used as input there as well"
+    "text": "Documenter Summary\n\ntutorials with reproducible, executed code\ncached and rendered on CI\ninegrated: we can use\n\n@ref from Documenter.jl\n[citekey](@cite) from DocumenterCitations.jl\n@extref from DocumenterInterLinks.jl\n\nFull example: Manopt.jl: Optimize | source\nlonger tutorial at Julia Forem"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#outlook-soon",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#outlook-soon",
+    "title": "Quarto Extensions",
+    "section": "Outlook / Soon",
+    "text": "Outlook / Soon\n\nthe QuartoNotebookRunner.jl should provide native rendering in pure Julia\nPluto notebooks might be used as input there as well"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started-1",
@@ -411,6 +436,13 @@
     "title": "Quarto Extensions",
     "section": "Comparison",
     "text": "Comparison\n\n\nProposed Version\n\n\nPublished Version"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#more-information",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#more-information",
+    "title": "Quarto Extensions",
+    "section": "More Information",
+    "text": "More Information\n\nOfficial Quarto docs."
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#references",

@@ -463,7 +463,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-background-image="www/qr.png" data-background-position="bottom right" data-background-size="10%" class="quarto-title-block center">
   <h1 class="title">Quarto Extensions</h1>
   <p class="subtitle">for the Julia Community</p>
 
@@ -645,9 +645,15 @@ Ronny Bergmann
 </div>
 </section></section>
 <section>
-<section id="sec-docs" class="title-slide slide level1 center">
+<section id="sec-docs" class="title-slide slide level1 nostretch center">
 <h1>Documentation</h1>
-
+<div class="columns">
+<div class="column" style="width:80%;">
+<p>Write tutorials in Quarto that fully integrate into the rendered documenation.</p>
+</div><div class="column smaller" style="width:20%;">
+<p><img data-src="www/manopt_logo.png" class="quarto-figure quarto-figure-center"> <a href="https://manoptjl.org"><code>Manopt.jl</code></a></p>
+</div>
+</div>
 </section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
@@ -668,53 +674,65 @@ Ronny Bergmann
 </ul>
 </div>
 </section>
-<section id="general-workflow" class="slide level2 smaller">
+<section id="general-workflow" class="slide level2 scrollable">
 <h2>General Workflow</h2>
-<ul>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
 <li>write tutorials (<code>.qmd</code>) for a package in <code>tutorials/</code></li>
-<li>run them when generating the documentation</li>
-<li>should render them into <code>docs/src/tutorials/</code> (as <code>.md</code>)</li>
-</ul>
-<h3 id="an-example">An Example</h3>
+<li>run their code when generating the documentation</li>
+<li>render them (as <code>.md</code>) into <code>docs/src/tutorials/</code></li>
+</ol>
+</div><div class="column" style="width:45%;">
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown {markdown} number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a><span class="co">---</span></span>
 <span id="cb5-2"><a></a><span class="an">title:</span><span class="co"> "A short example"</span></span>
 <span id="cb5-3"><a></a><span class="co">---</span></span>
 <span id="cb5-4"><a></a></span>
 <span id="cb5-5"><a></a><span class="in">```{julia}</span></span>
 <span id="cb5-6"><a></a><span class="in">#| echo: false</span></span>
-<span id="cb5-7"><a></a><span class="in">#| code-fold: true</span></span>
-<span id="cb5-8"><a></a><span class="in">#| output: false</span></span>
-<span id="cb5-9"><a></a><span class="in">cd(@__DIR__);</span></span>
-<span id="cb5-10"><a></a><span class="in">using Pkg; Pkg.activate("."); # oen reproducible environment</span></span>
-<span id="cb5-11"><a></a><span class="in">```</span></span>
-<span id="cb5-12"><a></a></span>
-<span id="cb5-13"><a></a>First, load all necessary packages</span>
+<span id="cb5-7"><a></a><span class="in">#| output: false</span></span>
+<span id="cb5-8"><a></a><span class="in">cd(@__DIR__); # activate env.</span></span>
+<span id="cb5-9"><a></a><span class="in">using Pkg; Pkg.activate(".");</span></span>
+<span id="cb5-10"><a></a><span class="in">```</span></span>
+<span id="cb5-11"><a></a></span>
+<span id="cb5-12"><a></a>Let's start with loading</span>
+<span id="cb5-13"><a></a>necessary packages</span>
 <span id="cb5-14"><a></a></span>
 <span id="cb5-15"><a></a><span class="in">```{julia}</span></span>
 <span id="cb5-16"><a></a><span class="in">using Manopt, Manifolds</span></span>
 <span id="cb5-17"><a></a><span class="in">M = Sphere(2)</span></span>
-<span id="cb5-18"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="workflow-ii-quarto" class="slide level2 smaller">
-<h2>Workflow II: Quarto</h2>
-<p>Put a <code>_quarto.yml</code> file in <code>tutorials/</code> with</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {YAML} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>project:</span>
-<span id="cb6-2"><a></a>  title: "My Tutorials"</span>
-<span id="cb6-3"><a></a>  output-dir: ../docs/src/tutorials</span>
-<span id="cb6-4"><a></a>  render:</span>
-<span id="cb6-5"><a></a>    - "*.qmd"</span>
-<span id="cb6-6"><a></a>    - "!NotThisFile.qmd"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Last line: Exclude for example benchmark from general runs.</p>
-<div class="fragment">
-<ul>
-<li><code>quarto render filename.qmd</code> to render a certain one</li>
-<li><code>quarto render</code> in <code>tutorials/</code> to generate aøø but the <code>!</code>-excluded ones</li>
-<li><code>tutorials/_freeze</code> is a Cache: only renders if file has been changed.</li>
-</ul>
+<span id="cb5-18"><a></a><span class="in">```</span></span>
+<span id="cb5-19"><a></a></span>
+<span id="cb5-20"><a></a>and then we continue with <span class="co">[</span><span class="ot">...</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</section>
+<section id="workflow-ii-configure-quarto" class="slide level2">
+<h2>Workflow II: Configure Quarto</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><code>_quarto.yml</code> in <code>tutorials/</code>:</p>
+<ul>
+<li>one file: <br> <code>quarto render file.qmd</code></li>
+<li><code>quarto render</code> in <code>tutorials/</code> renders all but <code>!</code></li>
+<li>cached in <code>tutorials/_freeze</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Tutorials"</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> ../docs/src/tutorials</span></span>
+<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">render</span><span class="kw">:</span><span class="co"> # specify some</span></span>
+<span id="cb6-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.qmd"</span></span>
+<span id="cb6-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"!NotThisFile.qmd"</span></span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a><span class="fu">format</span><span class="kw">:</span><span class="co"> #render to md</span></span>
+<span id="cb6-9"><a></a><span class="at">  </span><span class="fu">commonmark</span><span class="kw">:</span></span>
+<span id="cb6-10"><a></a><span class="at">    </span><span class="fu">variant</span><span class="kw">:</span><span class="at"> -tex_math_dollars</span></span>
+<span id="cb6-11"><a></a><span class="at">    </span><span class="fu">wrap</span><span class="kw">:</span><span class="at"> preserve</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<h3 id="tip-1">Tip</h3>
-<p>Use the <a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Quarto VS Code extension</a> and <code>Quarto Preview</code> while writing a tutorial</p>
+<p><em>Tip</em>. Use the <br><a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Quarto VS Code extension</a> <br> and the command <br><code>Quarto Preview</code></p>
+</div>
+</div>
 </div>
 </section>
 <section id="workflow-iii-documenter" class="slide level2">
@@ -726,79 +744,65 @@ Ronny Bergmann
 <span id="cb7-2"><a></a>jupyter = ""</span>
 <span id="cb7-3"><a></a>python = "3.11"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And include rendering the tutorials in your <code>make.jl</code></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="in">```{julia}</span></span>
-<span id="cb8-2"><a></a><span class="in">using CondaPkg</span></span>
-<span id="cb8-3"><a></a><span class="in">CondaPkg.withenv() do</span></span>
-<span id="cb8-4"><a></a><span class="in">    tutorials_folder = (@__DIR__) * "/../tutorials"</span></span>
-<span id="cb8-5"><a></a><span class="in">    run(`quarto render $(tutorials_folder)`)</span></span>
-<span id="cb8-6"><a></a><span class="in">end</span></span>
-<span id="cb8-7"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a></a><span class="im">using</span> <span class="bu">CondaPkg</span></span>
+<span id="cb8-2"><a></a>CondaPkg.<span class="fu">withenv</span>() <span class="cf">do</span></span>
+<span id="cb8-3"><a></a>    tutorials_folder <span class="op">=</span> (<span class="pp">@__DIR__</span>) <span class="op">*</span> <span class="st">"/../tutorials"</span></span>
+<span id="cb8-4"><a></a>    <span class="fu">run</span>(<span class="ss">`quarto render $(tutorials_folder)`</span>)</span>
+<span id="cb8-5"><a></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="workflow-iv-github-action" class="slide level2 smaller">
+<section id="workflow-iv-github-action" class="slide level2">
 <h2>Workflow IV: GitHub Action</h2>
+<p>On CI: Set up caches:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Quarto</span></span>
 <span id="cb9-2"><a></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
 <span id="cb9-3"><a></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb9-4"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> tutorials/_freeze</span></span>
+<span id="cb9-4"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> tutorials/_freeze</span><span class="co"> # Quarto Cache</span></span>
 <span id="cb9-5"><a></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}</span></span>
 <span id="cb9-6"><a></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb9-7"><a></a>      ${{ runner.os }}-${{ env.cache-name }}-</span>
 <span id="cb9-8"><a></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Cache Documenter</span></span>
 <span id="cb9-9"><a></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/cache@v4</span></span>
 <span id="cb9-10"><a></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb9-11"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/src/tutorials</span></span>
+<span id="cb9-11"><a></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> docs/src/tutorials</span><span class="co"> # Cache rendered tutorials</span></span>
 <span id="cb9-12"><a></a><span class="at">    </span><span class="fu">key</span><span class="kw">:</span><span class="at"> ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}</span></span>
 <span id="cb9-13"><a></a><span class="fu">    restore-keys</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb9-14"><a></a>      ${{ runner.os }}-${{ env.cache-name }}-</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This sets up Caches for the folders</p>
-<ul>
-<li><code>docs/src/tutorials</code> rendered Markdown files</li>
-<li><code>tutorials/_freeze</code> Quarto Cache</li>
-<li>one could also cache <code>docs/.CondaPkg</code> to reduce loading Python packages</li>
-</ul>
 <div class="fragment">
 <h4 id="there-we-are">There we are!</h4>
-<p>Cached, reproducible Tutorials that integrate with <code>Documenter.jl</code>.</p>
+<p>Cached, reproducible tutorials within <code>Documenter.jl</code>.</p>
 </div>
 </section>
-<section id="comments" class="slide level2 smaller">
-<h2>Comments</h2>
-<p>Running <code>make.jl</code> from shell, one can</p>
-<ul>
-<li>(de)activate running Quarto</li>
-<li>(de)activate generting the tutorials menu (locally)</li>
-<li>clear cache</li>
-</ul>
-<div class="fragment">
-<h3 id="challenges">Challenges</h3>
+<section id="challenges" class="slide level2">
+<h2>Challenges</h2>
 <ul>
 <li><p>Cache vs.&nbsp;breaking versions of the package</p></li>
-<li><p>Recommendation: Maybe print Package versions</p></li>
-<li><p>Quarto replaces spaces in markdown links <code>[A](@ref B)</code> with <code>[A](@ref%20B)</code>.</p>
-<p>These have to be “escaped” <code>`[A](@ref B)`{=commonmark}</code> to stay unmodified</p></li>
-<li><p>Due to pandoc: for now write math in <code>$...$</code> and not <code>``...``</code></p></li>
+<li><p>Recommendation: Maybe print package versions</p></li>
+<li><p>Quarto replaces spaces in markdown links <br> <code>[A](@ref B)</code> with <code>[A](@ref%20B)</code>.</p>
+<p>These have to be “escaped”: <br> <code>`[A](@ref B)`{=commonmark}</code></p></li>
+<li><p>Due to pandoc:<br> for now write math in <code>$...$</code> and not <code>``...``</code></p></li>
 </ul>
-</div>
 </section>
-<section id="documenter-summary" class="slide level2 smaller">
+<section id="documenter-summary" class="slide level2">
 <h2>Documenter Summary</h2>
-<p>Quarto notebooks allow for an easy way to have tutorials</p>
 <ul>
-<li>executed code</li>
-<li>reproducible</li>
+<li>tutorials with reproducible, executed code</li>
 <li>cached and rendered on CI</li>
-<li>inegrated (with <code>@ref</code> links in <code>Documenter.jl</code>)</li>
-<li>citing (with <code>[citekey](@cite)</code> and <a href="https://github.com/JuliaDocs/DocumenterCitations.jl"><code>DocumenterCitations.jl</code></a>)</li>
-<li>extended referencing (<code>@extref</code> and <a href="https://github.com/JuliaDocs/DocumenterInterLinks.jl"><code>DocumenterInterLinks.jl</code></a>)</li>
+<li>inegrated: we can use
+<ul>
+<li><code>@ref</code> from <code>Documenter.jl</code></li>
+<li><code>[citekey](@cite)</code> from <a href="https://github.com/JuliaDocs/DocumenterCitations.jl"><code>DocumenterCitations.jl</code></a></li>
+<li><code>@extref</code> from <a href="https://github.com/JuliaDocs/DocumenterInterLinks.jl"><code>DocumenterInterLinks.jl</code></a></li>
+</ul></li>
+<li>Full example: <a href="https://manoptjl.org/stable/tutorials/Optimize/">Manopt.jl: Optimize</a> | <a href="https://github.com/JuliaManifolds/Manopt.jl/blob/master/tutorials/Optimize.qmd">source</a></li>
+<li>longer tutorial at <a href="https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo">Julia Forem</a></li>
 </ul>
-<p>See <a href="https://manoptjl.org/stable/tutorials/Optimize/">Manopt.jl: Optimize</a> for a full example, rendered from <a href="https://github.com/JuliaManifolds/Manopt.jl/blob/master/tutorials/Optimize.qmd">here</a></p>
-<div class="fragment">
-<h3 id="soon">Soon</h3>
+</section>
+<section id="outlook-soon" class="slide level2">
+<h2>Outlook / Soon</h2>
 <ul>
 <li>the <a href="https://github.com/PumasAI/QuartoNotebookRunner.jl"><code>QuartoNotebookRunner.jl</code></a> should provide native rendering in pure Julia</li>
 <li>Pluto notebooks might be used as <a href="https://github.com/PumasAI/QuartoNotebookRunner.jl/issues/125">input there as well</a></li>
 </ul>
-</div>
 </section></section>
 <section>
 <section id="sec-proceedings" class="title-slide slide level1 nostretch center">
@@ -897,6 +901,12 @@ Ronny Bergmann
 <iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf"></iframe>
 </div>
 </div>
+</section>
+<section id="more-information" class="slide level2">
+<h2>More Information</h2>
+<ul>
+<li>Official <a href="https://quarto.org/">Quarto</a> docs.</li>
+</ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>

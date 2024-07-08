@@ -5,6 +5,8 @@ format:
   julia-revealjs: 
     scrollable: true
     smaller: true
+    title-slide-attributes:
+      data-background-image: /www/qrcode.png
 author: pat-alt
 date: last-modified
 ---

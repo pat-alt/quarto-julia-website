@@ -6,6 +6,8 @@ format:
     scrollable: true
     preview-links: false
     link-external-newwindow: true
+    title-slide-attributes:
+      data-background-image: www/qr.png
 date: July 12, 2024
 execute:
   eval: false
@@ -460,5 +462,9 @@ The following two example articles were rendered using the extension:
 ```
 :::
 ::::
+
+## More Information
+
+- Official [Quarto](https://quarto.org/) docs.
 
 ## References {.smaller}
