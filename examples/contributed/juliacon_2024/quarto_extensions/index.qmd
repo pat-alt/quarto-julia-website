@@ -11,6 +11,8 @@ categories:
 
 Find the presentation slides below or click [here](presentation.qmd){target="_blank"} to view the slides in a new tab.
 
+For the PDF version, click [here](presentation.pdf){target="_blank"}.
+
 ```{=html}
 <iframe width="800" height="500" marginheight="0" marginwidth="0" src="presentation.html"></iframe>
 ```

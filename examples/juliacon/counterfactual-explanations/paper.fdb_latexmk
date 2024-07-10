@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber paper"] 1720608338.69548 "paper.bcf" "paper.bbl" "paper" 1720608358.68057 0
-  "paper.bcf" 1720608358.45441 114816 afacd5f1450335c5397f8527a13bb054 "pdflatex"
+["biber paper"] 1720620391.73331 "paper.bcf" "paper.bbl" "paper" 1720620406.70308 0
+  "paper.bcf" 1720620406.51842 114816 afacd5f1450335c5397f8527a13bb054 "pdflatex"
   "ref.bib" 1718785564.17107 169537 97491e067f9ff803760d8e9281ba2daa ""
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1720608355.10771 "paper.tex" "paper.pdf" "paper" 1720608358.68102 0
+["pdflatex"] 1720620404.23262 "paper.tex" "paper.pdf" "paper" 1720620406.70341 0
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec-sc.enc" 1529098226 2881 8e2aef9e38084b946e7656b60672fedb ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1529098226 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
@@ -259,10 +259,10 @@
   "journal_dat.tex" 1718964707.605 150 e8f5f0ce758e2580b918922de6715366 ""
   "juliacon.cls" 1718964707.603 30622 c4c9dfa27e0f02b412fe8f4e7b09136f ""
   "logojuliacon.pdf" 1718964707.603 4937 0cb75c4e65b0cf72a69c7716f140efe5 ""
-  "paper.aux" 1720608358.44244 31207 4a3a2b6e0a54cefa94bb403d9cba6f49 "pdflatex"
-  "paper.bbl" 1720608354.92249 78927 c13b0148db9f66651f5995bbe843483a "biber paper"
-  "paper.run.xml" 1720608358.45537 2305 790763489cdf8976f325748a55d6e69e "pdflatex"
-  "paper.tex" 1720608324.94635 56432 7ddd3a1d4a635e9add87a45eb6a9a0fc ""
+  "paper.aux" 1720620406.50953 31207 4a3a2b6e0a54cefa94bb403d9cba6f49 "pdflatex"
+  "paper.bbl" 1720620404.09994 78927 c13b0148db9f66651f5995bbe843483a "biber paper"
+  "paper.run.xml" 1720620406.5192 2305 790763489cdf8976f325748a55d6e69e "pdflatex"
+  "paper.tex" 1720620379.32863 56432 7ddd3a1d4a635e9add87a45eb6a9a0fc ""
   "www/binary_advanced.png" 1704704818.41393 80629 51bba1b63f28b8c08b87d9742eb7ed99 ""
   "www/bmk.png" 1704704818.41518 55656 c3d62b0da4992071a1acf12f5a326e09 ""
   "www/ce_binary.png" 1704704818.41604 62120 b7c144532ff5ca29cb981be7bdc08525 ""

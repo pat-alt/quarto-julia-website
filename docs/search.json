@@ -303,7 +303,7 @@
     "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
     "title": "Quarto Extensions for the Julia Community",
     "section": "",
-    "text": "Quarto is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.\nFind the presentation slides below or click here to view the slides in a new tab."
+    "text": "Quarto is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.\nFind the presentation slides below or click here to view the slides in a new tab.\nFor the PDF version, click here."
   },
   {
     "objectID": "index.html",
