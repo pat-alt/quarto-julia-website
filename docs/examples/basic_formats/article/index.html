@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Patrick Altmeyer">
-<meta name="dcterms.date" content="2024-06-20">
+<meta name="dcterms.date" content="2024-07-10">
 <meta name="description" content="A template for Julia-themed HTML articles.">
 
 <title>Julia-themed Quarto - HTML Article</title>
@@ -318,6 +318,7 @@ window.Quarto = {
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts">Callouts</a></li>
   <li><a href="#maths" id="toc-maths" class="nav-link" data-scroll-target="#maths">Maths</a></li>
+  <li><a href="#qr-code-on-title-slide" id="toc-qr-code-on-title-slide" class="nav-link" data-scroll-target="#qr-code-on-title-slide">QR Code on Title Slide</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -350,7 +351,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 20, 2024</p>
+      <p class="date">July 10, 2024</p>
     </div>
   </div>
   
@@ -488,6 +489,12 @@ Important
 x\prime = \arg \min_{x\prime}  \ell(M(x\prime),t) + \lambda h(x\prime)
 \]</span></p>
 <p>where <span class="math inline">\(\ell\)</span> denotes some loss function targeting the deviation between the target label and the predicted label and <span class="math inline">\(h(\cdot)\)</span> is a complexity penalty generally addressing the <em>realism</em> or <em>cost</em> of the proposed counterfactual.</p>
+</section>
+<section id="qr-code-on-title-slide" class="level2">
+<h2 class="anchored" data-anchor-id="qr-code-on-title-slide">QR Code on Title Slide</h2>
+<p>To add a custom QR code to the title slide, just specify the path to the image in the front matter of the document:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">path-to-image</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

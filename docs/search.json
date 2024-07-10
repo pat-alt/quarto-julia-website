@@ -220,6 +220,17 @@
     ]
   },
   {
+    "objectID": "examples/basic_formats/article/index.html#qr-code-on-title-slide",
+    "href": "examples/basic_formats/article/index.html#qr-code-on-title-slide",
+    "title": "HTML Article",
+    "section": "QR Code on Title Slide",
+    "text": "QR Code on Title Slide\nTo add a custom QR code to the title slide, just specify the path to the image in the front matter of the document:\ntitle-slide-attributes:\n    data-background-image: [path-to-image]",
+    "crumbs": [
+      "Available Formats",
+      "HTML Article"
+    ]
+  },
+  {
     "objectID": "examples/basic_formats/revealjs/presentation.html#fonts",
     "href": "examples/basic_formats/revealjs/presentation.html#fonts",
     "title": "Revealjs Presentation",
@@ -245,7 +256,14 @@
     "href": "examples/basic_formats/revealjs/presentation.html#maths",
     "title": "Revealjs Presentation",
     "section": "Maths",
-    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet  denote the target label,  the model (classifier) and  the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\nwhere  denotes some loss function targeting the deviation between the target label and the predicted label and  is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+  },
+  {
+    "objectID": "examples/basic_formats/revealjs/presentation.html#qr-code-on-title-slide",
+    "href": "examples/basic_formats/revealjs/presentation.html#qr-code-on-title-slide",
+    "title": "Revealjs Presentation",
+    "section": "QR Code on Title Slide",
+    "text": "QR Code on Title Slide\nTo add a custom QR code to the title slide, just specify the path to the image in the front matter of the document:\ntitle-slide-attributes:\n    data-background-image: [path-to-image]"
   },
   {
     "objectID": "examples/contribute.html",
@@ -285,14 +303,7 @@
     "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html",
     "title": "Quarto Extensions for the Julia Community",
     "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
-    "href": "examples/contributed/juliacon_2024/quarto_extensions/index.html#introduction",
-    "title": "Quarto Extensions for the Julia Community",
-    "section": "",
-    "text": "Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click here to open them in full screen."
+    "text": "Quarto is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers’ efforts toward effective communication and reproducibility.\nFind the presentation slides below or click here to view the slides in a new tab.\nFor the PDF version, click here."
   },
   {
     "objectID": "index.html",
@@ -313,6 +324,132 @@
     "crumbs": [
       "Home"
     ]
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#sec-quarto",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#sec-quarto",
+    "title": "Quarto Extensions",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\n\n\nCross-platform open-source scientific publishing tool with a focus on reproducibility.\nBased on Markdown, which is easy to learn and write.\nVery flexible and can be extended with custom templates and styles.\n\n\n---\ntitle: \"Hello Quarto\"\njupyter: julia-1.10\n---\n\n## Hello Quarto!\n\nBlending Markdown and \nJulia code:\n\n```{julia}\n#| echo: true\n\nprintln(\"Hello, Quarto!\")\n```"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started",
+    "title": "Quarto Extensions",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo install the Julia-themed Quarto extensions, run:\nquarto add pat-alt/quarto-julia\n\n\nUsage\nSimply adjust the Quarto header of your document:\n---\ntitle: Julia-themed Quarto\nformat:\n  julia-html: default\n  julia-revealjs:\n    scrollable: true\nauthor: pat-alt\ndate: last-modified\n---\n\nAvailable Formats\n\nHTML (articles)\nRevealjs (presentations)\n\nPreview and Render\nquarto preview yourdoc.qmd\nquarto render yourdoc.qmd"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#fonts",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#fonts",
+    "title": "Quarto Extensions",
+    "section": "Fonts",
+    "text": "Fonts\n\nJuliaMono font for monospace text and code.\nBarlow font for headers and blockquotes (thanks @cormullion).\nRoboto font for everything else.\nAlso available is Bangla MN by Muthu Nedumaran of Murasu Systems, which is closely related to the official Julia logo font."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#code",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#code",
+    "title": "Quarto Extensions",
+    "section": "Code",
+    "text": "Code\nInline code looks like this print(\"hello 🌍\"). Code blocks look like this (Revealjs not affected):\nusing CounterfactualExplanations, TaijaData\n\n# Data and Classifier:\ncounterfactual_data = CounterfactualData(load_linearly_separable()...)\nM = fit_model(counterfactual_data, :Linear)\n\n# Select random sample:\ntarget = 2\nfactual = 1\nchosen = rand(findall(predict_label(M, counterfactual_data) .== factual))\nx = select_factual(counterfactual_data, chosen)\n\n# Counterfactual search:\ngenerator = GenericGenerator()\nce = generate_counterfactual(x, target, counterfactual_data, M, generator)"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#callouts",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#callouts",
+    "title": "Quarto Extensions",
+    "section": "Callouts",
+    "text": "Callouts\n\n\n\nNote\n\n\nThis is a note in julia_blue. Icons are deactivated in Revealjs.\n\n\n\n\n\n\n\n\nTip\n\n\nThis is a tip in julia_green.\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout in julia_purple.\n\n\n\n\n\n\n\nWarning\n\n\nThis is a warning in julia_purple.\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout in julia_red."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#goals",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#goals",
+    "title": "Quarto Extensions",
+    "section": "Goals",
+    "text": "Goals\nTutorials that are\n\nintegrated in the documentation (Documenter.jl)\n\nIntegrated Links within the documentation\ninclude mathematical formulae\n\nrender into Markdown\n\n\n\nshow code and results\nreproducible\nrun on CI (cached)"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#general-workflow",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#general-workflow",
+    "title": "Quarto Extensions",
+    "section": "General Workflow",
+    "text": "General Workflow\n\n\n\nwrite tutorials (.qmd) for a package in tutorials/\nrun their code when generating the documentation\nrender them (as .md) into docs/src/tutorials/\n\n\n---\ntitle: \"A short example\"\n---\n\n```{julia}\n#| echo: false\n#| output: false\ncd(@__DIR__); # activate env.\nusing Pkg; Pkg.activate(\".\");\n```\n\nLet's start with loading\nnecessary packages\n\n```{julia}\nusing Manopt, Manifolds\nM = Sphere(2)\n```\n\nand then we continue with [...]"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-configure-quarto",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-ii-configure-quarto",
+    "title": "Quarto Extensions",
+    "section": "Workflow II: Configure Quarto",
+    "text": "Workflow II: Configure Quarto\n\n\n_quarto.yml in tutorials/:\n\none file:  quarto render file.qmd\nquarto render in tutorials/ renders all but !\ncached in tutorials/_freeze\n\n\nproject:\n  title: \"My Tutorials\"\n  output-dir: ../docs/src/tutorials\n  render: # specify some\n    - \"*.qmd\"\n    - \"!NotThisFile.qmd\"\n\nformat: #render to md\n  commonmark:\n    variant: -tex_math_dollars\n    wrap: preserve\n\nTip. Use the Quarto VS Code extension  and the command Quarto Preview"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iii-documenter",
+    "title": "Quarto Extensions",
+    "section": "Workflow III: Documenter",
+    "text": "Workflow III: Documenter\n\nUse CondaPkg.jl to handle/install Python, creating a CondaPkg.toml specifying the Python version\n\n[deps]\njupyter = \"\"\npython = \"3.11\"\nAnd include rendering the tutorials in your make.jl\nusing CondaPkg\nCondaPkg.withenv() do\n    tutorials_folder = (@__DIR__) * \"/../tutorials\"\n    run(`quarto render $(tutorials_folder)`)\nend"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iv-github-action",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#workflow-iv-github-action",
+    "title": "Quarto Extensions",
+    "section": "Workflow IV: GitHub Action",
+    "text": "Workflow IV: GitHub Action\nOn CI: Set up caches:\n- name: Cache Quarto\n  uses: actions/cache@v4\n  with:\n    path: tutorials/_freeze # Quarto Cache\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\n- name: Cache Documenter\n  uses: actions/cache@v4\n  with:\n    path: docs/src/tutorials # Cache rendered tutorials\n    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}\n    restore-keys: |\n      ${{ runner.os }}-${{ env.cache-name }}-\n\nThere we are!\nCached, reproducible tutorials within Documenter.jl."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#challenges",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#challenges",
+    "title": "Quarto Extensions",
+    "section": "Challenges",
+    "text": "Challenges\n\nCache vs. breaking versions of the package\nRecommendation: Maybe print package versions\nQuarto replaces spaces in markdown links  [A](@ref B) with [A](@ref%20B).\nThese have to be “escaped”:  `[A](@ref B)`{=commonmark}\nDue to pandoc: for now write math in $...$ and not ``...``"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#documenter-summary",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#documenter-summary",
+    "title": "Quarto Extensions",
+    "section": "Documenter Summary",
+    "text": "Documenter Summary\n\ntutorials with reproducible, executed code\ncached and rendered on CI\ninegrated: we can use\n\n@ref from Documenter.jl\n[citekey](@cite) from DocumenterCitations.jl\n@extref from DocumenterInterLinks.jl\n\nFull example: Manopt.jl: Optimize | source\nlonger tutorial at Julia Forem"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#outlook-soon",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#outlook-soon",
+    "title": "Quarto Extensions",
+    "section": "Outlook / Soon",
+    "text": "Outlook / Soon\n\nthe QuartoNotebookRunner.jl should provide native rendering in pure Julia\nPluto notebooks might be used as input there as well"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started-1",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started-1",
+    "title": "Quarto Extensions",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo install the JuliaCon Proceedings extension, run:\nquarto add pat-alt/quarto-juliacon-proceedings\n\n\n\n\n\nDisclaimer\n\n\nPDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team.\nSee this issue.\n\n\n\n\nSupports both PDF and HTML:\n---\ntitle: JuliaCon Proceedings in Quarto\nformat:\n  juliacon-proceedings-pdf:\n    keep-tex: true\n  juliacon-proceedings-html: default\nauthor:\n  - name: Patrick Altmeyer\n    affiliations:\n      - Delft University of Technology\n    orcid: 0000-0003-4726-8613\n---"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#motivation",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#motivation",
+    "title": "Quarto Extensions",
+    "section": "Motivation",
+    "text": "Motivation\nJuliaCon Proceedings to set an example for reproducibility:\n\nCode, results and text in one document.\nExecutable code blocks serve as a form of testing.\nSame document can be rendered into HTML, PDF, …\n\n\nBenefits for the authors:\n\nEssentially zero maintenance for the authors.\nLaTeX option still available for those who prefer it."
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#showcase",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#showcase",
+    "title": "Quarto Extensions",
+    "section": "Showcase",
+    "text": "Showcase\n\n\nThe following two example articles were rendered using the extension:\n\nOfficial extension template: [pdf, html]\nAltmeyer, Deursen, et al. (2023): [pdf, html]"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#comparison",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#comparison",
+    "title": "Quarto Extensions",
+    "section": "Comparison",
+    "text": "Comparison\n\n\nProposed Version\n\n\nPublished Version"
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#more-information",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#more-information",
+    "title": "Quarto Extensions",
+    "section": "More Information",
+    "text": "More Information\n\nOfficial Quarto docs: https://quarto.org/\nBlog post on Quarto extensions: https://tinyurl.com/quarto-extensions\nBlog post on Documeter integration: https://tinyurl.com/manopt-tutorials\nExample tutorial written in Quarto: https://tinyurl.com/quarto-example"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/index.html",
@@ -395,7 +532,7 @@
     "href": "examples/juliacon/counterfactual-explanations/index.html",
     "title": "Explaining Black-Box Models through Counterfactuals",
     "section": "",
-    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see blow). To open the different version in full screen instead use the following links: HTML | PDF.",
+    "text": "The paper has been re-rendered using the quarto-juliacon-proceedings extension (see below). To open the different version in full screen instead use the following links: HTML | PDF.",
     "crumbs": [
       "Available Formats",
       "PDF",

@@ -7,9 +7,11 @@ categories:
     - Presentation
 ---
 
-## Introduction
+[Quarto](https://quarto.org/) is an open-source scientific and technical publishing system that was first presented at JuliaCon 2022. We propose new extensions and workflows that we hope will help the community embrace this promising new tool and boost developers' efforts toward effective communication and reproducibility.
 
-Tired of PowerPoint? How about using a Revealjs for your next presentation instead? See the slides below for an example or click [here](presentation.html){target="_blank"} to open them in full screen. 
+Find the presentation slides below or click [here](presentation.qmd){target="_blank"} to view the slides in a new tab.
+
+For the PDF version, click [here](presentation.pdf){target="_blank"}.
 
 ```{=html}
 <iframe width="800" height="500" marginheight="0" marginwidth="0" src="presentation.html"></iframe>

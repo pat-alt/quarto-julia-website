@@ -1,9 +1,499 @@
 ---
-title: Revealjs Presentation
-subtitle: Julia-themed Quarto
+title: Quarto Extensions
+subtitle: for the Julia Community
 format:
-  julia-revealjs: 
+  julia-revealjs:
     scrollable: true
-    smaller: true
+    preview-links: false
+    link-external-newwindow: true
+    title-slide-attributes:
+      data-background-image: www/qr.png
+date: July 12, 2024
+date-format: full
+execute:
+  eval: false
+bibliography: bib.bib
+suppress-bibliography: true
+---
+
+# Overview {.nostretch}
+
+::::{.columns}::::
+:::{.column width='50%'}
+1. What is [Quarto](#sec-quarto)?
+2. Julia-themed Quarto: [Simple Extensions](#sec-simple)
+3. Quarto for [Documentation](#sec-docs)
+4. Quarto for [JuliaCon Proceedings](#sec-proceedings)
+:::
+:::{.column width='50%'}
+![](www/poster.png){fig-align="center" height="400"}
+:::
+::::
+
+## What is [Quarto](https://quarto.org/)? {#sec-quarto .nostretch}
+
+::::{.columns}::::
+:::{.column width='55%'}
+
+- Cross-platform open-source scientific publishing tool with a focus on reproducibility.
+- Based on Markdown, which is easy to learn and write.
+- Very flexible and can be extended with custom templates and styles.
+
+:::
+:::{.column width='45%'}
+
+````{markdown}
+---
+title: "Hello Quarto"
+jupyter: julia-1.10
+---
+
+## Hello Quarto!
+
+Blending Markdown and 
+Julia code:
+
+```{{julia}}
+#| echo: true
+
+println("Hello, Quarto!")
+```
+
+````
+
+:::
+::::
+
+# Julia-themed Quarto {#sec-simple .nostretch}
+
+::::{.columns}::::
+:::{.column width='50%'}
+Simple Quarto extension that adds a Julia-themed touch to your documents.
+
+> Extensions are a powerful way to modify and extend the behavior of Quarto.
+:::
+:::{.column width='50%'}
+![](www/julia_quarto.gif){fig-align="center" height="400"}
+:::
+::::
+
+## Getting Started
+
+To install the Julia-themed Quarto extensions, run:
+
+```shell
+quarto add pat-alt/quarto-julia
+```
+
+::::{.columns}::::
+:::{.column width='50%'}
+
+### Usage
+
+Simply adjust the Quarto header of your document:
+
+```yaml
+---
+title: Julia-themed Quarto
+format:
+  julia-html: default
+  julia-revealjs:
+    scrollable: true
+author: pat-alt
 date: last-modified
 ---
+```
+
+:::
+:::{.column width='50%'}
+
+### Available Formats
+
+- HTML (articles)
+- Revealjs (presentations)
+
+### Preview and Render
+
+```shell
+quarto preview yourdoc.qmd
+quarto render yourdoc.qmd
+```
+
+:::
+::::
+
+## Fonts
+
+1. [JuliaMono](https://juliamono.netlify.app/) font for `monospace` text and `code`.
+2. [Barlow](https://tribby.com/fonts/barlow/){style="font-family: Barlow;"} font for headers and blockquotes (thanks [\@cormullion](https://github.com/cormullion)).
+3. [Roboto](https://fonts.google.com/specimen/Roboto){style="font-family: Roboto;"} font for everything else.
+4. Also available is [Bangla MN](https://www.onlinewebfonts.com/download/3d37467c4a9c7c1188bc3e0b7aadfa0d){style="font-family: Bangla MN;"} by Muthu Nedumaran of [Murasu Systems](http://murasu.com/), which is closely related to the official [Julia]{style="font-family: Bangla MN;"} logo [font](https://github.com/JuliaLang/julia-logo-graphics#about-the-font).
+
+## Code
+
+Inline code looks like this `print("hello 🌍")`. Code blocks look like [this](https://www.patalt.org/quarto-julia-website/examples/basic_formats/article/#code) (Revealjs not affected):
+
+```{.julia}
+using CounterfactualExplanations, TaijaData
+
+# Data and Classifier:
+counterfactual_data = CounterfactualData(load_linearly_separable()...)
+M = fit_model(counterfactual_data, :Linear)
+
+# Select random sample:
+target = 2
+factual = 1
+chosen = rand(findall(predict_label(M, counterfactual_data) .== factual))
+x = select_factual(counterfactual_data, chosen)
+
+# Counterfactual search:
+generator = GenericGenerator()
+ce = generate_counterfactual(x, target, counterfactual_data, M, generator)
+```
+
+## Callouts
+
+::: {.callout-note}
+
+# Note
+
+This is a note in [julia_blue]{class="julia-blue"}. Icons are deactivated in Revealjs.
+
+:::
+
+::::{.columns}::::
+:::{.column width='50%'}
+
+::: {.callout-tip}
+
+# Tip
+
+This is a tip in [julia_green]{class="julia-green"}.
+
+:::
+
+::: {.callout-caution}
+
+# Caution
+
+This is a caution callout in [julia_purple]{class="julia-purple"}.
+
+:::
+
+:::
+:::{.column width='50%'}
+
+::: {.callout-warning}
+
+# Warning
+
+This is a warning in [julia_purple]{class="julia-purple"}.
+
+:::
+
+::: {.callout-important}
+
+# Important
+
+This is an important callout in [julia_red]{class="julia-red"}.
+
+:::
+
+:::
+::::
+
+# Documentation {#sec-docs .nostretch}
+
+::::{.columns}::::
+:::{.column width='80%'}
+Write tutorials in Quarto that fully integrate into the rendered documenation.
+:::
+:::{.column width='20%' .smaller}
+![](www/manopt_logo.png){fig-align="center"}
+[`Manopt.jl`](https://manoptjl.org)
+:::
+::::
+
+## Goals
+
+Tutorials that are
+
+-  integrated in the documentation ([`Documenter.jl`](https://documenter.juliadocs.org/stable/))
+   - Integrated Links within the documentation
+   - include mathematical formulae
+- render into Markdown
+
+. . .
+
+- show code and results
+- reproducible
+- run on CI (cached)
+
+## General Workflow
+
+::::{.columns}::::
+:::{.column width='55%'}
+
+1. write tutorials (`.qmd`) for a package in `tutorials/`
+2. run their code when generating the documentation
+3. render them (as `.md`) into `docs/src/tutorials/`
+
+:::
+:::{.column width='45%'}
+
+````{markdown}
+---
+title: "A short example"
+---
+
+```{{julia}}
+#| echo: false
+#| output: false
+cd(@__DIR__); # activate env.
+using Pkg; Pkg.activate(".");
+```
+
+Let's start with loading
+necessary packages
+
+```{{julia}}
+using Manopt, Manifolds
+M = Sphere(2)
+```
+
+and then we continue with [...]
+````
+:::
+::::
+
+## Workflow II: Configure Quarto
+
+:::::{.columns}:::::
+::::{.column width='50%'}
+
+`_quarto.yml` in `tutorials/`:
+
+- one file: <br> `quarto render file.qmd`
+- `quarto render` in `tutorials/` renders all but `!`
+- cached in `tutorials/_freeze`
+
+::::
+::::{.column width='50%'}
+
+```{.yaml}
+project:
+  title: "My Tutorials"
+  output-dir: ../docs/src/tutorials
+  render: # specify some
+    - "*.qmd"
+    - "!NotThisFile.qmd"
+
+format: #render to md
+  commonmark:
+    variant: -tex_math_dollars
+    wrap: preserve
+```
+
+:::{.fragment}
+*Tip*.
+Use the <br>[Quarto VS Code extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) <br> and the command <br>`Quarto Preview`
+:::
+::::
+:::::
+
+
+
+## Workflow III: Documenter
+
+* Use `CondaPkg.jl` to handle/install Python, creating a `CondaPkg.toml` specifying the Python version
+
+```{toml}
+[deps]
+jupyter = ""
+python = "3.11"
+```
+
+And include rendering the tutorials in your `make.jl`
+
+````{.julia}
+using CondaPkg
+CondaPkg.withenv() do
+    tutorials_folder = (@__DIR__) * "/../tutorials"
+    run(`quarto render $(tutorials_folder)`)
+end
+````
+
+## Workflow IV: GitHub Action
+
+On CI: Set up caches:
+````{.yaml}
+- name: Cache Quarto
+  uses: actions/cache@v4
+  with:
+    path: tutorials/_freeze # Quarto Cache
+    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}
+    restore-keys: |
+      ${{ runner.os }}-${{ env.cache-name }}-
+- name: Cache Documenter
+  uses: actions/cache@v4
+  with:
+    path: docs/src/tutorials # Cache rendered tutorials
+    key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('tutorials/*.qmd') }}
+    restore-keys: |
+      ${{ runner.os }}-${{ env.cache-name }}-
+````
+
+. . .
+
+#### There we are!
+
+Cached, reproducible tutorials within `Documenter.jl`.
+
+## Challenges
+
+- Cache vs. breaking versions of the package
+- Recommendation: Maybe print package versions
+- Quarto replaces spaces in markdown links
+  <br> ``[A](@ref B)`` with ``[A](@ref%20B)``.
+
+  These have to be “escaped”:
+  <br> ``` `[A](@ref B)`{=commonmark} ```
+- Due to pandoc:<br> for now write math in `$...$` and not ``` ``...`` ```
+
+## Documenter Summary
+
+
+- tutorials with reproducible, executed code
+- cached and rendered on CI
+- inegrated: we can use
+  - `@ref` from `Documenter.jl`
+  - `[citekey](@cite)` from [`DocumenterCitations.jl`](https://github.com/JuliaDocs/DocumenterCitations.jl)
+  - `@extref` from [`DocumenterInterLinks.jl`](https://github.com/JuliaDocs/DocumenterInterLinks.jl)
+
+- Full example: [Manopt.jl: Optimize](https://manoptjl.org/stable/tutorials/Optimize/) | [source](https://github.com/JuliaManifolds/Manopt.jl/blob/master/tutorials/Optimize.qmd)
+- longer tutorial at [Julia Forem](https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo)
+
+## Outlook / Soon
+
+- the [`QuartoNotebookRunner.jl`](https://github.com/PumasAI/QuartoNotebookRunner.jl)
+  should provide native rendering in pure Julia
+- Pluto notebooks might be used as [input there as well](https://github.com/PumasAI/QuartoNotebookRunner.jl/issues/125)
+
+# JuliaCon Proceedings {#sec-proceedings .nostretch}
+
+::::{.columns}::::
+:::{.column width='60%'}
+The [quarto-juliacon-proceedings](https://github.com/pat-alt/quarto-juliacon-proceedings) extension adds support for writing a JuliaCon Proceedings article in Quarto.
+:::
+:::{.column width='40%'}
+:::
+::::
+
+::::{.columns}::::
+:::{.column width='50%'}
+:::
+:::{.column width='50%'}
+![](www/jcon_logo.png){fig-align="center"}
+:::
+::::
+
+
+## Getting Started
+
+To install the [JuliaCon Proceedings extension](https://github.com/pat-alt/quarto-juliacon-proceedings), run:
+
+```shell
+quarto add pat-alt/quarto-juliacon-proceedings
+```
+
+::::{.columns}::::
+:::{.column width='40%'}
+
+:::{.callout-caution}
+
+# Disclaimer
+
+PDF version resembles the official JuliaCon Proceedings format almost exactly but it is not officially endorsed by the JuliaCon Proceedings team.
+
+See this [issue](https://github.com/JuliaCon/JuliaConSubmission.jl/issues/36).
+
+:::
+:::
+:::{.column width='60%'}
+Supports both PDF and HTML:
+
+```{.yaml}
+---
+title: JuliaCon Proceedings in Quarto
+format:
+  juliacon-proceedings-pdf:
+    keep-tex: true
+  juliacon-proceedings-html: default
+author:
+  - name: Patrick Altmeyer
+    affiliations:
+      - Delft University of Technology
+    orcid: 0000-0003-4726-8613
+---
+```
+:::
+::::
+
+
+## Motivation
+
+JuliaCon Proceedings to set an example for reproducibility:
+
+- Code, results and text in one document.
+- Executable code blocks serve as a form of testing.
+- Same document can be rendered into HTML, PDF, ...
+
+. . .
+
+Benefits for the authors:
+
+- Essentially zero maintenance for the authors.
+- LaTeX option still available for those who prefer it.
+
+## Showcase
+
+::::{.columns}::::
+:::{.column width='50%'}
+
+The following two example articles were rendered using the extension:
+
+- Official extension template: [[pdf](https://www.patalt.org/quarto-juliacon-proceedings/template.pdf), [html](https://www.patalt.org/quarto-juliacon-proceedings/template.html)]
+- @altmeyer2023explaining: [[pdf](../../../juliacon/counterfactual-explanations/paper.pdf), [html](../../../juliacon/counterfactual-explanations/paper.html)]
+:::
+:::{.column width='50%'}
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="500" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.html"></iframe>
+```
+:::
+::::
+
+## Comparison
+
+::::{.columns}::::
+:::{.column width='50%'}
+#### [Proposed Version](../../../juliacon/counterfactual-explanations/paper.pdf){target="_blank"}
+
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="../../../juliacon/counterfactual-explanations/paper.pdf"></iframe>
+```
+:::
+:::{.column width='50%'}
+#### [Published Version](https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf)
+
+```{=html}
+<iframe style="border:2px solid red;" width="800" height="400" marginheight="0" marginwidth="0" src="https://juliacon.github.io/proceedings-papers/jcon.00130/10.21105.jcon.00130.pdf"></iframe>
+```
+:::
+::::
+
+## More Information
+
+- Official [Quarto](https://quarto.org/) docs: [https://quarto.org/](https://quarto.org/)
+- Blog [post](https://www.patalt.org/blog/posts/quarto-extensions/) on Quarto extensions: [https://tinyurl.com/quarto-extensions](https://tinyurl.com/quarto-extensions)
+- Blog [post](https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo) on Documeter integration: [https://tinyurl.com/manopt-tutorials](https://tinyurl.com/manopt-tutorials)
+- Example [tutorial](https://manoptjl.org/stable/tutorials/Optimize/) written in Quarto: [https://tinyurl.com/quarto-example](https://tinyurl.com/quarto-example)
