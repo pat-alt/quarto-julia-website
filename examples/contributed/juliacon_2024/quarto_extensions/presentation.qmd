@@ -9,9 +9,11 @@ format:
     title-slide-attributes:
       data-background-image: www/qr.png
 date: July 12, 2024
+date-format: full
 execute:
   eval: false
 bibliography: bib.bib
+suppress-bibliography: true
 ---
 
 # Overview {.nostretch}
@@ -28,13 +30,39 @@ bibliography: bib.bib
 :::
 ::::
 
-# What is [Quarto](https://quarto.org/)? {#sec-quarto .nostretch}
+## What is [Quarto](https://quarto.org/)? {#sec-quarto .nostretch}
+
+::::{.columns}::::
+:::{.column width='55%'}
 
 - Cross-platform open-source scientific publishing tool with a focus on reproducibility.
-
-- It is based on Markdown, which is easy to learn and write.
-
+- Based on Markdown, which is easy to learn and write.
 - Very flexible and can be extended with custom templates and styles.
+
+:::
+:::{.column width='45%'}
+
+````{markdown}
+---
+title: "Hello Quarto"
+jupyter: julia-1.10
+---
+
+## Hello Quarto!
+
+Blending Markdown and 
+Julia code:
+
+```{{julia}}
+#| echo: true
+
+println("Hello, Quarto!")
+```
+
+````
+
+:::
+::::
 
 # Julia-themed Quarto {#sec-simple .nostretch}
 
@@ -465,6 +493,7 @@ The following two example articles were rendered using the extension:
 
 ## More Information
 
-- Official [Quarto](https://quarto.org/) docs.
-
-## References {.smaller}
+- Official [Quarto](https://quarto.org/) docs: [https://quarto.org/](https://quarto.org/)
+- Blog [post](https://www.patalt.org/blog/posts/quarto-extensions/) on Quarto extensions: [https://tinyurl.com/quarto-extensions](https://tinyurl.com/quarto-extensions)
+- Blog [post](https://forem.julialang.org/kellertuer/render-quarto-tutorials-in-documenterjl-with-github-actions-3fo) on Documeter integration: [https://tinyurl.com/manopt-tutorials](https://tinyurl.com/manopt-tutorials)
+- Example [tutorial](https://manoptjl.org/stable/tutorials/Optimize/) written in Quarto: [https://tinyurl.com/quarto-example](https://tinyurl.com/quarto-example)

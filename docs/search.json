@@ -256,7 +256,7 @@
     "href": "examples/basic_formats/revealjs/presentation.html#maths",
     "title": "Revealjs Presentation",
     "section": "Maths",
-    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet \\(t\\in\\{0,1\\}\\) denote the target label, \\(M\\) the model (classifier) and \\({x}^{\\prime} \\in \\mathbb{R}^D\\) the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\\[\nx\\prime = \\arg \\min_{x\\prime}  \\ell(M(x\\prime),t) + \\lambda h(x\\prime)\n\\]\nwhere \\(\\ell\\) denotes some loss function targeting the deviation between the target label and the predicted label and \\(h(\\cdot)\\) is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
+    "text": "Maths\n\nOf course, Quarto supports LaTeX maths, for which we use default settings.\n\nLet  denote the target label,  the model (classifier) and  the vector of counterfactual features. In order to generate recourse the GenericGenerator optimizes the following objective function through steepest descent\n\nwhere  denotes some loss function targeting the deviation between the target label and the predicted label and  is a complexity penalty generally addressing the realism or cost of the proposed counterfactual."
   },
   {
     "objectID": "examples/basic_formats/revealjs/presentation.html#qr-code-on-title-slide",
@@ -324,6 +324,13 @@
     "crumbs": [
       "Home"
     ]
+  },
+  {
+    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#sec-quarto",
+    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#sec-quarto",
+    "title": "Quarto Extensions",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\n\n\nCross-platform open-source scientific publishing tool with a focus on reproducibility.\nBased on Markdown, which is easy to learn and write.\nVery flexible and can be extended with custom templates and styles.\n\n\n---\ntitle: \"Hello Quarto\"\njupyter: julia-1.10\n---\n\n## Hello Quarto!\n\nBlending Markdown and \nJulia code:\n\n```{julia}\n#| echo: true\n\nprintln(\"Hello, Quarto!\")\n```"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#getting-started",
@@ -442,14 +449,7 @@
     "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#more-information",
     "title": "Quarto Extensions",
     "section": "More Information",
-    "text": "More Information\n\nOfficial Quarto docs."
-  },
-  {
-    "objectID": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#references",
-    "href": "examples/contributed/juliacon_2024/quarto_extensions/presentation.html#references",
-    "title": "Quarto Extensions",
-    "section": "References",
-    "text": "References\n\n\n\n\n\n\n\n\nAltmeyer, Patrick, Arie van Deursen, et al. 2023. “Explaining Black-Box Models Through Counterfactuals.” In Proceedings of the JuliaCon Conferences, 1:130. 1."
+    "text": "More Information\n\nOfficial Quarto docs: https://quarto.org/\nBlog post on Quarto extensions: https://tinyurl.com/quarto-extensions\nBlog post on Documeter integration: https://tinyurl.com/manopt-tutorials\nExample tutorial written in Quarto: https://tinyurl.com/quarto-example"
   },
   {
     "objectID": "examples/contributed/juliacon_2024/trillion_dollar_words/index.html",
